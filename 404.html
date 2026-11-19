@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Page not found · Kafé Bangkok</title>
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#FBF7F0">
+  <!-- Paths start with "/" so they work at any broken address, like /cafes/old-page -->
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600..800&family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <!-- Netlify shows this page for any address that doesn't exist. No JavaScript needed. -->
+  <header class="topbar">
+    <div class="wrap topbar__inner">
+      <a class="wordmark" href="/">
+        <svg class="k-mark wordmark__mark" viewBox="0 0 28 28" aria-hidden="true">
+          <circle class="k-mark__disc" cx="14" cy="14" r="13"/>
+          <path class="k-mark__k" d="M10.5 8v12M10.5 14.6L17 8M12.4 13.1l5.1 6.9"/>
+        </svg>
+        Kafé Bangkok
+      </a>
+    </div>
+  </header>
+
+  <main class="not-found">
+    <!-- A few soft clouds, like the home page's sky (decoration only) -->
+    <div class="hero__sky" aria-hidden="true">
+      <span class="cloud cloud--1"></span>
+      <span class="cloud cloud--2"></span>
+      <span class="cloud cloud--3"></span>
+    </div>
+
+    <div class="wrap">
+      <p class="section-label" aria-hidden="true">404 / Not found</p>
+      <h1 class="not-found__title">This cup's <em>empty</em>.</h1>
+      <p class="not-found__text">We couldn't find that page. The link may be old, or there's a small typo in it.</p>
+      <a class="btn btn--primary" href="/">Back to the café finder</a>
+    </div>
+  </main>
+</body>
+</html>

@@ -1,0 +1,6346 @@
+{
+  "meta": {
+    "name": "Kafé Bangkok café data",
+    "compiled": "2026-11-06",
+    "count": 160,
+    "moods": {
+      "date": "Date spot",
+      "green": "Green escape",
+      "work": "Work / study",
+      "aesthetic": "Aesthetic",
+      "budget": "Budget"
+    },
+    "features": {
+      "garden": "Garden",
+      "outdoor": "Outdoor seating",
+      "river": "Riverside / canal",
+      "rooftop": "Rooftop",
+      "view": "View",
+      "quiet": "Quiet",
+      "wifi": "Good Wi-Fi",
+      "specialty": "Specialty coffee",
+      "dessert": "Desserts / bakery",
+      "brunch": "Brunch",
+      "lateNight": "Open late / 24h",
+      "pets": "Pets",
+      "music": "Music / vinyl",
+      "books": "Books"
+    },
+    "lines": [
+      "BTS Sukhumvit",
+      "BTS Silom",
+      "MRT Blue",
+      "BTS Gold",
+      "MRT Yellow"
+    ],
+    "stations": {
+      "BTS Ari": {
+        "lat": 13.77971,
+        "lng": 100.54462
+      },
+      "BTS Asok": {
+        "lat": 13.73704,
+        "lng": 100.56036
+      },
+      "BTS Bang Chak": {
+        "lat": 13.69676,
+        "lng": 100.60534
+      },
+      "BTS Chong Nonsi": {
+        "lat": 13.7238,
+        "lng": 100.52933
+      },
+      "BTS Ekkamai": {
+        "lat": 13.71954,
+        "lng": 100.58511
+      },
+      "BTS Khlong San": {
+        "lat": 13.73031,
+        "lng": 100.50772
+      },
+      "BTS National Stadium": {
+        "lat": 13.74651,
+        "lng": 100.52909
+      },
+      "BTS On Nut": {
+        "lat": 13.70562,
+        "lng": 100.601
+      },
+      "BTS Phaya Thai": {
+        "lat": 13.75696,
+        "lng": 100.53382
+      },
+      "BTS Phloen Chit": {
+        "lat": 13.74307,
+        "lng": 100.54898
+      },
+      "BTS Phra Khanong": {
+        "lat": 13.71517,
+        "lng": 100.59124
+      },
+      "BTS Phrom Phong": {
+        "lat": 13.73043,
+        "lng": 100.56971
+      },
+      "BTS Ratchadamri": {
+        "lat": 13.73947,
+        "lng": 100.53945
+      },
+      "BTS Ratchathewi": {
+        "lat": 13.75186,
+        "lng": 100.53155
+      },
+      "BTS Saint Louis": {
+        "lat": 13.72082,
+        "lng": 100.52669
+      },
+      "BTS Sala Daeng": {
+        "lat": 13.72857,
+        "lng": 100.53434
+      },
+      "BTS Sanam Pao": {
+        "lat": 13.77262,
+        "lng": 100.54207
+      },
+      "BTS Saphan Taksin": {
+        "lat": 13.71881,
+        "lng": 100.51422
+      },
+      "BTS Siam": {
+        "lat": 13.74562,
+        "lng": 100.53422
+      },
+      "BTS Thong Lo": {
+        "lat": 13.72423,
+        "lng": 100.57851
+      },
+      "BTS Udom Suk": {
+        "lat": 13.67987,
+        "lng": 100.60947
+      },
+      "MRT Hua Lamphong": {
+        "lat": 13.73757,
+        "lng": 100.51714
+      },
+      "MRT Hua Mak": {
+        "lat": 13.73615,
+        "lng": 100.64114
+      },
+      "MRT Kamphaeng Phet": {
+        "lat": 13.79795,
+        "lng": 100.54788
+      },
+      "MRT Lumphini": {
+        "lat": 13.72561,
+        "lng": 100.54572
+      },
+      "MRT Queen Sirikit National Convention Centre": {
+        "lat": 13.72267,
+        "lng": 100.55991
+      },
+      "MRT Sam Yot": {
+        "lat": 13.747,
+        "lng": 100.5023
+      },
+      "MRT Sanam Chai": {
+        "lat": 13.74433,
+        "lng": 100.49462
+      },
+      "MRT Silom": {
+        "lat": 13.7292,
+        "lng": 100.53707
+      },
+      "MRT Sirindhorn": {
+        "lat": 13.78387,
+        "lng": 100.49333
+      },
+      "MRT Sukhumvit": {
+        "lat": 13.73739,
+        "lng": 100.56134
+      },
+      "MRT Wat Mangkon": {
+        "lat": 13.74221,
+        "lng": 100.50991
+      }
+    },
+    "price": {
+      "1": "฿ budget",
+      "2": "฿฿ mid-range",
+      "3": "฿฿฿ pricier"
+    },
+    "note": "Compiled from public 2026 café guides (see each café's sources). Descriptions are original summaries. Hours and prices change: check each café before marking verified:true.",
+    "locations": "lat/lng checked 9 November 2026 from OpenStreetMap (© OpenStreetMap contributors, ODbL) and Wongnai listings; cafés inside a mall or hotel use the building. null = no reliable location found (cafés without one were removed on 9 November 2026). Station positions (meta.stations) from OpenStreetMap, 9 November 2026. Cafés added from new-cafes.json use their Wongnai listing pin or, where Wongnai had none (or an old address), their Time Out Bangkok venue pin."
+  },
+  "cafes": [
+    {
+      "id": "ssoundnamm",
+      "name": "Ssoundnamm",
+      "area": "Nang Loeng",
+      "zone": "Old Town & Chinatown",
+      "station": "",
+      "line": [],
+      "lat": 13.75843,
+      "lng": 100.50959,
+      "price": 2,
+      "moods": [
+        "aesthetic",
+        "date"
+      ],
+      "features": [
+        "music"
+      ],
+      "description": "Vinyl listening café for coffee and matcha, with Thai record DJ nights on some weekends.",
+      "hours": "",
+      "openingHours": null,
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Ssoundnamm%20Bangkok",
+      "sources": [
+        "https://www.thattravelblog.com/blog/best-cafes-in-bangkok/"
+      ],
+      "verified": false
+    },
+    {
+      "id": "local-boys-coffee-co",
+      "name": "Local Boys Coffee Co.",
+      "area": "Song Wat Road",
+      "zone": "Old Town & Chinatown",
+      "station": "",
+      "line": [],
+      "lat": 13.73927,
+      "lng": 100.50603,
+      "price": 2,
+      "moods": [
+        "aesthetic"
+      ],
+      "features": [
+        "specialty"
+      ],
+      "description": "Raw-concrete specialty coffee bar with graffiti walls and canned lattes to take away.",
+      "hours": "",
+      "openingHours": null,
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Local%20Boys%20Coffee%20Co.%20Bangkok",
+      "sources": [
+        "https://www.thattravelblog.com/blog/best-cafes-in-bangkok/"
+      ],
+      "verified": false
+    },
+    {
+      "id": "32bar-x",
+      "name": "32Bar X",
+      "area": "Talat Noi",
+      "zone": "Old Town & Chinatown",
+      "station": "",
+      "line": [],
+      "lat": 13.73383,
+      "lng": 100.51212,
+      "price": 2,
+      "moods": [
+        "aesthetic",
+        "date"
+      ],
+      "features": [
+        "dessert"
+      ],
+      "description": "Chocolate and cacao drink bar, not coffee, inside a shophouse around 200 years old.",
+      "hours": "",
+      "openingHours": null,
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=32Bar%20X%20Bangkok",
+      "sources": [
+        "https://www.thattravelblog.com/blog/best-cafes-in-bangkok/"
+      ],
+      "verified": false
+    },
+    {
+      "id": "mother-roaster",
+      "name": "Mother Roaster",
+      "area": "Talat Noi",
+      "zone": "Old Town & Chinatown",
+      "station": "",
+      "line": [],
+      "lat": 13.73298,
+      "lng": 100.51226,
+      "price": 1,
+      "moods": [
+        "aesthetic",
+        "budget"
+      ],
+      "features": [
+        "specialty"
+      ],
+      "description": "Tiny upstairs single-origin roastery with a local, unpolished feel.",
+      "hours": "",
+      "openingHours": null,
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Mother%20Roaster%20Bangkok",
+      "sources": [
+        "https://www.thattravelblog.com/blog/best-cafes-in-bangkok/",
+        "https://www.visitthailandtoday.com/top-lists/best-cafes-bangkok"
+      ],
+      "verified": false
+    },
+    {
+      "id": "vanich-house",
+      "name": "Vanich House",
+      "area": "Talat Noi",
+      "zone": "Old Town & Chinatown",
+      "station": "",
+      "line": [],
+      "lat": 13.73502,
+      "lng": 100.51154,
+      "price": 2,
+      "moods": [
+        "aesthetic"
+      ],
+      "features": [],
+      "description": "Café, shop and event space in a workshop about 100 years old; used as a Bangkok Design Week venue.",
+      "hours": "",
+      "openingHours": null,
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Vanich%20House%20Bangkok",
+      "sources": [
+        "https://www.thattravelblog.com/blog/best-cafes-in-bangkok/"
+      ],
+      "verified": false
+    },
+    {
+      "id": "riri-cafe",
+      "name": "riri cafe",
+      "area": "Yaowarat (Chinatown)",
+      "zone": "Old Town & Chinatown",
+      "station": "",
+      "line": [],
+      "lat": 13.73934,
+      "lng": 100.50459,
+      "price": 2,
+      "moods": [
+        "aesthetic",
+        "date"
+      ],
+      "features": [
+        "quiet",
+        "specialty",
+        "dessert"
+      ],
+      "description": "Calm, minimalist spot for specialty coffee, matcha and affogato.",
+      "hours": "",
+      "openingHours": null,
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=riri%20cafe%20Bangkok",
+      "sources": [
+        "https://www.thattravelblog.com/blog/best-cafes-in-bangkok/"
+      ],
+      "verified": false
+    },
+    {
+      "id": "eden-s",
+      "name": "Eden's",
+      "area": "Nang Loeng",
+      "zone": "Old Town & Chinatown",
+      "station": "",
+      "line": [],
+      "lat": 13.75647,
+      "lng": 100.50675,
+      "price": 2,
+      "moods": [
+        "date"
+      ],
+      "features": [
+        "brunch"
+      ],
+      "description": "New York and French style bakery café with all-day breakfast.",
+      "hours": "",
+      "openingHours": null,
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Eden%27s%20Bangkok",
+      "sources": [
+        "https://www.thattravelblog.com/blog/best-cafes-in-bangkok/"
+      ],
+      "verified": false
+    },
+    {
+      "id": "akirart-cafe-studio",
+      "name": "Akirart Cafe Studio",
+      "area": "Old Town",
+      "zone": "Old Town & Chinatown",
+      "station": "",
+      "line": [],
+      "lat": 13.73989,
+      "lng": 100.51345,
+      "price": 2,
+      "moods": [
+        "aesthetic"
+      ],
+      "features": [],
+      "description": "1980s office-themed café with vintage Macintosh computers and a film photo lab.",
+      "hours": "",
+      "openingHours": null,
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Akirart%20Cafe%20Studio%20Bangkok",
+      "sources": [
+        "https://www.thattravelblog.com/blog/best-cafes-in-bangkok/"
+      ],
+      "verified": false
+    },
+    {
+      "id": "292-slowbar",
+      "name": "292 Slowbar",
+      "area": "Banglamphu",
+      "zone": "Old Town & Chinatown",
+      "station": "",
+      "line": [],
+      "lat": 13.76888,
+      "lng": 100.50288,
+      "price": 1,
+      "moods": [
+        "budget"
+      ],
+      "features": [
+        "specialty",
+        "dessert"
+      ],
+      "description": "Specialty coffee and croffles near Wat Intharawihan.",
+      "hours": "",
+      "openingHours": null,
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=292%20Slowbar%20Bangkok",
+      "sources": [
+        "https://www.thattravelblog.com/blog/best-cafes-in-bangkok/"
+      ],
+      "verified": false
+    },
+    {
+      "id": "mae-salong-croissant",
+      "name": "Mae Salong Croissant",
+      "area": "Phra Athit Road, Banglamphu",
+      "zone": "Old Town & Chinatown",
+      "station": "",
+      "line": [],
+      "lat": 13.76204,
+      "lng": 100.49363,
+      "price": 2,
+      "moods": [
+        "date"
+      ],
+      "features": [
+        "dessert"
+      ],
+      "description": "Croissant and kouign-amann bakery. Expect a queue.",
+      "hours": "",
+      "openingHours": null,
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Mae%20Salong%20Croissant%20Bangkok",
+      "sources": [
+        "https://www.thattravelblog.com/blog/best-cafes-in-bangkok/"
+      ],
+      "verified": false
+    },
+    {
+      "id": "craftsman-roastery-old-town",
+      "name": "Craftsman Roastery Old Town",
+      "area": "Near the Giant Swing",
+      "zone": "Old Town & Chinatown",
+      "station": "",
+      "line": [],
+      "lat": 13.7519,
+      "lng": 100.49851,
+      "price": 1,
+      "moods": [
+        "budget",
+        "aesthetic"
+      ],
+      "features": [
+        "specialty"
+      ],
+      "description": "Roastery in a century-old shophouse, open from early morning.",
+      "hours": "Opens 07:30",
+      "openingHours": null,
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Craftsman%20Roastery%20Old%20Town%20Bangkok",
+      "sources": [
+        "https://www.visitthailandtoday.com/top-lists/best-cafes-bangkok"
+      ],
+      "verified": false
+    },
+    {
+      "id": "song-wat-coffee-roasters",
+      "name": "Song Wat Coffee Roasters",
+      "area": "Song Wat Road",
+      "zone": "Old Town & Chinatown",
+      "station": "MRT Wat Mangkon",
+      "line": [
+        "MRT Blue"
+      ],
+      "lat": 13.73915,
+      "lng": 100.50666,
+      "price": 1,
+      "moods": [
+        "budget"
+      ],
+      "features": [
+        "specialty",
+        "dessert"
+      ],
+      "description": "Specialty coffee with fast and slow bars, plus canelés.",
+      "hours": "",
+      "openingHours": null,
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Song%20Wat%20Coffee%20Roasters%20Bangkok",
+      "sources": [
+        "https://www.visitthailandtoday.com/top-lists/best-cafes-bangkok"
+      ],
+      "verified": false
+    },
+    {
+      "id": "wallflowers-cafe",
+      "name": "Wallflowers Cafe",
+      "area": "Soi Nana, Chinatown",
+      "zone": "Old Town & Chinatown",
+      "station": "MRT Hua Lamphong",
+      "line": [
+        "MRT Blue"
+      ],
+      "lat": 13.7398,
+      "lng": 100.51426,
+      "price": 2,
+      "moods": [
+        "date",
+        "aesthetic",
+        "green"
+      ],
+      "features": [
+        "rooftop",
+        "dessert"
+      ],
+      "description": "Flower-filled café with homemade cakes and a rooftop bar.",
+      "hours": "",
+      "openingHours": null,
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Wallflowers%20Cafe%20Bangkok",
+      "sources": [
+        "https://www.visitthailandtoday.com/top-lists/best-cafes-bangkok"
+      ],
+      "verified": false
+    },
+    {
+      "id": "woodbrook-bangkok",
+      "name": "Woodbrook Bangkok",
+      "area": "Song Wat Road",
+      "zone": "Old Town & Chinatown",
+      "station": "",
+      "line": [],
+      "lat": 13.73839,
+      "lng": 100.50705,
+      "price": 1,
+      "moods": [
+        "budget",
+        "date"
+      ],
+      "features": [
+        "river",
+        "quiet",
+        "outdoor"
+      ],
+      "description": "Quiet terrace over the Chao Phraya river with beanbag seating.",
+      "hours": "",
+      "openingHours": null,
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Woodbrook%20Bangkok%20Bangkok",
+      "sources": [
+        "https://www.visitthailandtoday.com/top-lists/best-cafes-bangkok"
+      ],
+      "verified": false
+    },
+    {
+      "id": "the-mustang-blu",
+      "name": "The Mustang Blu",
+      "area": "Edge of Chinatown",
+      "zone": "Old Town & Chinatown",
+      "station": "",
+      "line": [],
+      "lat": 13.73899,
+      "lng": 100.51505,
+      "price": 3,
+      "moods": [
+        "aesthetic",
+        "date"
+      ],
+      "features": [],
+      "description": "Café in a 19th-century flatiron building decorated with ferns and taxidermy.",
+      "hours": "",
+      "openingHours": null,
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=The%20Mustang%20Blu%20Bangkok",
+      "sources": [
+        "https://www.visitthailandtoday.com/top-lists/best-cafes-bangkok"
+      ],
+      "verified": false
+    },
+    {
+      "id": "floral-caf",
+      "name": "Floral Café",
+      "area": "Phra Nakhon",
+      "zone": "Old Town & Chinatown",
+      "station": "",
+      "line": [],
+      "lat": 13.74224,
+      "lng": 100.49675,
+      "price": 2,
+      "moods": [
+        "aesthetic",
+        "date"
+      ],
+      "features": [],
+      "description": "Café inside a flower shop; the floral décor changes with the seasons.",
+      "hours": "Daily 10:00–22:00",
+      "openingHours": {
+        "mon": [
+          {
+            "open": "10:00",
+            "close": "22:00"
+          }
+        ],
+        "tue": [
+          {
+            "open": "10:00",
+            "close": "22:00"
+          }
+        ],
+        "wed": [
+          {
+            "open": "10:00",
+            "close": "22:00"
+          }
+        ],
+        "thu": [
+          {
+            "open": "10:00",
+            "close": "22:00"
+          }
+        ],
+        "fri": [
+          {
+            "open": "10:00",
+            "close": "22:00"
+          }
+        ],
+        "sat": [
+          {
+            "open": "10:00",
+            "close": "22:00"
+          }
+        ],
+        "sun": [
+          {
+            "open": "10:00",
+            "close": "22:00"
+          }
+        ]
+      },
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Floral%20Caf%C3%A9%20Bangkok",
+      "sources": [
+        "https://thailand.tripcanvas.co/bangkok/garden-cafes-restaurants/"
+      ],
+      "verified": false
+    },
+    {
+      "id": "duklong-cafe-and-eat",
+      "name": "Duklong Cafe and Eat",
+      "area": "Khao San (canalside)",
+      "zone": "Old Town & Chinatown",
+      "station": "",
+      "line": [],
+      "lat": 13.76128,
+      "lng": 100.50096,
+      "price": 2,
+      "moods": [
+        "green",
+        "date"
+      ],
+      "features": [
+        "outdoor",
+        "brunch"
+      ],
+      "description": "All-day canalside café with a flower-lined terrace and Thai and Western food.",
+      "hours": "08:00–21:00",
+      "openingHours": {
+        "mon": [
+          {
+            "open": "08:00",
+            "close": "21:00"
+          }
+        ],
+        "tue": [
+          {
+            "open": "08:00",
+            "close": "21:00"
+          }
+        ],
+        "wed": [
+          {
+            "open": "08:00",
+            "close": "21:00"
+          }
+        ],
+        "thu": [
+          {
+            "open": "08:00",
+            "close": "21:00"
+          }
+        ],
+        "fri": [
+          {
+            "open": "08:00",
+            "close": "21:00"
+          }
+        ],
+        "sat": [
+          {
+            "open": "08:00",
+            "close": "21:00"
+          }
+        ],
+        "sun": [
+          {
+            "open": "08:00",
+            "close": "21:00"
+          }
+        ]
+      },
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Duklong%20Cafe%20and%20Eat%20Bangkok",
+      "sources": [
+        "https://www.visitthailandtoday.com/top-lists/best-cafes-bangkok"
+      ],
+      "verified": false
+    },
+    {
+      "id": "sydny-bagels-charoenkrung",
+      "name": "Sydny Bagels Charoenkrung",
+      "area": "Talat Noi",
+      "zone": "Old Town & Chinatown",
+      "station": "MRT Hua Lamphong",
+      "line": [
+        "MRT Blue"
+      ],
+      "lat": 13.73162,
+      "lng": 100.51484,
+      "price": 2,
+      "moods": [
+        "aesthetic"
+      ],
+      "features": [
+        "brunch"
+      ],
+      "description": "Bagel café in a renovated shophouse with hidden seating at the back.",
+      "hours": "Mon–Fri 07:00–17:00; Sat–Sun 09:00–17:00",
+      "openingHours": {
+        "mon": [
+          {
+            "open": "07:00",
+            "close": "17:00"
+          }
+        ],
+        "tue": [
+          {
+            "open": "07:00",
+            "close": "17:00"
+          }
+        ],
+        "wed": [
+          {
+            "open": "07:00",
+            "close": "17:00"
+          }
+        ],
+        "thu": [
+          {
+            "open": "07:00",
+            "close": "17:00"
+          }
+        ],
+        "fri": [
+          {
+            "open": "07:00",
+            "close": "17:00"
+          }
+        ],
+        "sat": [
+          {
+            "open": "09:00",
+            "close": "17:00"
+          }
+        ],
+        "sun": [
+          {
+            "open": "09:00",
+            "close": "17:00"
+          }
+        ]
+      },
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Sydny%20Bagels%20Charoenkrung%20Bangkok",
+      "sources": [
+        "https://www.timeout.com/bangkok/restaurants/bangkok-best-new-cafes-of-2026"
+      ],
+      "verified": false
+    },
+    {
+      "id": "slow-butter",
+      "name": "Slow Butter",
+      "area": "Charoen Krung, near Hua Lamphong",
+      "zone": "Old Town & Chinatown",
+      "station": "MRT Hua Lamphong",
+      "line": [
+        "MRT Blue"
+      ],
+      "lat": 13.73683,
+      "lng": 100.51616,
+      "price": 2,
+      "moods": [],
+      "features": [
+        "dessert"
+      ],
+      "description": "Scandinavian-style everyday pastries, mostly grab-and-go with a few seats.",
+      "hours": "Daily 07:00–16:00",
+      "openingHours": {
+        "mon": [
+          {
+            "open": "07:00",
+            "close": "16:00"
+          }
+        ],
+        "tue": [
+          {
+            "open": "07:00",
+            "close": "16:00"
+          }
+        ],
+        "wed": [
+          {
+            "open": "07:00",
+            "close": "16:00"
+          }
+        ],
+        "thu": [
+          {
+            "open": "07:00",
+            "close": "16:00"
+          }
+        ],
+        "fri": [
+          {
+            "open": "07:00",
+            "close": "16:00"
+          }
+        ],
+        "sat": [
+          {
+            "open": "07:00",
+            "close": "16:00"
+          }
+        ],
+        "sun": [
+          {
+            "open": "07:00",
+            "close": "16:00"
+          }
+        ]
+      },
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Slow%20Butter%20Bangkok",
+      "sources": [
+        "https://www.timeout.com/bangkok/restaurants/bangkok-best-new-cafes-of-2026"
+      ],
+      "verified": false
+    },
+    {
+      "id": "roast8ry-bkk",
+      "name": "Roast8ry BKK",
+      "area": "Anuwong Road, Yaowarat",
+      "zone": "Old Town & Chinatown",
+      "station": "MRT Wat Mangkon",
+      "line": [
+        "MRT Blue"
+      ],
+      "lat": 13.74016,
+      "lng": 100.50448,
+      "price": 2,
+      "moods": [],
+      "features": [
+        "specialty"
+      ],
+      "description": "Bangkok outpost of the Chiang Mai roaster, with a latte-art counter bar.",
+      "hours": "Daily 09:00–18:00",
+      "openingHours": {
+        "mon": [
+          {
+            "open": "09:00",
+            "close": "18:00"
+          }
+        ],
+        "tue": [
+          {
+            "open": "09:00",
+            "close": "18:00"
+          }
+        ],
+        "wed": [
+          {
+            "open": "09:00",
+            "close": "18:00"
+          }
+        ],
+        "thu": [
+          {
+            "open": "09:00",
+            "close": "18:00"
+          }
+        ],
+        "fri": [
+          {
+            "open": "09:00",
+            "close": "18:00"
+          }
+        ],
+        "sat": [
+          {
+            "open": "09:00",
+            "close": "18:00"
+          }
+        ],
+        "sun": [
+          {
+            "open": "09:00",
+            "close": "18:00"
+          }
+        ]
+      },
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Roast8ry%20BKK%20Bangkok",
+      "sources": [
+        "https://www.timeout.com/bangkok/restaurants/bangkok-best-new-cafes-of-2026"
+      ],
+      "verified": false
+    },
+    {
+      "id": "brown-matcha-house",
+      "name": "Brown Matcha House",
+      "area": "Luang Road, Dusit",
+      "zone": "Old Town & Chinatown",
+      "station": "",
+      "line": [],
+      "lat": 13.75879,
+      "lng": 100.51505,
+      "price": 2,
+      "moods": [
+        "aesthetic"
+      ],
+      "features": [],
+      "description": "Matcha café with vintage furniture and a Batmobile on display.",
+      "hours": "Sat–Mon 10:00–17:00; Tue–Fri 09:30–16:00",
+      "openingHours": {
+        "mon": [
+          {
+            "open": "10:00",
+            "close": "17:00"
+          }
+        ],
+        "tue": [
+          {
+            "open": "09:30",
+            "close": "16:00"
+          }
+        ],
+        "wed": [
+          {
+            "open": "09:30",
+            "close": "16:00"
+          }
+        ],
+        "thu": [
+          {
+            "open": "09:30",
+            "close": "16:00"
+          }
+        ],
+        "fri": [
+          {
+            "open": "09:30",
+            "close": "16:00"
+          }
+        ],
+        "sat": [
+          {
+            "open": "10:00",
+            "close": "17:00"
+          }
+        ],
+        "sun": [
+          {
+            "open": "10:00",
+            "close": "17:00"
+          }
+        ]
+      },
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Brown%20Matcha%20House%20Bangkok",
+      "sources": [
+        "https://www.timeout.com/bangkok/restaurants/bangkok-best-new-cafes-of-2026"
+      ],
+      "verified": false
+    },
+    {
+      "id": "blue-whale-local-eatery",
+      "name": "Blue Whale Local Eatery",
+      "area": "Maharat Road, near Wat Pho",
+      "zone": "Old Town & Chinatown",
+      "station": "MRT Sanam Chai",
+      "line": [
+        "MRT Blue"
+      ],
+      "lat": 13.74453,
+      "lng": 100.49217,
+      "price": 2,
+      "moods": [
+        "aesthetic",
+        "date"
+      ],
+      "features": [],
+      "description": "Nautical-themed café near Wat Pho, known for its blue butterfly-pea latte.",
+      "hours": "",
+      "openingHours": null,
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Blue%20Whale%20Local%20Eatery%20Bangkok",
+      "sources": [
+        "https://www.thatbangkoklife.com/best-coffee-shops-in-bangkok/"
+      ],
+      "verified": false
+    },
+    {
+      "id": "sunset-coffee-roaster",
+      "name": "Sunset Coffee Roaster",
+      "area": "Charoen Krung, Talat Noi",
+      "zone": "Old Town & Chinatown",
+      "station": "MRT Hua Lamphong",
+      "line": [
+        "MRT Blue"
+      ],
+      "lat": 13.73617,
+      "lng": 100.51367,
+      "price": 1,
+      "moods": [
+        "budget"
+      ],
+      "features": [
+        "specialty"
+      ],
+      "description": "Small specialty roaster on a Charoen Krung corner in Talat Noi, selling beans and drip bags.",
+      "hours": "Daily 07:30–17:30",
+      "openingHours": {
+        "mon": [
+          {
+            "open": "07:30",
+            "close": "17:30"
+          }
+        ],
+        "tue": [
+          {
+            "open": "07:30",
+            "close": "17:30"
+          }
+        ],
+        "wed": [
+          {
+            "open": "07:30",
+            "close": "17:30"
+          }
+        ],
+        "thu": [
+          {
+            "open": "07:30",
+            "close": "17:30"
+          }
+        ],
+        "fri": [
+          {
+            "open": "07:30",
+            "close": "17:30"
+          }
+        ],
+        "sat": [
+          {
+            "open": "07:30",
+            "close": "17:30"
+          }
+        ],
+        "sun": [
+          {
+            "open": "07:30",
+            "close": "17:30"
+          }
+        ]
+      },
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Sunset%20Coffee%20Roaster%20Bangkok",
+      "sources": [
+        "https://thailandwithtereza.com/best-cafes-in-bangkok/",
+        "https://www.phuket101.net/bangkok/sunset-coffee-roaster-talat-noi/"
+      ],
+      "verified": false
+    },
+    {
+      "id": "piccolo-vicolo-chinatown",
+      "name": "Piccolo Vicolo Chinatown",
+      "area": "Maha Chai Road, Wang Burapha",
+      "zone": "Old Town & Chinatown",
+      "station": "MRT Sam Yot",
+      "line": [
+        "MRT Blue"
+      ],
+      "lat": 13.74721,
+      "lng": 100.50383,
+      "price": 2,
+      "moods": [
+        "green",
+        "work",
+        "aesthetic"
+      ],
+      "features": [
+        "river",
+        "dessert"
+      ],
+      "description": "Four plant-filled floors by the canal, with a workspace floor and an open-air top floor.",
+      "hours": "09:00–18:00; closed Tuesday",
+      "openingHours": {
+        "mon": [
+          {
+            "open": "09:00",
+            "close": "18:00"
+          }
+        ],
+        "tue": [],
+        "wed": [
+          {
+            "open": "09:00",
+            "close": "18:00"
+          }
+        ],
+        "thu": [
+          {
+            "open": "09:00",
+            "close": "18:00"
+          }
+        ],
+        "fri": [
+          {
+            "open": "09:00",
+            "close": "18:00"
+          }
+        ],
+        "sat": [
+          {
+            "open": "09:00",
+            "close": "18:00"
+          }
+        ],
+        "sun": [
+          {
+            "open": "09:00",
+            "close": "18:00"
+          }
+        ]
+      },
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Piccolo%20Vicolo%20Chinatown%20Bangkok",
+      "sources": [
+        "https://thailandwithtereza.com/best-cafes-in-bangkok/",
+        "https://www.thewaytocoffee.com/bangkok-cafe-guide/"
+      ],
+      "verified": false
+    },
+    {
+      "id": "terroir-bkk-songwat",
+      "name": "Terroir.BKK Songwat",
+      "area": "Song Wat Road",
+      "zone": "Old Town & Chinatown",
+      "station": "MRT Wat Mangkon",
+      "line": [
+        "MRT Blue"
+      ],
+      "lat": 13.73833,
+      "lng": 100.50699,
+      "price": 2,
+      "moods": [
+        "aesthetic"
+      ],
+      "features": [
+        "specialty"
+      ],
+      "description": "Renovated shophouse with a central bar serving single origins from northern Thai growers.",
+      "hours": "",
+      "openingHours": null,
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Terroir.BKK%20Songwat%20Bangkok",
+      "sources": [
+        "https://www.thewaytocoffee.com/bangkok-cafe-guide/"
+      ],
+      "verified": false
+    },
+    {
+      "id": "onibus-coffee-phra-nakhon",
+      "name": "Onibus Coffee Phra Nakhon",
+      "area": "Soi Samran Rat",
+      "zone": "Old Town & Chinatown",
+      "station": "MRT Sam Yot",
+      "line": [
+        "MRT Blue"
+      ],
+      "lat": 13.75289,
+      "lng": 100.50341,
+      "price": 2,
+      "moods": [
+        "aesthetic"
+      ],
+      "features": [
+        "specialty"
+      ],
+      "description": "Minimalist branch of the Japanese roaster, with light-roast pour-over and espresso.",
+      "hours": "",
+      "openingHours": null,
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Onibus%20Coffee%20Phra%20Nakhon%20Bangkok",
+      "sources": [
+        "https://www.thewaytocoffee.com/bangkok-cafe-guide/"
+      ],
+      "verified": false
+    },
+    {
+      "id": "la-cabra-charoen-krung",
+      "name": "La Cabra Charoen Krung",
+      "area": "Charoen Krung",
+      "zone": "Old Town & Chinatown",
+      "station": "MRT Hua Lamphong",
+      "line": [
+        "MRT Blue"
+      ],
+      "lat": 13.73483,
+      "lng": 100.5141,
+      "price": 3,
+      "moods": [
+        "aesthetic"
+      ],
+      "features": [
+        "specialty"
+      ],
+      "description": "Copenhagen roaster's first café outside Denmark, with two daily beans.",
+      "hours": "",
+      "openingHours": null,
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=La%20Cabra%20Charoen%20Krung%20Bangkok",
+      "sources": [
+        "https://www.thewaytocoffee.com/bangkok-cafe-guide/"
+      ],
+      "verified": false
+    },
+    {
+      "id": "ports",
+      "name": "PORTS",
+      "area": "Maha Rat Road, Tha Tien",
+      "zone": "Old Town & Chinatown",
+      "station": "MRT Sanam Chai",
+      "line": [
+        "MRT Blue"
+      ],
+      "lat": 13.74453,
+      "lng": 100.49195,
+      "price": 2,
+      "moods": [
+        "work",
+        "aesthetic"
+      ],
+      "features": [
+        "specialty"
+      ],
+      "description": "Japanese-influenced café in a heritage building, with a bright upstairs good for study.",
+      "hours": "",
+      "openingHours": null,
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=PORTS%20Bangkok",
+      "sources": [
+        "https://www.thewaytocoffee.com/bangkok-cafe-guide/"
+      ],
+      "verified": false
+    },
+    {
+      "id": "a-book-with-no-name",
+      "name": "A Book With No Name",
+      "area": "Dusit",
+      "zone": "Old Town & Chinatown",
+      "station": "",
+      "line": [],
+      "lat": 13.78389,
+      "lng": 100.51085,
+      "price": 2,
+      "moods": [
+        "date"
+      ],
+      "features": [
+        "books",
+        "pets"
+      ],
+      "description": "Curated indie bookshop café with a resident cat and regular events.",
+      "hours": "",
+      "openingHours": null,
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=A%20Book%20With%20No%20Name%20Bangkok",
+      "sources": [
+        "https://www.timeout.com/bangkok/shopping/best-bookstores"
+      ],
+      "verified": false
+    },
+    {
+      "id": "house-of-commons",
+      "name": "House of Commons",
+      "area": "Near Hua Lamphong",
+      "zone": "Old Town & Chinatown",
+      "station": "MRT Hua Lamphong",
+      "line": [
+        "MRT Blue"
+      ],
+      "lat": 13.73172,
+      "lng": 100.51505,
+      "price": 2,
+      "moods": [
+        "date"
+      ],
+      "features": [
+        "books",
+        "pets",
+        "river"
+      ],
+      "description": "Dog-friendly second-hand bookshop café with a riverfront terrace.",
+      "hours": "",
+      "openingHours": null,
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=House%20of%20Commons%20Bangkok",
+      "sources": [
+        "https://www.timeout.com/bangkok/shopping/best-bookstores"
+      ],
+      "verified": false
+    },
+    {
+      "id": "passport-bookshop",
+      "name": "Passport Bookshop",
+      "area": "Near Democracy Monument",
+      "zone": "Old Town & Chinatown",
+      "station": "",
+      "line": [],
+      "lat": 13.75815,
+      "lng": 100.50406,
+      "price": 2,
+      "moods": [
+        "date"
+      ],
+      "features": [
+        "books"
+      ],
+      "description": "Travel bookshop open for over 20 years, with hundreds of teas.",
+      "hours": "",
+      "openingHours": null,
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Passport%20Bookshop%20Bangkok",
+      "sources": [
+        "https://www.timeout.com/bangkok/shopping/best-bookstores"
+      ],
+      "verified": false
+    },
+    {
+      "id": "hansa-river-house",
+      "name": "Hansa River House",
+      "area": "Song Wat Road",
+      "zone": "Old Town & Chinatown",
+      "station": "MRT Wat Mangkon",
+      "line": [
+        "MRT Blue"
+      ],
+      "lat": 13.73577,
+      "lng": 100.51021,
+      "price": 2,
+      "moods": [
+        "date",
+        "aesthetic"
+      ],
+      "features": [
+        "river",
+        "view",
+        "dessert"
+      ],
+      "description": "Restored wooden house with a balcony over the river, known for its coconut cake.",
+      "hours": "",
+      "openingHours": null,
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Hansa%20River%20House%20Bangkok",
+      "sources": [
+        "https://www.tatlerasia.com/dining/food/chao-phraya-riverside-restaurants-caf%C3%A9s-bangkok"
+      ],
+      "verified": false
+    },
+    {
+      "id": "ayatana-charoen-krung",
+      "name": "Ayatana Charoen Krung",
+      "area": "Charoen Krung",
+      "zone": "Silom, Sathorn & Riverside",
+      "station": "",
+      "line": [],
+      "lat": 13.7459,
+      "lng": 100.5055,
+      "price": 2,
+      "moods": [
+        "aesthetic",
+        "work"
+      ],
+      "features": [
+        "quiet"
+      ],
+      "description": "Quiet matcha café in a restored old building near Sam Yaek.",
+      "hours": "",
+      "openingHours": null,
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Ayatana%20Charoen%20Krung%20Bangkok",
+      "sources": [
+        "https://www.visitthailandtoday.com/top-lists/best-cafes-bangkok"
+      ],
+      "verified": false
+    },
+    {
+      "id": "sarnies-charoenkrung",
+      "name": "Sarnies Charoenkrung",
+      "area": "Charoen Krung Soi 44",
+      "zone": "Silom, Sathorn & Riverside",
+      "station": "BTS Saphan Taksin",
+      "line": [
+        "BTS Silom"
+      ],
+      "lat": 13.72109,
+      "lng": 100.51478,
+      "price": 2,
+      "moods": [
+        "aesthetic"
+      ],
+      "features": [
+        "specialty",
+        "brunch"
+      ],
+      "description": "Specialty coffee and all-day brunch in a restored 100-year-old shophouse with its own roastery.",
+      "hours": "",
+      "openingHours": null,
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Sarnies%20Charoenkrung%20Bangkok",
+      "sources": [
+        "https://www.thattravelblog.com/blog/best-cafes-in-bangkok/",
+        "https://www.visitthailandtoday.com/top-lists/best-cafes-bangkok"
+      ],
+      "verified": false
+    },
+    {
+      "id": "chann",
+      "name": "Chann",
+      "area": "Bangkok Noi",
+      "zone": "Thonburi & Bang Kachao",
+      "station": "",
+      "line": [],
+      "lat": 13.76135,
+      "lng": 100.48709,
+      "price": 3,
+      "moods": [
+        "date",
+        "aesthetic"
+      ],
+      "features": [
+        "river",
+        "quiet"
+      ],
+      "description": "Minimalist riverside café and bakery attached to a boutique hotel. A bit hard to reach.",
+      "hours": "",
+      "openingHours": null,
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Chann%20Bangkok",
+      "sources": [
+        "https://www.thattravelblog.com/blog/best-cafes-in-bangkok/"
+      ],
+      "verified": false
+    },
+    {
+      "id": "hidden-bangkok-bistro",
+      "name": "Hidden Bangkok Bistro",
+      "area": "Talad Phlu",
+      "zone": "Thonburi & Bang Kachao",
+      "station": "",
+      "line": [],
+      "lat": 13.7216,
+      "lng": 100.4717,
+      "price": 2,
+      "moods": [
+        "date"
+      ],
+      "features": [
+        "rooftop",
+        "view"
+      ],
+      "description": "Three-floor café and bistro with a rooftop bar looking out to the big Buddha at Wat Paknam.",
+      "hours": "",
+      "openingHours": null,
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Hidden%20Bangkok%20Bistro%20Bangkok",
+      "sources": [
+        "https://www.thattravelblog.com/blog/best-cafes-in-bangkok/"
+      ],
+      "verified": false
+    },
+    {
+      "id": "table-talk-cafe",
+      "name": "Table Talk Cafe",
+      "area": "Bangkok Noi",
+      "zone": "Thonburi & Bang Kachao",
+      "station": "",
+      "line": [],
+      "lat": 13.7635,
+      "lng": 100.47322,
+      "price": 1,
+      "moods": [
+        "aesthetic",
+        "budget"
+      ],
+      "features": [
+        "specialty"
+      ],
+      "description": "Vintage community café in an old shophouse that roasts its own beans.",
+      "hours": "",
+      "openingHours": null,
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Table%20Talk%20Cafe%20Bangkok",
+      "sources": [
+        "https://www.thattravelblog.com/blog/best-cafes-in-bangkok/"
+      ],
+      "verified": false
+    },
+    {
+      "id": "hau-yong-seng",
+      "name": "Hau Yong Seng",
+      "area": "Bangkok Yai",
+      "zone": "Thonburi & Bang Kachao",
+      "station": "",
+      "line": [],
+      "lat": 13.73351,
+      "lng": 100.48644,
+      "price": 1,
+      "moods": [
+        "aesthetic"
+      ],
+      "features": [
+        "dessert"
+      ],
+      "description": "Café inside a working soy sauce factory over 100 years old. Try the soy sauce ice cream.",
+      "hours": "",
+      "openingHours": null,
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Hau%20Yong%20Seng%20Bangkok",
+      "sources": [
+        "https://www.thattravelblog.com/blog/best-cafes-in-bangkok/"
+      ],
+      "verified": false
+    },
+    {
+      "id": "suriya-coffee",
+      "name": "Suriya Coffee",
+      "area": "Wat Klang Market",
+      "zone": "Thonburi & Bang Kachao",
+      "station": "",
+      "line": [],
+      "lat": 13.72329,
+      "lng": 100.48142,
+      "price": 1,
+      "moods": [
+        "budget"
+      ],
+      "features": [
+        "river"
+      ],
+      "description": "Old-style kopitiam running since 1918, with riverside seats.",
+      "hours": "Mornings only, closed Monday",
+      "openingHours": null,
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Suriya%20Coffee%20Bangkok",
+      "sources": [
+        "https://www.thattravelblog.com/blog/best-cafes-in-bangkok/"
+      ],
+      "verified": false
+    },
+    {
+      "id": "natura-caf",
+      "name": "Natura Café",
+      "area": "Chom Thong",
+      "zone": "Thonburi & Bang Kachao",
+      "station": "",
+      "line": [],
+      "lat": 13.69141,
+      "lng": 100.46666,
+      "price": 2,
+      "moods": [
+        "green",
+        "date"
+      ],
+      "features": [
+        "garden",
+        "outdoor"
+      ],
+      "description": "Garden-to-table café in a 100-year-old lychee orchard beside a canal.",
+      "hours": "",
+      "openingHours": null,
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Natura%20Caf%C3%A9%20Bangkok",
+      "sources": [
+        "https://www.thattravelblog.com/blog/best-cafes-in-bangkok/"
+      ],
+      "verified": false
+    },
+    {
+      "id": "little-hideout",
+      "name": "Little Hideout",
+      "area": "Taling Chan",
+      "zone": "Thonburi & Bang Kachao",
+      "station": "",
+      "line": [],
+      "lat": 13.78407,
+      "lng": 100.44306,
+      "price": 2,
+      "moods": [
+        "green"
+      ],
+      "features": [
+        "garden",
+        "outdoor"
+      ],
+      "description": "Garden café with sheltered outdoor seating and wooden tables.",
+      "hours": "Closes 18:00, closed Monday",
+      "openingHours": null,
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Little%20Hideout%20Bangkok",
+      "sources": [
+        "https://thailand.tripcanvas.co/bangkok/garden-cafes-restaurants/"
+      ],
+      "verified": false
+    },
+    {
+      "id": "hiddenwoods-cafe",
+      "name": "Hiddenwoods Cafe",
+      "area": "Bang Kachao",
+      "zone": "Thonburi & Bang Kachao",
+      "station": "",
+      "line": [],
+      "lat": 13.67488,
+      "lng": 100.58088,
+      "price": 2,
+      "moods": [
+        "green",
+        "date"
+      ],
+      "features": [
+        "river",
+        "garden",
+        "outdoor"
+      ],
+      "description": "Shady riverside garden café, a short boat ride from Khlong Toei.",
+      "hours": "",
+      "openingHours": null,
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Hiddenwoods%20Cafe%20Bangkok",
+      "sources": [
+        "https://www.visitthailandtoday.com/top-lists/best-cafes-bangkok"
+      ],
+      "verified": false
+    },
+    {
+      "id": "wake-up-coffee-the-sense-pinklao",
+      "name": "Wake Up Coffee (The Sense Pinklao)",
+      "area": "Bangkok Noi",
+      "zone": "Thonburi & Bang Kachao",
+      "station": "",
+      "line": [],
+      "lat": 13.78007,
+      "lng": 100.47532,
+      "price": 2,
+      "moods": [
+        "work"
+      ],
+      "features": [
+        "lateNight",
+        "wifi"
+      ],
+      "description": "24-hour work café with fast Wi-Fi, outlets and a small meeting room.",
+      "hours": "24 hours",
+      "openingHours": {
+        "mon": [
+          {
+            "open": "00:00",
+            "close": "24:00"
+          }
+        ],
+        "tue": [
+          {
+            "open": "00:00",
+            "close": "24:00"
+          }
+        ],
+        "wed": [
+          {
+            "open": "00:00",
+            "close": "24:00"
+          }
+        ],
+        "thu": [
+          {
+            "open": "00:00",
+            "close": "24:00"
+          }
+        ],
+        "fri": [
+          {
+            "open": "00:00",
+            "close": "24:00"
+          }
+        ],
+        "sat": [
+          {
+            "open": "00:00",
+            "close": "24:00"
+          }
+        ],
+        "sun": [
+          {
+            "open": "00:00",
+            "close": "24:00"
+          }
+        ]
+      },
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Wake%20Up%20Coffee%20%28The%20Sense%20Pinklao%29%20Bangkok",
+      "sources": [
+        "https://thethaiger.com/guides/best-of/food/cafe/24-hour-cafes-in-bangkok-for-work-and-relaxation"
+      ],
+      "verified": false
+    },
+    {
+      "id": "coconut-lane",
+      "name": "Coconut Lane",
+      "area": "Bang Kachao",
+      "zone": "Thonburi & Bang Kachao",
+      "station": "",
+      "line": [],
+      "lat": 13.66935,
+      "lng": 100.56764,
+      "price": 1,
+      "moods": [
+        "green",
+        "budget"
+      ],
+      "features": [
+        "outdoor"
+      ],
+      "description": "Leafy café in Bang Kachao, reached by boat then bike, with shakes, homemade sodas and food.",
+      "hours": "10:00–18:00 (weekends from 08:00); closed Tue–Wed",
+      "openingHours": {
+        "mon": [
+          {
+            "open": "10:00",
+            "close": "18:00"
+          }
+        ],
+        "tue": [],
+        "wed": [],
+        "thu": [
+          {
+            "open": "10:00",
+            "close": "18:00"
+          }
+        ],
+        "fri": [
+          {
+            "open": "10:00",
+            "close": "18:00"
+          }
+        ],
+        "sat": [
+          {
+            "open": "08:00",
+            "close": "18:00"
+          }
+        ],
+        "sun": [
+          {
+            "open": "08:00",
+            "close": "18:00"
+          }
+        ]
+      },
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Coconut%20Lane%20Bangkok",
+      "sources": [
+        "https://thailandwithtereza.com/best-cafes-in-bangkok/"
+      ],
+      "verified": false
+    },
+    {
+      "id": "walden-home-cafe",
+      "name": "Walden Home Cafe",
+      "area": "Somdet Chao Phraya Road, Khlong San",
+      "zone": "Thonburi & Bang Kachao",
+      "station": "BTS Khlong San",
+      "line": [
+        "BTS Gold"
+      ],
+      "lat": 13.73125,
+      "lng": 100.50574,
+      "price": 2,
+      "moods": [
+        "date",
+        "work"
+      ],
+      "features": [
+        "specialty",
+        "quiet"
+      ],
+      "description": "Homey specialty café with warm lighting and relaxed music.",
+      "hours": "",
+      "openingHours": null,
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Walden%20Home%20Cafe%20Bangkok",
+      "sources": [
+        "https://www.thewaytocoffee.com/bangkok-cafe-guide/"
+      ],
+      "verified": false
+    },
+    {
+      "id": "black-and-milk-at-rim-khob-fah",
+      "name": "Black and Milk at Rim Khob Fah",
+      "area": "Charan Sanitwong, Bang Phlat",
+      "zone": "Thonburi & Bang Kachao",
+      "station": "MRT Sirindhorn",
+      "line": [
+        "MRT Blue"
+      ],
+      "lat": 13.78633,
+      "lng": 100.49696,
+      "price": 2,
+      "moods": [
+        "work"
+      ],
+      "features": [
+        "books"
+      ],
+      "description": "Café downstairs and a Thai history bookshop upstairs, with drip and espresso.",
+      "hours": "",
+      "openingHours": null,
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Black%20and%20Milk%20at%20Rim%20Khob%20Fah%20Bangkok",
+      "sources": [
+        "https://www.timeout.com/bangkok/shopping/best-bookstores"
+      ],
+      "verified": false
+    },
+    {
+      "id": "rama-8-caf",
+      "name": "Rama 8 Café",
+      "area": "Near Rama VIII Bridge",
+      "zone": "Thonburi & Bang Kachao",
+      "station": "",
+      "line": [],
+      "lat": 13.77082,
+      "lng": 100.49648,
+      "price": 2,
+      "moods": [
+        "date"
+      ],
+      "features": [
+        "river",
+        "view"
+      ],
+      "description": "Two-storey wooden house with views of Rama VIII Bridge and a Thai and Western menu.",
+      "hours": "",
+      "openingHours": null,
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Rama%208%20Caf%C3%A9%20Bangkok",
+      "sources": [
+        "https://www.tatlerasia.com/dining/food/chao-phraya-riverside-restaurants-caf%C3%A9s-bangkok"
+      ],
+      "verified": false
+    },
+    {
+      "id": "samantao-heritage-coffee",
+      "name": "Samantao Heritage Coffee",
+      "area": "Nai Lert Park, Phloen Chit",
+      "zone": "Siam & Central",
+      "station": "",
+      "line": [],
+      "lat": 13.74626,
+      "lng": 100.5473,
+      "price": 3,
+      "moods": [
+        "green",
+        "date"
+      ],
+      "features": [
+        "garden"
+      ],
+      "description": "Heritage-style café in the Nai Lert Park grounds with Thai breakfast and gardens. Not a laptop spot.",
+      "hours": "",
+      "openingHours": null,
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Samantao%20Heritage%20Coffee%20Bangkok",
+      "sources": [
+        "https://www.thattravelblog.com/blog/best-cafes-in-bangkok/"
+      ],
+      "verified": false
+    },
+    {
+      "id": "baan-saen-saep",
+      "name": "Baan Saen Saep",
+      "area": "Near Siam",
+      "zone": "Siam & Central",
+      "station": "",
+      "line": [],
+      "lat": 13.74886,
+      "lng": 100.52969,
+      "price": 2,
+      "moods": [
+        "work",
+        "green"
+      ],
+      "features": [
+        "river"
+      ],
+      "description": "Two-storey wooden house by the canal that is a café, gallery and coworking space. Good seats fill fast.",
+      "hours": "",
+      "openingHours": null,
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Baan%20Saen%20Saep%20Bangkok",
+      "sources": [
+        "https://www.thattravelblog.com/blog/best-cafes-in-bangkok/",
+        "https://www.driproast.com/bangkok-laptop-cafes-by-neighborhood/"
+      ],
+      "verified": false
+    },
+    {
+      "id": "gallery-drip-coffee",
+      "name": "Gallery Drip Coffee",
+      "area": "Bangkok Art and Culture Centre",
+      "zone": "Siam & Central",
+      "station": "BTS National Stadium",
+      "line": [
+        "BTS Silom"
+      ],
+      "lat": 13.74662,
+      "lng": 100.53032,
+      "price": 1,
+      "moods": [
+        "budget",
+        "work"
+      ],
+      "features": [
+        "specialty",
+        "quiet"
+      ],
+      "description": "Pour-over and single-origin bar inside the Bangkok Art and Culture Centre.",
+      "hours": "Closed Monday",
+      "openingHours": null,
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Gallery%20Drip%20Coffee%20Bangkok",
+      "sources": [
+        "https://www.thattravelblog.com/blog/best-cafes-in-bangkok/",
+        "https://www.visitthailandtoday.com/top-lists/best-cafes-bangkok"
+      ],
+      "verified": false
+    },
+    {
+      "id": "too-good-for-you",
+      "name": "Too Good for You",
+      "area": "Siam Square One",
+      "zone": "Siam & Central",
+      "station": "BTS Siam",
+      "line": [
+        "BTS Sukhumvit",
+        "BTS Silom"
+      ],
+      "lat": 13.74503,
+      "lng": 100.53377,
+      "price": 2,
+      "moods": [
+        "green",
+        "date",
+        "aesthetic"
+      ],
+      "features": [],
+      "description": "Bohemian garden-style café with neon signs and flowers.",
+      "hours": "Daily 10:30–21:45",
+      "openingHours": {
+        "mon": [
+          {
+            "open": "10:30",
+            "close": "21:45"
+          }
+        ],
+        "tue": [
+          {
+            "open": "10:30",
+            "close": "21:45"
+          }
+        ],
+        "wed": [
+          {
+            "open": "10:30",
+            "close": "21:45"
+          }
+        ],
+        "thu": [
+          {
+            "open": "10:30",
+            "close": "21:45"
+          }
+        ],
+        "fri": [
+          {
+            "open": "10:30",
+            "close": "21:45"
+          }
+        ],
+        "sat": [
+          {
+            "open": "10:30",
+            "close": "21:45"
+          }
+        ],
+        "sun": [
+          {
+            "open": "10:30",
+            "close": "21:45"
+          }
+        ]
+      },
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Too%20Good%20for%20You%20Bangkok",
+      "sources": [
+        "https://thailand.tripcanvas.co/bangkok/garden-cafes-restaurants/"
+      ],
+      "verified": false
+    },
+    {
+      "id": "b-story-caf",
+      "name": "B-story Café",
+      "area": "Ratchathewi",
+      "zone": "Siam & Central",
+      "station": "BTS National Stadium",
+      "line": [
+        "BTS Silom"
+      ],
+      "lat": 13.75191,
+      "lng": 100.53185,
+      "price": 3,
+      "moods": [
+        "date",
+        "aesthetic",
+        "green"
+      ],
+      "features": [
+        "garden"
+      ],
+      "description": "Two-storey café with French Gothic décor, stained glass and a garden.",
+      "hours": "Daily 10:00–23:00",
+      "openingHours": {
+        "mon": [
+          {
+            "open": "10:00",
+            "close": "23:00"
+          }
+        ],
+        "tue": [
+          {
+            "open": "10:00",
+            "close": "23:00"
+          }
+        ],
+        "wed": [
+          {
+            "open": "10:00",
+            "close": "23:00"
+          }
+        ],
+        "thu": [
+          {
+            "open": "10:00",
+            "close": "23:00"
+          }
+        ],
+        "fri": [
+          {
+            "open": "10:00",
+            "close": "23:00"
+          }
+        ],
+        "sat": [
+          {
+            "open": "10:00",
+            "close": "23:00"
+          }
+        ],
+        "sun": [
+          {
+            "open": "10:00",
+            "close": "23:00"
+          }
+        ]
+      },
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=B-story%20Caf%C3%A9%20Bangkok",
+      "sources": [
+        "https://thailand.tripcanvas.co/bangkok/garden-cafes-restaurants/"
+      ],
+      "verified": false
+    },
+    {
+      "id": "plant-workshop-cafe",
+      "name": "Plant Workshop Cafe",
+      "area": "Ratchathewi",
+      "zone": "Siam & Central",
+      "station": "",
+      "line": [],
+      "lat": 13.75329,
+      "lng": 100.53217,
+      "price": 2,
+      "moods": [
+        "work",
+        "green"
+      ],
+      "features": [
+        "wifi"
+      ],
+      "description": "Small plant-filled café with under 20 seats and easy-to-find power outlets.",
+      "hours": "",
+      "openingHours": null,
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Plant%20Workshop%20Cafe%20Bangkok",
+      "sources": [
+        "https://www.driproast.com/bangkok-laptop-cafes-by-neighborhood/"
+      ],
+      "verified": false
+    },
+    {
+      "id": "piccolo-vicolo-cafe",
+      "name": "Piccolo Vicolo Cafe",
+      "area": "GalileOasis, Ratchathewi",
+      "zone": "Siam & Central",
+      "station": "",
+      "line": [],
+      "lat": 13.75135,
+      "lng": 100.52639,
+      "price": 2,
+      "moods": [
+        "aesthetic",
+        "green",
+        "work"
+      ],
+      "features": [
+        "dessert"
+      ],
+      "description": "Vintage plant-filled loft known for coconut coffee and cakes, with power outlets.",
+      "hours": "Closed Tuesday",
+      "openingHours": null,
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Piccolo%20Vicolo%20Cafe%20Bangkok",
+      "sources": [
+        "https://www.visitthailandtoday.com/top-lists/best-cafes-bangkok"
+      ],
+      "verified": false
+    },
+    {
+      "id": "caturday-cat-cafe",
+      "name": "Caturday Cat Cafe",
+      "area": "Ratchathewi",
+      "zone": "Siam & Central",
+      "station": "BTS Ratchathewi",
+      "line": [
+        "BTS Sukhumvit"
+      ],
+      "lat": 13.7516,
+      "lng": 100.53191,
+      "price": 2,
+      "moods": [
+        "date"
+      ],
+      "features": [
+        "pets",
+        "dessert"
+      ],
+      "description": "Cat café with resident cats and desserts.",
+      "hours": "Closed Monday",
+      "openingHours": null,
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Caturday%20Cat%20Cafe%20Bangkok",
+      "sources": [
+        "https://www.visitthailandtoday.com/top-lists/best-cafes-bangkok"
+      ],
+      "verified": false
+    },
+    {
+      "id": "after-you-dessert-cafe-siam-paragon",
+      "name": "After You Dessert Cafe (Siam Paragon)",
+      "area": "Siam Paragon",
+      "zone": "Siam & Central",
+      "station": "BTS Siam",
+      "line": [
+        "BTS Sukhumvit",
+        "BTS Silom"
+      ],
+      "lat": 13.74678,
+      "lng": 100.53495,
+      "price": 2,
+      "moods": [
+        "date"
+      ],
+      "features": [
+        "dessert"
+      ],
+      "description": "Dessert café known for Shibuya honey toast and Thai-flavoured kakigori.",
+      "hours": "",
+      "openingHours": null,
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=After%20You%20Dessert%20Cafe%20%28Siam%20Paragon%29%20Bangkok",
+      "sources": [
+        "https://www.visitthailandtoday.com/top-lists/best-cafes-bangkok"
+      ],
+      "verified": false
+    },
+    {
+      "id": "rise-coffee-one-bangkok",
+      "name": "RISE COFFEE One Bangkok",
+      "area": "One Bangkok, Lumphini",
+      "zone": "Siam & Central",
+      "station": "MRT Lumphini",
+      "line": [
+        "MRT Blue"
+      ],
+      "lat": 13.7271,
+      "lng": 100.54677,
+      "price": 1,
+      "moods": [
+        "budget",
+        "work"
+      ],
+      "features": [
+        "specialty"
+      ],
+      "description": "Specialty coffee and bakery with rare filter coffees.",
+      "hours": "Until 20:00",
+      "openingHours": null,
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=RISE%20COFFEE%20One%20Bangkok%20Bangkok",
+      "sources": [
+        "https://www.visitthailandtoday.com/top-lists/best-cafes-bangkok"
+      ],
+      "verified": false
+    },
+    {
+      "id": "arabica-queen-sirikit-ncc",
+      "name": "% Arabica (Queen Sirikit NCC)",
+      "area": "Queen Sirikit National Convention Center",
+      "zone": "Sukhumvit (Asok to Phrom Phong)",
+      "station": "MRT Queen Sirikit National Convention Centre",
+      "line": [
+        "MRT Blue"
+      ],
+      "lat": 13.72424,
+      "lng": 100.55874,
+      "price": 3,
+      "moods": [
+        "green"
+      ],
+      "features": [
+        "view"
+      ],
+      "description": "Opens onto Benjakitti Park and is popular with early-morning runners. Pricier.",
+      "hours": "",
+      "openingHours": null,
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=%25%20Arabica%20%28Queen%20Sirikit%20NCC%29%20Bangkok",
+      "sources": [
+        "https://www.thattravelblog.com/blog/best-cafes-in-bangkok/"
+      ],
+      "verified": false
+    },
+    {
+      "id": "citycup-bkk",
+      "name": "Citycup BKK",
+      "area": "SSP Tower 2, Na Ranong Road",
+      "zone": "Sukhumvit (Asok to Phrom Phong)",
+      "station": "",
+      "line": [],
+      "lat": 13.71475,
+      "lng": 100.55805,
+      "price": 2,
+      "moods": [
+        "work"
+      ],
+      "features": [
+        "view"
+      ],
+      "description": "11th-floor café looking over PAT Stadium; cappuccino about ฿120.",
+      "hours": "",
+      "openingHours": null,
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Citycup%20BKK%20Bangkok",
+      "sources": [
+        "https://www.thattravelblog.com/blog/best-cafes-in-bangkok/"
+      ],
+      "verified": false
+    },
+    {
+      "id": "open-house-central-embassy",
+      "name": "Open House (Central Embassy)",
+      "area": "Central Embassy, Phloen Chit",
+      "zone": "Siam & Central",
+      "station": "BTS Phloen Chit",
+      "line": [
+        "BTS Sukhumvit"
+      ],
+      "lat": 13.74401,
+      "lng": 100.5467,
+      "price": 3,
+      "moods": [
+        "work",
+        "aesthetic"
+      ],
+      "features": [],
+      "description": "Large 6th-floor space with many kinds of seating. Coffee is on the pricey side.",
+      "hours": "",
+      "openingHours": null,
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Open%20House%20%28Central%20Embassy%29%20Bangkok",
+      "sources": [
+        "https://www.driproast.com/bangkok-laptop-cafes-by-neighborhood/"
+      ],
+      "verified": false
+    },
+    {
+      "id": "blue-cheri-coffee",
+      "name": "Blue Cheri Coffee",
+      "area": "Phloen Chit / Gaysorn Amarin",
+      "zone": "Siam & Central",
+      "station": "",
+      "line": [],
+      "lat": 13.74181,
+      "lng": 100.549,
+      "price": 2,
+      "moods": [
+        "work"
+      ],
+      "features": [],
+      "description": "The Phloen Chit branch has more room; the Gaysorn Amarin branch has comfier seats.",
+      "hours": "",
+      "openingHours": null,
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Blue%20Cheri%20Coffee%20Bangkok",
+      "sources": [
+        "https://www.driproast.com/bangkok-laptop-cafes-by-neighborhood/"
+      ],
+      "verified": false
+    },
+    {
+      "id": "raynue-gaysorn-amarin",
+      "name": "Raynue (Gaysorn Amarin)",
+      "area": "Gaysorn Amarin",
+      "zone": "Siam & Central",
+      "station": "",
+      "line": [],
+      "lat": 13.74351,
+      "lng": 100.5413,
+      "price": 3,
+      "moods": [
+        "work"
+      ],
+      "features": [],
+      "description": "Three meeting pods you can use free with any purchase. Food is not cheap.",
+      "hours": "",
+      "openingHours": null,
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Raynue%20%28Gaysorn%20Amarin%29%20Bangkok",
+      "sources": [
+        "https://www.driproast.com/bangkok-laptop-cafes-by-neighborhood/"
+      ],
+      "verified": false
+    },
+    {
+      "id": "rocket-coffeebar-lumphini",
+      "name": "Rocket Coffeebar Lumphini",
+      "area": "Sarasin Road, Lumphini",
+      "zone": "Siam & Central",
+      "station": "BTS Ratchadamri",
+      "line": [
+        "BTS Silom"
+      ],
+      "lat": 13.73448,
+      "lng": 100.53932,
+      "price": 3,
+      "moods": [
+        "work"
+      ],
+      "features": [
+        "brunch",
+        "specialty"
+      ],
+      "description": "Lively Scandinavian-style brunch café on Sarasin Road, good for meetings.",
+      "hours": "Daily 09:00–17:00",
+      "openingHours": {
+        "mon": [
+          {
+            "open": "09:00",
+            "close": "17:00"
+          }
+        ],
+        "tue": [
+          {
+            "open": "09:00",
+            "close": "17:00"
+          }
+        ],
+        "wed": [
+          {
+            "open": "09:00",
+            "close": "17:00"
+          }
+        ],
+        "thu": [
+          {
+            "open": "09:00",
+            "close": "17:00"
+          }
+        ],
+        "fri": [
+          {
+            "open": "09:00",
+            "close": "17:00"
+          }
+        ],
+        "sat": [
+          {
+            "open": "09:00",
+            "close": "17:00"
+          }
+        ],
+        "sun": [
+          {
+            "open": "09:00",
+            "close": "17:00"
+          }
+        ]
+      },
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Rocket%20Coffeebar%20Lumphini%20Bangkok",
+      "sources": [
+        "https://www.timeout.com/bangkok/restaurants/bangkok-best-new-cafes-of-2026",
+        "https://www.thatbangkoklife.com/best-coffee-shops-in-bangkok/"
+      ],
+      "verified": false
+    },
+    {
+      "id": "findfoundfounded",
+      "name": "Findfoundfounded",
+      "area": "Off Bantadthong Road, Samyan",
+      "zone": "Siam & Central",
+      "station": "BTS National Stadium",
+      "line": [
+        "BTS Silom"
+      ],
+      "lat": 13.74839,
+      "lng": 100.52383,
+      "price": 2,
+      "moods": [
+        "work"
+      ],
+      "features": [
+        "quiet",
+        "dessert"
+      ],
+      "description": "Quiet café with sourdough baked every day. Busier at weekends.",
+      "hours": "Tue–Sun 10:00–18:00; closed Mon",
+      "openingHours": {
+        "mon": [],
+        "tue": [
+          {
+            "open": "10:00",
+            "close": "18:00"
+          }
+        ],
+        "wed": [
+          {
+            "open": "10:00",
+            "close": "18:00"
+          }
+        ],
+        "thu": [
+          {
+            "open": "10:00",
+            "close": "18:00"
+          }
+        ],
+        "fri": [
+          {
+            "open": "10:00",
+            "close": "18:00"
+          }
+        ],
+        "sat": [
+          {
+            "open": "10:00",
+            "close": "18:00"
+          }
+        ],
+        "sun": [
+          {
+            "open": "10:00",
+            "close": "18:00"
+          }
+        ]
+      },
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Findfoundfounded%20Bangkok",
+      "sources": [
+        "https://www.timeout.com/bangkok/restaurants/bangkok-best-new-cafes-of-2026"
+      ],
+      "verified": false
+    },
+    {
+      "id": "brave-roasters",
+      "name": "Brave Roasters",
+      "area": "Siam Discovery, 3rd floor",
+      "zone": "Siam & Central",
+      "station": "BTS Siam",
+      "line": [
+        "BTS Sukhumvit",
+        "BTS Silom"
+      ],
+      "lat": 13.74655,
+      "lng": 100.53141,
+      "price": 2,
+      "moods": [
+        "work"
+      ],
+      "features": [
+        "specialty",
+        "quiet"
+      ],
+      "description": "Quiet, laptop-friendly escape from the Siam crowds.",
+      "hours": "",
+      "openingHours": null,
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Brave%20Roasters%20Bangkok",
+      "sources": [
+        "https://www.thewaytocoffee.com/bangkok-cafe-guide/"
+      ],
+      "verified": false
+    },
+    {
+      "id": "bitterman",
+      "name": "Bitterman",
+      "area": "Sathorn",
+      "zone": "Silom, Sathorn & Riverside",
+      "station": "",
+      "line": [],
+      "lat": 13.72642,
+      "lng": 100.53984,
+      "price": 3,
+      "moods": [
+        "green",
+        "date"
+      ],
+      "features": [
+        "brunch"
+      ],
+      "description": "Plant-filled glasshouse serving all-day brunch.",
+      "hours": "",
+      "openingHours": null,
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Bitterman%20Bangkok",
+      "sources": [
+        "https://www.thattravelblog.com/blog/best-cafes-in-bangkok/"
+      ],
+      "verified": false
+    },
+    {
+      "id": "someday-in-copenhagen",
+      "name": "Someday In Copenhagen",
+      "area": "Sathorn",
+      "zone": "Silom, Sathorn & Riverside",
+      "station": "",
+      "line": [],
+      "lat": 13.71847,
+      "lng": 100.55165,
+      "price": 2,
+      "moods": [
+        "aesthetic"
+      ],
+      "features": [
+        "specialty"
+      ],
+      "description": "Scandinavian-style grab-and-go coffee stand.",
+      "hours": "",
+      "openingHours": null,
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Someday%20In%20Copenhagen%20Bangkok",
+      "sources": [
+        "https://www.thattravelblog.com/blog/best-cafes-in-bangkok/"
+      ],
+      "verified": false
+    },
+    {
+      "id": "vancoffee",
+      "name": "Vancoffee",
+      "area": "Tur Gub Chan, Sathorn",
+      "zone": "Silom, Sathorn & Riverside",
+      "station": "",
+      "line": [],
+      "lat": 13.71519,
+      "lng": 100.55428,
+      "price": 1,
+      "moods": [
+        "green",
+        "budget"
+      ],
+      "features": [
+        "quiet"
+      ],
+      "description": "Low-key local favourite in a community space with plants and small shops.",
+      "hours": "",
+      "openingHours": null,
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Vancoffee%20Bangkok",
+      "sources": [
+        "https://www.thattravelblog.com/blog/best-cafes-in-bangkok/"
+      ],
+      "verified": false
+    },
+    {
+      "id": "the-little-prince-caf",
+      "name": "The Little Prince Café",
+      "area": "Suan Phlu Road, Sathorn",
+      "zone": "Silom, Sathorn & Riverside",
+      "station": "",
+      "line": [],
+      "lat": 13.72065,
+      "lng": 100.53769,
+      "price": 2,
+      "moods": [
+        "date",
+        "aesthetic"
+      ],
+      "features": [
+        "dessert"
+      ],
+      "description": "Art space and café with pastries, Kusmi teas and rooftop sculptures.",
+      "hours": "Closed Monday",
+      "openingHours": null,
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=The%20Little%20Prince%20Caf%C3%A9%20Bangkok",
+      "sources": [
+        "https://www.visitthailandtoday.com/top-lists/best-cafes-bangkok"
+      ],
+      "verified": false
+    },
+    {
+      "id": "luka-cafe",
+      "name": "Luka Cafe",
+      "area": "Pan Road, Silom",
+      "zone": "Silom, Sathorn & Riverside",
+      "station": "",
+      "line": [],
+      "lat": 13.72164,
+      "lng": 100.52385,
+      "price": 2,
+      "moods": [
+        "date"
+      ],
+      "features": [
+        "brunch"
+      ],
+      "description": "Brunch spot with burritos, bowls and chicken and waffles.",
+      "hours": "From 08:00",
+      "openingHours": null,
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Luka%20Cafe%20Bangkok",
+      "sources": [
+        "https://www.visitthailandtoday.com/top-lists/best-cafes-bangkok"
+      ],
+      "verified": false
+    },
+    {
+      "id": "pacamara-coffee-roasters-silom-edge",
+      "name": "Pacamara Coffee Roasters (Silom Edge)",
+      "area": "Silom Edge, Bang Rak",
+      "zone": "Silom, Sathorn & Riverside",
+      "station": "MRT Silom",
+      "line": [
+        "MRT Blue"
+      ],
+      "lat": 13.72945,
+      "lng": 100.53585,
+      "price": 1,
+      "moods": [
+        "budget"
+      ],
+      "features": [
+        "lateNight"
+      ],
+      "description": "24-hour coffee spot with limited seats and no charging plugs.",
+      "hours": "24 hours",
+      "openingHours": {
+        "mon": [
+          {
+            "open": "00:00",
+            "close": "24:00"
+          }
+        ],
+        "tue": [
+          {
+            "open": "00:00",
+            "close": "24:00"
+          }
+        ],
+        "wed": [
+          {
+            "open": "00:00",
+            "close": "24:00"
+          }
+        ],
+        "thu": [
+          {
+            "open": "00:00",
+            "close": "24:00"
+          }
+        ],
+        "fri": [
+          {
+            "open": "00:00",
+            "close": "24:00"
+          }
+        ],
+        "sat": [
+          {
+            "open": "00:00",
+            "close": "24:00"
+          }
+        ],
+        "sun": [
+          {
+            "open": "00:00",
+            "close": "24:00"
+          }
+        ]
+      },
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Pacamara%20Coffee%20Roasters%20%28Silom%20Edge%29%20Bangkok",
+      "sources": [
+        "https://thethaiger.com/guides/best-of/food/cafe/24-hour-cafes-in-bangkok-for-work-and-relaxation"
+      ],
+      "verified": false
+    },
+    {
+      "id": "artis-coffee",
+      "name": "Artis Coffee",
+      "area": "Sukhumvit Soi 18",
+      "zone": "Sukhumvit (Asok to Phrom Phong)",
+      "station": "BTS Asok",
+      "line": [
+        "BTS Sukhumvit"
+      ],
+      "lat": 13.73514,
+      "lng": 100.56262,
+      "price": 2,
+      "moods": [
+        "work"
+      ],
+      "features": [
+        "specialty",
+        "wifi"
+      ],
+      "description": "Roastery popular with laptop workers.",
+      "hours": "Daily 07:00–20:00",
+      "openingHours": {
+        "mon": [
+          {
+            "open": "07:00",
+            "close": "20:00"
+          }
+        ],
+        "tue": [
+          {
+            "open": "07:00",
+            "close": "20:00"
+          }
+        ],
+        "wed": [
+          {
+            "open": "07:00",
+            "close": "20:00"
+          }
+        ],
+        "thu": [
+          {
+            "open": "07:00",
+            "close": "20:00"
+          }
+        ],
+        "fri": [
+          {
+            "open": "07:00",
+            "close": "20:00"
+          }
+        ],
+        "sat": [
+          {
+            "open": "07:00",
+            "close": "20:00"
+          }
+        ],
+        "sun": [
+          {
+            "open": "07:00",
+            "close": "20:00"
+          }
+        ]
+      },
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Artis%20Coffee%20Bangkok",
+      "sources": [
+        "https://www.visitthailandtoday.com/top-lists/best-cafes-bangkok"
+      ],
+      "verified": false
+    },
+    {
+      "id": "karmakamet-diner",
+      "name": "Karmakamet Diner",
+      "area": "Phrom Phong",
+      "zone": "Sukhumvit (Asok to Phrom Phong)",
+      "station": "BTS Phrom Phong",
+      "line": [
+        "BTS Sukhumvit"
+      ],
+      "lat": 13.72892,
+      "lng": 100.56806,
+      "price": 3,
+      "moods": [
+        "date",
+        "aesthetic"
+      ],
+      "features": [
+        "brunch",
+        "lateNight"
+      ],
+      "description": "Scented, apothecary-style café with all-day breakfast.",
+      "hours": "Daily 10:00–23:30",
+      "openingHours": {
+        "mon": [
+          {
+            "open": "10:00",
+            "close": "23:30"
+          }
+        ],
+        "tue": [
+          {
+            "open": "10:00",
+            "close": "23:30"
+          }
+        ],
+        "wed": [
+          {
+            "open": "10:00",
+            "close": "23:30"
+          }
+        ],
+        "thu": [
+          {
+            "open": "10:00",
+            "close": "23:30"
+          }
+        ],
+        "fri": [
+          {
+            "open": "10:00",
+            "close": "23:30"
+          }
+        ],
+        "sat": [
+          {
+            "open": "10:00",
+            "close": "23:30"
+          }
+        ],
+        "sun": [
+          {
+            "open": "10:00",
+            "close": "23:30"
+          }
+        ]
+      },
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Karmakamet%20Diner%20Bangkok",
+      "sources": [
+        "https://thailand.tripcanvas.co/bangkok/garden-cafes-restaurants/"
+      ],
+      "verified": false
+    },
+    {
+      "id": "arabica-emquartier",
+      "name": "% Arabica (EmQuartier)",
+      "area": "EmQuartier, Phrom Phong",
+      "zone": "Sukhumvit (Asok to Phrom Phong)",
+      "station": "BTS Phrom Phong",
+      "line": [
+        "BTS Sukhumvit"
+      ],
+      "lat": 13.73196,
+      "lng": 100.56964,
+      "price": 3,
+      "moods": [
+        "aesthetic"
+      ],
+      "features": [
+        "view"
+      ],
+      "description": "Terrace seats looking over a waterfall fountain.",
+      "hours": "",
+      "openingHours": null,
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=%25%20Arabica%20%28EmQuartier%29%20Bangkok",
+      "sources": [
+        "https://www.thattravelblog.com/blog/best-cafes-in-bangkok/"
+      ],
+      "verified": false
+    },
+    {
+      "id": "sarnies-sukhumvit",
+      "name": "Sarnies Sukhumvit",
+      "area": "Sukhumvit",
+      "zone": "Sukhumvit (Asok to Phrom Phong)",
+      "station": "",
+      "line": [],
+      "lat": 13.73067,
+      "lng": 100.57026,
+      "price": 2,
+      "moods": [
+        "work"
+      ],
+      "features": [
+        "brunch",
+        "wifi"
+      ],
+      "description": "Very fast Wi-Fi (about 450 Mbps measured) and plenty of outlets.",
+      "hours": "",
+      "openingHours": null,
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Sarnies%20Sukhumvit%20Bangkok",
+      "sources": [
+        "https://www.driproast.com/bangkok-laptop-cafes-by-neighborhood/"
+      ],
+      "verified": false
+    },
+    {
+      "id": "tom-n-toms-coffee-sukhumvit-15",
+      "name": "Tom n Toms Coffee (Sukhumvit 15)",
+      "area": "Sukhumvit Soi 15",
+      "zone": "Sukhumvit (Asok to Phrom Phong)",
+      "station": "",
+      "line": [],
+      "lat": 13.73864,
+      "lng": 100.55847,
+      "price": 2,
+      "moods": [
+        "work"
+      ],
+      "features": [
+        "lateNight",
+        "outdoor"
+      ],
+      "description": "24-hour café with leather seats and indoor and outdoor tables.",
+      "hours": "24 hours",
+      "openingHours": {
+        "mon": [
+          {
+            "open": "00:00",
+            "close": "24:00"
+          }
+        ],
+        "tue": [
+          {
+            "open": "00:00",
+            "close": "24:00"
+          }
+        ],
+        "wed": [
+          {
+            "open": "00:00",
+            "close": "24:00"
+          }
+        ],
+        "thu": [
+          {
+            "open": "00:00",
+            "close": "24:00"
+          }
+        ],
+        "fri": [
+          {
+            "open": "00:00",
+            "close": "24:00"
+          }
+        ],
+        "sat": [
+          {
+            "open": "00:00",
+            "close": "24:00"
+          }
+        ],
+        "sun": [
+          {
+            "open": "00:00",
+            "close": "24:00"
+          }
+        ]
+      },
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Tom%20n%20Toms%20Coffee%20%28Sukhumvit%2015%29%20Bangkok",
+      "sources": [
+        "https://thethaiger.com/guides/best-of/food/cafe/24-hour-cafes-in-bangkok-for-work-and-relaxation"
+      ],
+      "verified": false
+    },
+    {
+      "id": "kromo-hilton-sukhumvit",
+      "name": "KROMO (Hilton Sukhumvit)",
+      "area": "Hilton Sukhumvit, 10th floor",
+      "zone": "Sukhumvit (Asok to Phrom Phong)",
+      "station": "",
+      "line": [],
+      "lat": 13.72839,
+      "lng": 100.56933,
+      "price": 2,
+      "moods": [
+        "work"
+      ],
+      "features": [],
+      "description": "Hotel lobby café with plenty of outlets. Buy something to sit.",
+      "hours": "",
+      "openingHours": null,
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=KROMO%20%28Hilton%20Sukhumvit%29%20Bangkok",
+      "sources": [
+        "https://www.driproast.com/bangkok-laptop-cafes-by-neighborhood/"
+      ],
+      "verified": false
+    },
+    {
+      "id": "butchery-coffee-sukhumvit-49",
+      "name": "Butchery Coffee Sukhumvit 49",
+      "area": "Sukhumvit 49",
+      "zone": "Sukhumvit (Asok to Phrom Phong)",
+      "station": "BTS Phrom Phong",
+      "line": [
+        "BTS Sukhumvit"
+      ],
+      "lat": 13.73146,
+      "lng": 100.57557,
+      "price": 1,
+      "moods": [
+        "budget"
+      ],
+      "features": [],
+      "description": "Tiny wood-toned coffee bar for grab-and-go or a stool. Drinks from about ฿65.",
+      "hours": "Daily 07:00–17:00",
+      "openingHours": {
+        "mon": [
+          {
+            "open": "07:00",
+            "close": "17:00"
+          }
+        ],
+        "tue": [
+          {
+            "open": "07:00",
+            "close": "17:00"
+          }
+        ],
+        "wed": [
+          {
+            "open": "07:00",
+            "close": "17:00"
+          }
+        ],
+        "thu": [
+          {
+            "open": "07:00",
+            "close": "17:00"
+          }
+        ],
+        "fri": [
+          {
+            "open": "07:00",
+            "close": "17:00"
+          }
+        ],
+        "sat": [
+          {
+            "open": "07:00",
+            "close": "17:00"
+          }
+        ],
+        "sun": [
+          {
+            "open": "07:00",
+            "close": "17:00"
+          }
+        ]
+      },
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Butchery%20Coffee%20Sukhumvit%2049%20Bangkok",
+      "sources": [
+        "https://www.timeout.com/bangkok/restaurants/bangkok-best-new-cafes-of-2026"
+      ],
+      "verified": false
+    },
+    {
+      "id": "bottomless-sukhumvit-33",
+      "name": "Bottomless Sukhumvit 33",
+      "area": "Sukhumvit 33",
+      "zone": "Sukhumvit (Asok to Phrom Phong)",
+      "station": "BTS Phrom Phong",
+      "line": [
+        "BTS Sukhumvit"
+      ],
+      "lat": 13.7337,
+      "lng": 100.56725,
+      "price": 2,
+      "moods": [
+        "work"
+      ],
+      "features": [
+        "specialty",
+        "quiet"
+      ],
+      "description": "Calm, minimalist specialty café with a wide choice of beans.",
+      "hours": "",
+      "openingHours": null,
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Bottomless%20Sukhumvit%2033%20Bangkok",
+      "sources": [
+        "https://www.thatbangkoklife.com/best-coffee-shops-in-bangkok/"
+      ],
+      "verified": false
+    },
+    {
+      "id": "ceresia-coffee-roasters",
+      "name": "Ceresia Coffee Roasters",
+      "area": "Sukhumvit 41",
+      "zone": "Sukhumvit (Asok to Phrom Phong)",
+      "station": "BTS Phrom Phong",
+      "line": [
+        "BTS Sukhumvit"
+      ],
+      "lat": 13.73278,
+      "lng": 100.57252,
+      "price": 1,
+      "moods": [
+        "work",
+        "budget"
+      ],
+      "features": [
+        "specialty",
+        "quiet"
+      ],
+      "description": "Family-run roastery with single origins and the roaster visible through a glass window.",
+      "hours": "",
+      "openingHours": null,
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Ceresia%20Coffee%20Roasters%20Bangkok",
+      "sources": [
+        "https://www.thatbangkoklife.com/best-coffee-shops-in-bangkok/",
+        "https://www.thewaytocoffee.com/bangkok-cafe-guide/"
+      ],
+      "verified": false
+    },
+    {
+      "id": "paga-microroastery",
+      "name": "Paga Microroastery",
+      "area": "Phrom Phong",
+      "zone": "Sukhumvit (Asok to Phrom Phong)",
+      "station": "MRT Sukhumvit",
+      "line": [
+        "MRT Blue"
+      ],
+      "lat": 13.73878,
+      "lng": 100.56647,
+      "price": 2,
+      "moods": [
+        "aesthetic"
+      ],
+      "features": [
+        "specialty"
+      ],
+      "description": "Lab-style microroastery with beans from across Asia. No food.",
+      "hours": "",
+      "openingHours": null,
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Paga%20Microroastery%20Bangkok",
+      "sources": [
+        "https://www.thatbangkoklife.com/best-coffee-shops-in-bangkok/"
+      ],
+      "verified": false
+    },
+    {
+      "id": "wwa-portal",
+      "name": "WWA Portal",
+      "area": "Sukhumvit 19, Asok",
+      "zone": "Sukhumvit (Asok to Phrom Phong)",
+      "station": "BTS Asok",
+      "line": [
+        "BTS Sukhumvit"
+      ],
+      "lat": 13.73955,
+      "lng": 100.56001,
+      "price": 3,
+      "moods": [
+        "aesthetic"
+      ],
+      "features": [
+        "specialty"
+      ],
+      "description": "Futuristic-looking specialty bar for single-origin filter coffee. No food.",
+      "hours": "",
+      "openingHours": null,
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=WWA%20Portal%20Bangkok",
+      "sources": [
+        "https://www.thatbangkoklife.com/best-coffee-shops-in-bangkok/"
+      ],
+      "verified": false
+    },
+    {
+      "id": "invisible-coffee-room",
+      "name": "Invisible Coffee Room",
+      "area": "Sukhumvit 16",
+      "zone": "Sukhumvit (Asok to Phrom Phong)",
+      "station": "BTS Asok",
+      "line": [
+        "BTS Sukhumvit"
+      ],
+      "lat": 13.73233,
+      "lng": 100.56105,
+      "price": 2,
+      "moods": [
+        "work"
+      ],
+      "features": [
+        "specialty",
+        "quiet"
+      ],
+      "description": "Relaxed specialty spot that hand-grinds single origins for filter.",
+      "hours": "",
+      "openingHours": null,
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Invisible%20Coffee%20Room%20Bangkok",
+      "sources": [
+        "https://www.thewaytocoffee.com/bangkok-cafe-guide/"
+      ],
+      "verified": false
+    },
+    {
+      "id": "sometimes-i-feel",
+      "name": "Sometimes I Feel",
+      "area": "Sukhumvit 31",
+      "zone": "Sukhumvit (Asok to Phrom Phong)",
+      "station": "BTS Phrom Phong",
+      "line": [
+        "BTS Sukhumvit"
+      ],
+      "lat": 13.73465,
+      "lng": 100.56626,
+      "price": 2,
+      "moods": [
+        "aesthetic"
+      ],
+      "features": [
+        "specialty"
+      ],
+      "description": "Specialty café with flavour-inspired signature drinks and single origins that rotate every few weeks.",
+      "hours": "",
+      "openingHours": null,
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Sometimes%20I%20Feel%20Bangkok",
+      "sources": [
+        "https://www.thewaytocoffee.com/bangkok-cafe-guide/"
+      ],
+      "verified": false
+    },
+    {
+      "id": "morgen-coffee",
+      "name": "Morgen Coffee",
+      "area": "Phrom Phong",
+      "zone": "Sukhumvit (Asok to Phrom Phong)",
+      "station": "BTS Phrom Phong",
+      "line": [
+        "BTS Sukhumvit"
+      ],
+      "lat": 13.73658,
+      "lng": 100.57314,
+      "price": 2,
+      "moods": [],
+      "features": [
+        "specialty"
+      ],
+      "description": "Compact café using PORTS beans, with small bites and a morning crowd.",
+      "hours": "",
+      "openingHours": null,
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Morgen%20Coffee%20Bangkok",
+      "sources": [
+        "https://www.thewaytocoffee.com/bangkok-cafe-guide/"
+      ],
+      "verified": false
+    },
+    {
+      "id": "dasa-book-cafe",
+      "name": "Dasa Book Cafe",
+      "area": "Sukhumvit 26",
+      "zone": "Sukhumvit (Asok to Phrom Phong)",
+      "station": "BTS Phrom Phong",
+      "line": [
+        "BTS Sukhumvit"
+      ],
+      "lat": 13.72881,
+      "lng": 100.57175,
+      "price": 1,
+      "moods": [
+        "work",
+        "budget"
+      ],
+      "features": [
+        "books",
+        "quiet"
+      ],
+      "description": "Three floors of second-hand books in several languages, with a small drinks menu.",
+      "hours": "",
+      "openingHours": null,
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Dasa%20Book%20Cafe%20Bangkok",
+      "sources": [
+        "https://www.timeout.com/bangkok/shopping/best-bookstores"
+      ],
+      "verified": false
+    },
+    {
+      "id": "roots-at-the-commons",
+      "name": "Roots at The Commons",
+      "area": "The Commons, Thonglor",
+      "zone": "Thonglor, Ekkamai & Phra Khanong",
+      "station": "BTS Thong Lo",
+      "line": [
+        "BTS Sukhumvit"
+      ],
+      "lat": 13.73495,
+      "lng": 100.58216,
+      "price": 2,
+      "moods": [
+        "work",
+        "green"
+      ],
+      "features": [
+        "outdoor",
+        "specialty"
+      ],
+      "description": "Coffee in an open-air community mall with a workspace upstairs.",
+      "hours": "",
+      "openingHours": null,
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Roots%20at%20The%20Commons%20Bangkok",
+      "sources": [
+        "https://www.thattravelblog.com/blog/best-cafes-in-bangkok/"
+      ],
+      "verified": false
+    },
+    {
+      "id": "mareeji",
+      "name": "Mareeji",
+      "area": "Thonglor",
+      "zone": "Thonglor, Ekkamai & Phra Khanong",
+      "station": "",
+      "line": [],
+      "lat": 13.72254,
+      "lng": 100.57531,
+      "price": 3,
+      "moods": [
+        "work",
+        "date"
+      ],
+      "features": [
+        "quiet"
+      ],
+      "description": "Quiet café inside a boutique hotel, good for a full work day.",
+      "hours": "",
+      "openingHours": null,
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Mareeji%20Bangkok",
+      "sources": [
+        "https://www.thattravelblog.com/blog/best-cafes-in-bangkok/"
+      ],
+      "verified": false
+    },
+    {
+      "id": "meshroom-cafe-wine",
+      "name": "Meshroom Cafe & Wine",
+      "area": "Ekkamai",
+      "zone": "Thonglor, Ekkamai & Phra Khanong",
+      "station": "",
+      "line": [],
+      "lat": 13.73085,
+      "lng": 100.58858,
+      "price": 2,
+      "moods": [
+        "date",
+        "aesthetic"
+      ],
+      "features": [
+        "quiet"
+      ],
+      "description": "Japanese library-style café and wine bar in an old house, with zines for sale.",
+      "hours": "",
+      "openingHours": null,
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Meshroom%20Cafe%20%26%20Wine%20Bangkok",
+      "sources": [
+        "https://www.thattravelblog.com/blog/best-cafes-in-bangkok/"
+      ],
+      "verified": false
+    },
+    {
+      "id": "thea-cafe",
+      "name": "Thea Cafe",
+      "area": "Off Thonglor",
+      "zone": "Thonglor, Ekkamai & Phra Khanong",
+      "station": "",
+      "line": [],
+      "lat": 13.72803,
+      "lng": 100.57714,
+      "price": 2,
+      "moods": [
+        "green"
+      ],
+      "features": [
+        "brunch"
+      ],
+      "description": "Cold brew, matcha and hojicha with brunch, surrounded by greenery.",
+      "hours": "",
+      "openingHours": null,
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Thea%20Cafe%20Bangkok",
+      "sources": [
+        "https://www.thattravelblog.com/blog/best-cafes-in-bangkok/"
+      ],
+      "verified": false
+    },
+    {
+      "id": "conkey-s-bakery",
+      "name": "Conkey's Bakery",
+      "area": "Ekkamai",
+      "zone": "Thonglor, Ekkamai & Phra Khanong",
+      "station": "",
+      "line": [],
+      "lat": 13.73303,
+      "lng": 100.59064,
+      "price": 2,
+      "moods": [
+        "green",
+        "date"
+      ],
+      "features": [
+        "garden",
+        "outdoor",
+        "dessert"
+      ],
+      "description": "Bakery tucked into a secluded garden.",
+      "hours": "",
+      "openingHours": null,
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Conkey%27s%20Bakery%20Bangkok",
+      "sources": [
+        "https://www.thattravelblog.com/blog/best-cafes-in-bangkok/"
+      ],
+      "verified": false
+    },
+    {
+      "id": "kaizen-coffee-ekkamai",
+      "name": "Kaizen Coffee Ekkamai",
+      "area": "Ekkamai",
+      "zone": "Thonglor, Ekkamai & Phra Khanong",
+      "station": "",
+      "line": [],
+      "lat": 13.73968,
+      "lng": 100.58958,
+      "price": 2,
+      "moods": [
+        "work"
+      ],
+      "features": [
+        "specialty"
+      ],
+      "description": "Coffee-first café with two-storey glass walls and a breakfast menu.",
+      "hours": "Closes 16:30, closed Tuesday",
+      "openingHours": null,
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Kaizen%20Coffee%20Ekkamai%20Bangkok",
+      "sources": [
+        "https://www.visitthailandtoday.com/top-lists/best-cafes-bangkok"
+      ],
+      "verified": false
+    },
+    {
+      "id": "featherstone",
+      "name": "Featherstone",
+      "area": "Ekkamai Soi 12",
+      "zone": "Thonglor, Ekkamai & Phra Khanong",
+      "station": "",
+      "line": [],
+      "lat": 13.72978,
+      "lng": 100.59303,
+      "price": 2,
+      "moods": [
+        "date",
+        "aesthetic"
+      ],
+      "features": [],
+      "description": "Apothecary-themed bistro with stained glass and flower sodas, good for long lunches.",
+      "hours": "",
+      "openingHours": null,
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Featherstone%20Bangkok",
+      "sources": [
+        "https://www.visitthailandtoday.com/top-lists/best-cafes-bangkok"
+      ],
+      "verified": false
+    },
+    {
+      "id": "le-caf-ph-nix-gateway-ekamai",
+      "name": "Le Café Phénix (Gateway Ekamai)",
+      "area": "Gateway Ekamai",
+      "zone": "Thonglor, Ekkamai & Phra Khanong",
+      "station": "BTS Ekkamai",
+      "line": [
+        "BTS Sukhumvit"
+      ],
+      "lat": 13.71931,
+      "lng": 100.58508,
+      "price": 2,
+      "moods": [
+        "work"
+      ],
+      "features": [
+        "lateNight"
+      ],
+      "description": "24-hour café with charging spots and a small meeting room. Wi-Fi can be spotty.",
+      "hours": "24 hours",
+      "openingHours": {
+        "mon": [
+          {
+            "open": "00:00",
+            "close": "24:00"
+          }
+        ],
+        "tue": [
+          {
+            "open": "00:00",
+            "close": "24:00"
+          }
+        ],
+        "wed": [
+          {
+            "open": "00:00",
+            "close": "24:00"
+          }
+        ],
+        "thu": [
+          {
+            "open": "00:00",
+            "close": "24:00"
+          }
+        ],
+        "fri": [
+          {
+            "open": "00:00",
+            "close": "24:00"
+          }
+        ],
+        "sat": [
+          {
+            "open": "00:00",
+            "close": "24:00"
+          }
+        ],
+        "sun": [
+          {
+            "open": "00:00",
+            "close": "24:00"
+          }
+        ]
+      },
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Le%20Caf%C3%A9%20Ph%C3%A9nix%20%28Gateway%20Ekamai%29%20Bangkok",
+      "sources": [
+        "https://thethaiger.com/guides/best-of/food/cafe/24-hour-cafes-in-bangkok-for-work-and-relaxation",
+        "https://www.driproast.com/bangkok-laptop-cafes-by-neighborhood/"
+      ],
+      "verified": false
+    },
+    {
+      "id": "paper-plane-project",
+      "name": "Paper Plane Project",
+      "area": "T-ONE building, Thonglor",
+      "zone": "Thonglor, Ekkamai & Phra Khanong",
+      "station": "",
+      "line": [],
+      "lat": 13.72226,
+      "lng": 100.5804,
+      "price": 3,
+      "moods": [
+        "work",
+        "date"
+      ],
+      "features": [
+        "view"
+      ],
+      "description": "40th-floor café with outlets at most tables. Turns into a bar in the evening.",
+      "hours": "",
+      "openingHours": null,
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Paper%20Plane%20Project%20Bangkok",
+      "sources": [
+        "https://www.driproast.com/bangkok-laptop-cafes-by-neighborhood/"
+      ],
+      "verified": false
+    },
+    {
+      "id": "hide-away-cafe",
+      "name": "Hide Away Cafe",
+      "area": "Ekkamai",
+      "zone": "Thonglor, Ekkamai & Phra Khanong",
+      "station": "",
+      "line": [],
+      "lat": 13.723,
+      "lng": 100.58422,
+      "price": 2,
+      "moods": [
+        "work"
+      ],
+      "features": [
+        "quiet"
+      ],
+      "description": "The second floor is usually empty, which is good for focus.",
+      "hours": "",
+      "openingHours": null,
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Hide%20Away%20Cafe%20Bangkok",
+      "sources": [
+        "https://www.driproast.com/bangkok-laptop-cafes-by-neighborhood/"
+      ],
+      "verified": false
+    },
+    {
+      "id": "patom-organik-living",
+      "name": "Patom Organik Living",
+      "area": "Thonglor",
+      "zone": "Thonglor, Ekkamai & Phra Khanong",
+      "station": "",
+      "line": [],
+      "lat": 13.73854,
+      "lng": 100.57918,
+      "price": 2,
+      "moods": [
+        "green"
+      ],
+      "features": [
+        "garden",
+        "outdoor"
+      ],
+      "description": "Open, airy café with big glass doors, an outdoor garden and an organic shop.",
+      "hours": "Tue–Sun 09:30–18:00",
+      "openingHours": {
+        "mon": [],
+        "tue": [
+          {
+            "open": "09:30",
+            "close": "18:00"
+          }
+        ],
+        "wed": [
+          {
+            "open": "09:30",
+            "close": "18:00"
+          }
+        ],
+        "thu": [
+          {
+            "open": "09:30",
+            "close": "18:00"
+          }
+        ],
+        "fri": [
+          {
+            "open": "09:30",
+            "close": "18:00"
+          }
+        ],
+        "sat": [
+          {
+            "open": "09:30",
+            "close": "18:00"
+          }
+        ],
+        "sun": [
+          {
+            "open": "09:30",
+            "close": "18:00"
+          }
+        ]
+      },
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Patom%20Organik%20Living%20Bangkok",
+      "sources": [
+        "https://thailand.tripcanvas.co/bangkok/garden-cafes-restaurants/"
+      ],
+      "verified": false
+    },
+    {
+      "id": "the-gardens-of-dinsor-palace",
+      "name": "The Gardens of Dinsor Palace",
+      "area": "Thonglor",
+      "zone": "Thonglor, Ekkamai & Phra Khanong",
+      "station": "BTS Thong Lo",
+      "line": [
+        "BTS Sukhumvit"
+      ],
+      "lat": 13.72263,
+      "lng": 100.58224,
+      "price": 3,
+      "moods": [
+        "green",
+        "date"
+      ],
+      "features": [
+        "garden",
+        "outdoor",
+        "lateNight"
+      ],
+      "description": "Palace-style garden café with peacocks and swans.",
+      "hours": "Mon–Fri 10:00–22:00, weekends and holidays 09:00–22:00",
+      "openingHours": {
+        "mon": [
+          {
+            "open": "10:00",
+            "close": "22:00"
+          }
+        ],
+        "tue": [
+          {
+            "open": "10:00",
+            "close": "22:00"
+          }
+        ],
+        "wed": [
+          {
+            "open": "10:00",
+            "close": "22:00"
+          }
+        ],
+        "thu": [
+          {
+            "open": "10:00",
+            "close": "22:00"
+          }
+        ],
+        "fri": [
+          {
+            "open": "10:00",
+            "close": "22:00"
+          }
+        ],
+        "sat": [
+          {
+            "open": "09:00",
+            "close": "22:00"
+          }
+        ],
+        "sun": [
+          {
+            "open": "09:00",
+            "close": "22:00"
+          }
+        ]
+      },
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=The%20Gardens%20of%20Dinsor%20Palace%20Bangkok",
+      "sources": [
+        "https://thailand.tripcanvas.co/bangkok/garden-cafes-restaurants/",
+        "https://thegardenspalace.com/"
+      ],
+      "verified": true
+    },
+    {
+      "id": "vivarium",
+      "name": "Vivarium",
+      "area": "Phra Khanong",
+      "zone": "Thonglor, Ekkamai & Phra Khanong",
+      "station": "",
+      "line": [],
+      "lat": 13.71499,
+      "lng": 100.57797,
+      "price": 2,
+      "moods": [
+        "green",
+        "aesthetic"
+      ],
+      "features": [],
+      "description": "Two-storey jungle-themed café with a Thai-fusion menu.",
+      "hours": "Daily 11:00–22:00",
+      "openingHours": {
+        "mon": [
+          {
+            "open": "11:00",
+            "close": "22:00"
+          }
+        ],
+        "tue": [
+          {
+            "open": "11:00",
+            "close": "22:00"
+          }
+        ],
+        "wed": [
+          {
+            "open": "11:00",
+            "close": "22:00"
+          }
+        ],
+        "thu": [
+          {
+            "open": "11:00",
+            "close": "22:00"
+          }
+        ],
+        "fri": [
+          {
+            "open": "11:00",
+            "close": "22:00"
+          }
+        ],
+        "sat": [
+          {
+            "open": "11:00",
+            "close": "22:00"
+          }
+        ],
+        "sun": [
+          {
+            "open": "11:00",
+            "close": "22:00"
+          }
+        ]
+      },
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Vivarium%20Bangkok",
+      "sources": [
+        "https://thailand.tripcanvas.co/bangkok/garden-cafes-restaurants/"
+      ],
+      "verified": false
+    },
+    {
+      "id": "the-blooming-gallery",
+      "name": "The Blooming Gallery",
+      "area": "Thonglor",
+      "zone": "Thonglor, Ekkamai & Phra Khanong",
+      "station": "",
+      "line": [],
+      "lat": 13.73074,
+      "lng": 100.58207,
+      "price": 3,
+      "moods": [
+        "date",
+        "aesthetic"
+      ],
+      "features": [
+        "dessert",
+        "lateNight"
+      ],
+      "description": "Dried-flower décor throughout, with afternoon tea sets.",
+      "hours": "Until midnight Fri–Sat",
+      "openingHours": null,
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=The%20Blooming%20Gallery%20Bangkok",
+      "sources": [
+        "https://thailand.tripcanvas.co/bangkok/garden-cafes-restaurants/"
+      ],
+      "verified": false
+    },
+    {
+      "id": "detour",
+      "name": "Detour",
+      "area": "Phra Khanong",
+      "zone": "Thonglor, Ekkamai & Phra Khanong",
+      "station": "",
+      "line": [],
+      "lat": 13.72311,
+      "lng": 100.60164,
+      "price": 2,
+      "moods": [],
+      "features": [
+        "brunch",
+        "specialty"
+      ],
+      "description": "Brunch café in a detached house with six rotating single-origin coffees.",
+      "hours": "",
+      "openingHours": null,
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Detour%20Bangkok",
+      "sources": [
+        "https://www.thattravelblog.com/blog/best-cafes-in-bangkok/"
+      ],
+      "verified": false
+    },
+    {
+      "id": "the-coffee-club-staybridge-thonglor",
+      "name": "The Coffee Club (Staybridge Thonglor)",
+      "area": "Thonglor",
+      "zone": "Thonglor, Ekkamai & Phra Khanong",
+      "station": "",
+      "line": [],
+      "lat": 13.72832,
+      "lng": 100.58034,
+      "price": 2,
+      "moods": [
+        "work"
+      ],
+      "features": [
+        "lateNight"
+      ],
+      "description": "Work-friendly hotel café with Western food, open very late.",
+      "hours": "",
+      "openingHours": null,
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=The%20Coffee%20Club%20%28Staybridge%20Thonglor%29%20Bangkok",
+      "sources": [
+        "https://thethaiger.com/guides/best-of/food/cafe/24-hour-cafes-in-bangkok-for-work-and-relaxation"
+      ],
+      "verified": false
+    },
+    {
+      "id": "hands-and-heart-coffee-roasters",
+      "name": "Hands and Heart Coffee Roasters",
+      "area": "Sukhumvit 67, Phra Khanong",
+      "zone": "Thonglor, Ekkamai & Phra Khanong",
+      "station": "BTS Phra Khanong",
+      "line": [
+        "BTS Sukhumvit"
+      ],
+      "lat": 13.71967,
+      "lng": 100.59118,
+      "price": 2,
+      "moods": [
+        "aesthetic",
+        "work"
+      ],
+      "features": [
+        "specialty",
+        "quiet",
+        "music"
+      ],
+      "description": "Homey roastery with vinyl, books and a print-magazine theme. Coffee comes black or white only.",
+      "hours": "Thu–Mon 10:00–17:00; closed Tue–Wed",
+      "openingHours": {
+        "mon": [
+          {
+            "open": "10:00",
+            "close": "17:00"
+          }
+        ],
+        "tue": [],
+        "wed": [],
+        "thu": [
+          {
+            "open": "10:00",
+            "close": "17:00"
+          }
+        ],
+        "fri": [
+          {
+            "open": "10:00",
+            "close": "17:00"
+          }
+        ],
+        "sat": [
+          {
+            "open": "10:00",
+            "close": "17:00"
+          }
+        ],
+        "sun": [
+          {
+            "open": "10:00",
+            "close": "17:00"
+          }
+        ]
+      },
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Hands%20and%20Heart%20Coffee%20Roasters%20Bangkok",
+      "sources": [
+        "https://www.timeout.com/bangkok/restaurants/bangkok-best-new-cafes-of-2026",
+        "https://www.thewaytocoffee.com/bangkok-cafe-guide/"
+      ],
+      "verified": false
+    },
+    {
+      "id": "pinki-s-deli",
+      "name": "Pinki's Deli",
+      "area": "Earth Ekkamai",
+      "zone": "Thonglor, Ekkamai & Phra Khanong",
+      "station": "BTS Ekkamai",
+      "line": [
+        "BTS Sukhumvit"
+      ],
+      "lat": 13.7216,
+      "lng": 100.5839,
+      "price": 2,
+      "moods": [],
+      "features": [
+        "brunch"
+      ],
+      "description": "Deli café known for big sourdough sandwiches and coffee.",
+      "hours": "Daily 07:15–16:00",
+      "openingHours": {
+        "mon": [
+          {
+            "open": "07:15",
+            "close": "16:00"
+          }
+        ],
+        "tue": [
+          {
+            "open": "07:15",
+            "close": "16:00"
+          }
+        ],
+        "wed": [
+          {
+            "open": "07:15",
+            "close": "16:00"
+          }
+        ],
+        "thu": [
+          {
+            "open": "07:15",
+            "close": "16:00"
+          }
+        ],
+        "fri": [
+          {
+            "open": "07:15",
+            "close": "16:00"
+          }
+        ],
+        "sat": [
+          {
+            "open": "07:15",
+            "close": "16:00"
+          }
+        ],
+        "sun": [
+          {
+            "open": "07:15",
+            "close": "16:00"
+          }
+        ]
+      },
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Pinki%27s%20Deli%20Bangkok",
+      "sources": [
+        "https://www.timeout.com/bangkok/restaurants/bangkok-best-new-cafes-of-2026"
+      ],
+      "verified": false
+    },
+    {
+      "id": "fimue-bangkok",
+      "name": "Fimue Bangkok",
+      "area": "Rama IV Road, Khlong Toei",
+      "zone": "Thonglor, Ekkamai & Phra Khanong",
+      "station": "BTS Phra Khanong",
+      "line": [
+        "BTS Sukhumvit"
+      ],
+      "lat": 13.71341,
+      "lng": 100.59146,
+      "price": 2,
+      "moods": [],
+      "features": [],
+      "description": "Neighbourhood café in a converted shophouse, known for its vanilla latte.",
+      "hours": "Mon–Fri 07:00–16:30; Sat–Sun 08:00–17:00",
+      "openingHours": {
+        "mon": [
+          {
+            "open": "07:00",
+            "close": "16:30"
+          }
+        ],
+        "tue": [
+          {
+            "open": "07:00",
+            "close": "16:30"
+          }
+        ],
+        "wed": [
+          {
+            "open": "07:00",
+            "close": "16:30"
+          }
+        ],
+        "thu": [
+          {
+            "open": "07:00",
+            "close": "16:30"
+          }
+        ],
+        "fri": [
+          {
+            "open": "07:00",
+            "close": "16:30"
+          }
+        ],
+        "sat": [
+          {
+            "open": "08:00",
+            "close": "17:00"
+          }
+        ],
+        "sun": [
+          {
+            "open": "08:00",
+            "close": "17:00"
+          }
+        ]
+      },
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Fimue%20Bangkok%20Bangkok",
+      "sources": [
+        "https://www.timeout.com/bangkok/restaurants/bangkok-best-new-cafes-of-2026"
+      ],
+      "verified": false
+    },
+    {
+      "id": "one-ounce-for-onion",
+      "name": "One Ounce for Onion",
+      "area": "Ekkamai",
+      "zone": "Thonglor, Ekkamai & Phra Khanong",
+      "station": "",
+      "line": [],
+      "lat": 13.73088,
+      "lng": 100.58981,
+      "price": 2,
+      "moods": [
+        "date"
+      ],
+      "features": [
+        "dessert",
+        "brunch"
+      ],
+      "description": "Small, relaxed café with espresso, cold brew, pastries and breakfast.",
+      "hours": "",
+      "openingHours": null,
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=One%20Ounce%20for%20Onion%20Bangkok",
+      "sources": [
+        "https://www.thatbangkoklife.com/best-coffee-shops-in-bangkok/",
+        "https://www.thewaytocoffee.com/bangkok-cafe-guide/"
+      ],
+      "verified": false
+    },
+    {
+      "id": "a-keen-house",
+      "name": "A Keen House",
+      "area": "Soi Suk Chai, Phra Khanong",
+      "zone": "Thonglor, Ekkamai & Phra Khanong",
+      "station": "BTS Ekkamai",
+      "line": [
+        "BTS Sukhumvit"
+      ],
+      "lat": 13.71699,
+      "lng": 100.58119,
+      "price": 3,
+      "moods": [
+        "aesthetic"
+      ],
+      "features": [
+        "brunch"
+      ],
+      "description": "Gallery-style café using northern Thai beans, with breakfast and rotating specials.",
+      "hours": "Daily 09:00–17:30",
+      "openingHours": {
+        "mon": [
+          {
+            "open": "09:00",
+            "close": "17:30"
+          }
+        ],
+        "tue": [
+          {
+            "open": "09:00",
+            "close": "17:30"
+          }
+        ],
+        "wed": [
+          {
+            "open": "09:00",
+            "close": "17:30"
+          }
+        ],
+        "thu": [
+          {
+            "open": "09:00",
+            "close": "17:30"
+          }
+        ],
+        "fri": [
+          {
+            "open": "09:00",
+            "close": "17:30"
+          }
+        ],
+        "sat": [
+          {
+            "open": "09:00",
+            "close": "17:30"
+          }
+        ],
+        "sun": [
+          {
+            "open": "09:00",
+            "close": "17:30"
+          }
+        ]
+      },
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=A%20Keen%20House%20Bangkok",
+      "sources": [
+        "https://thailandwithtereza.com/best-cafes-in-bangkok/"
+      ],
+      "verified": false
+    },
+    {
+      "id": "rawr-caf",
+      "name": "RAWR Café",
+      "area": "Phra Khanong",
+      "zone": "Thonglor, Ekkamai & Phra Khanong",
+      "station": "BTS Phra Khanong",
+      "line": [
+        "BTS Sukhumvit"
+      ],
+      "lat": 13.71395,
+      "lng": 100.59125,
+      "price": 2,
+      "moods": [
+        "green"
+      ],
+      "features": [
+        "garden",
+        "outdoor",
+        "dessert"
+      ],
+      "description": "Garden-style café with mostly outdoor tables, waffles and croffles. No Wi-Fi.",
+      "hours": "Daily 10:00–18:00",
+      "openingHours": {
+        "mon": [
+          {
+            "open": "10:00",
+            "close": "18:00"
+          }
+        ],
+        "tue": [
+          {
+            "open": "10:00",
+            "close": "18:00"
+          }
+        ],
+        "wed": [
+          {
+            "open": "10:00",
+            "close": "18:00"
+          }
+        ],
+        "thu": [
+          {
+            "open": "10:00",
+            "close": "18:00"
+          }
+        ],
+        "fri": [
+          {
+            "open": "10:00",
+            "close": "18:00"
+          }
+        ],
+        "sat": [
+          {
+            "open": "10:00",
+            "close": "18:00"
+          }
+        ],
+        "sun": [
+          {
+            "open": "10:00",
+            "close": "18:00"
+          }
+        ]
+      },
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=RAWR%20Caf%C3%A9%20Bangkok",
+      "sources": [
+        "https://thailandwithtereza.com/best-cafes-in-bangkok/"
+      ],
+      "verified": false
+    },
+    {
+      "id": "tai-hong-coffee",
+      "name": "Tai Hong Coffee",
+      "area": "Soi Saeng Chan, Phra Khanong",
+      "zone": "Thonglor, Ekkamai & Phra Khanong",
+      "station": "BTS Ekkamai",
+      "line": [
+        "BTS Sukhumvit"
+      ],
+      "lat": 13.71449,
+      "lng": 100.58281,
+      "price": 1,
+      "moods": [
+        "budget"
+      ],
+      "features": [],
+      "description": "Tiny retro café with four tables and coffee around ฿60.",
+      "hours": "07:30–14:30; closed Sunday",
+      "openingHours": {
+        "mon": [
+          {
+            "open": "07:30",
+            "close": "14:30"
+          }
+        ],
+        "tue": [
+          {
+            "open": "07:30",
+            "close": "14:30"
+          }
+        ],
+        "wed": [
+          {
+            "open": "07:30",
+            "close": "14:30"
+          }
+        ],
+        "thu": [
+          {
+            "open": "07:30",
+            "close": "14:30"
+          }
+        ],
+        "fri": [
+          {
+            "open": "07:30",
+            "close": "14:30"
+          }
+        ],
+        "sat": [
+          {
+            "open": "07:30",
+            "close": "14:30"
+          }
+        ],
+        "sun": []
+      },
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Tai%20Hong%20Coffee%20Bangkok",
+      "sources": [
+        "https://thailandwithtereza.com/best-cafes-in-bangkok/"
+      ],
+      "verified": false
+    },
+    {
+      "id": "phil-coffee-company",
+      "name": "Phil Coffee Company",
+      "area": "Sukhumvit 51",
+      "zone": "Thonglor, Ekkamai & Phra Khanong",
+      "station": "BTS Thong Lo",
+      "line": [
+        "BTS Sukhumvit"
+      ],
+      "lat": 13.7303,
+      "lng": 100.57659,
+      "price": 2,
+      "moods": [],
+      "features": [
+        "specialty"
+      ],
+      "description": "Roastery running since 2011 with single origins from Chiang Rai, Ethiopia, Rwanda and Kenya.",
+      "hours": "",
+      "openingHours": null,
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Phil%20Coffee%20Company%20Bangkok",
+      "sources": [
+        "https://www.thewaytocoffee.com/bangkok-cafe-guide/"
+      ],
+      "verified": false
+    },
+    {
+      "id": "karo-coffee-roasters",
+      "name": "Karo Coffee Roasters",
+      "area": "Pridi Banomyong 26",
+      "zone": "Thonglor, Ekkamai & Phra Khanong",
+      "station": "",
+      "line": [],
+      "lat": 13.72593,
+      "lng": 100.59984,
+      "price": 2,
+      "moods": [],
+      "features": [
+        "specialty"
+      ],
+      "description": "Tiger-branded roaster with direct links to farmers and a community feel.",
+      "hours": "",
+      "openingHours": null,
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Karo%20Coffee%20Roasters%20Bangkok",
+      "sources": [
+        "https://www.thewaytocoffee.com/bangkok-cafe-guide/"
+      ],
+      "verified": false
+    },
+    {
+      "id": "pacamara-thonglor",
+      "name": "Pacamara Thonglor",
+      "area": "Thonglor 25",
+      "zone": "Thonglor, Ekkamai & Phra Khanong",
+      "station": "",
+      "line": [],
+      "lat": 13.73983,
+      "lng": 100.58295,
+      "price": 2,
+      "moods": [
+        "work"
+      ],
+      "features": [
+        "specialty",
+        "brunch"
+      ],
+      "description": "Two-storey flagship of the Thai roaster, with a coffee lab and brunch.",
+      "hours": "",
+      "openingHours": null,
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Pacamara%20Thonglor%20Bangkok",
+      "sources": [
+        "https://www.thewaytocoffee.com/bangkok-cafe-guide/"
+      ],
+      "verified": false
+    },
+    {
+      "id": "li-bra-ry-caf",
+      "name": "Li-bra-ry Café",
+      "area": "Pridi Banomyong 26",
+      "zone": "Thonglor, Ekkamai & Phra Khanong",
+      "station": "",
+      "line": [],
+      "lat": 13.72607,
+      "lng": 100.6015,
+      "price": 2,
+      "moods": [
+        "work"
+      ],
+      "features": [
+        "books",
+        "wifi"
+      ],
+      "description": "Library-style café with power outlets at some tables.",
+      "hours": "",
+      "openingHours": null,
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Li-bra-ry%20Caf%C3%A9%20Bangkok",
+      "sources": [
+        "https://www.timeout.com/bangkok/shopping/best-bookstores"
+      ],
+      "verified": false
+    },
+    {
+      "id": "flo-bookstore",
+      "name": "Flo Bookstore",
+      "area": "Khlong Toei",
+      "zone": "Thonglor, Ekkamai & Phra Khanong",
+      "station": "BTS Thong Lo",
+      "line": [
+        "BTS Sukhumvit"
+      ],
+      "lat": 13.72364,
+      "lng": 100.57337,
+      "price": 2,
+      "moods": [
+        "aesthetic"
+      ],
+      "features": [
+        "books",
+        "specialty"
+      ],
+      "description": "Art and design bookshop inside a furniture showroom, with Livid Coffee Roaster.",
+      "hours": "",
+      "openingHours": null,
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Flo%20Bookstore%20Bangkok",
+      "sources": [
+        "https://www.timeout.com/bangkok/shopping/best-bookstores"
+      ],
+      "verified": false
+    },
+    {
+      "id": "baker-x-florist",
+      "name": "Baker x Florist",
+      "area": "Suan Luang",
+      "zone": "On Nut & Bang Na",
+      "station": "",
+      "line": [],
+      "lat": 13.7419,
+      "lng": 100.62661,
+      "price": 1,
+      "moods": [
+        "green",
+        "budget"
+      ],
+      "features": [
+        "brunch"
+      ],
+      "description": "Plant-filled bakery café with brunch.",
+      "hours": "Weekdays from 06:00",
+      "openingHours": null,
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Baker%20x%20Florist%20Bangkok",
+      "sources": [
+        "https://thailand.tripcanvas.co/bangkok/garden-cafes-restaurants/"
+      ],
+      "verified": false
+    },
+    {
+      "id": "the-66-cottage",
+      "name": "The 66 Cottage",
+      "area": "Sukhumvit Soi 66, Bang Na",
+      "zone": "On Nut & Bang Na",
+      "station": "BTS Udom Suk",
+      "line": [
+        "BTS Sukhumvit"
+      ],
+      "lat": 13.6824,
+      "lng": 100.60903,
+      "price": 2,
+      "moods": [
+        "green",
+        "date"
+      ],
+      "features": [
+        "garden"
+      ],
+      "description": "English-style garden with a fountain and plush indoor seats.",
+      "hours": "",
+      "openingHours": null,
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=The%2066%20Cottage%20Bangkok",
+      "sources": [
+        "https://thailand.tripcanvas.co/bangkok/garden-cafes-restaurants/"
+      ],
+      "verified": false
+    },
+    {
+      "id": "archive-coffee",
+      "name": "Archive Coffee",
+      "area": "Bang Na",
+      "zone": "On Nut & Bang Na",
+      "station": "",
+      "line": [],
+      "lat": 13.67134,
+      "lng": 100.61424,
+      "price": 2,
+      "moods": [
+        "aesthetic"
+      ],
+      "features": [],
+      "description": "Car-culture café attached to a luxury garage, with supercar-named drinks.",
+      "hours": "",
+      "openingHours": null,
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Archive%20Coffee%20Bangkok",
+      "sources": [
+        "https://www.thattravelblog.com/blog/best-cafes-in-bangkok/"
+      ],
+      "verified": false
+    },
+    {
+      "id": "kepler-bkk",
+      "name": "Kepler BKK",
+      "area": "Bang Na",
+      "zone": "On Nut & Bang Na",
+      "station": "",
+      "line": [],
+      "lat": 13.66098,
+      "lng": 100.60626,
+      "price": 2,
+      "moods": [
+        "aesthetic"
+      ],
+      "features": [],
+      "description": "Mid-century style café that also serves southern Thai curry rice.",
+      "hours": "",
+      "openingHours": null,
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Kepler%20BKK%20Bangkok",
+      "sources": [
+        "https://www.thattravelblog.com/blog/best-cafes-in-bangkok/"
+      ],
+      "verified": false
+    },
+    {
+      "id": "clay-wood-studio",
+      "name": "Clay Wood Studio",
+      "area": "Suan Luang",
+      "zone": "On Nut & Bang Na",
+      "station": "",
+      "line": [],
+      "lat": 13.74334,
+      "lng": 100.64715,
+      "price": 2,
+      "moods": [
+        "green",
+        "date"
+      ],
+      "features": [
+        "garden"
+      ],
+      "description": "Wooden-house café with a hands-on ceramics studio and a garden.",
+      "hours": "",
+      "openingHours": null,
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Clay%20Wood%20Studio%20Bangkok",
+      "sources": [
+        "https://www.thattravelblog.com/blog/best-cafes-in-bangkok/"
+      ],
+      "verified": false
+    },
+    {
+      "id": "batchworks-collective",
+      "name": "Batchworks Collective",
+      "area": "Sukhumvit 54, Phra Khanong",
+      "zone": "On Nut & Bang Na",
+      "station": "BTS On Nut",
+      "line": [
+        "BTS Sukhumvit"
+      ],
+      "lat": 13.69911,
+      "lng": 100.59649,
+      "price": 2,
+      "moods": [],
+      "features": [
+        "specialty"
+      ],
+      "description": "Small specialty bar serving beans from rotating guest roasters.",
+      "hours": "Mon, Thu, Fri 07:00–15:00; Sat–Sun 08:00–16:00; closed Tue–Wed",
+      "openingHours": {
+        "mon": [
+          {
+            "open": "07:00",
+            "close": "15:00"
+          }
+        ],
+        "tue": [],
+        "wed": [],
+        "thu": [
+          {
+            "open": "07:00",
+            "close": "15:00"
+          }
+        ],
+        "fri": [
+          {
+            "open": "07:00",
+            "close": "15:00"
+          }
+        ],
+        "sat": [
+          {
+            "open": "08:00",
+            "close": "16:00"
+          }
+        ],
+        "sun": [
+          {
+            "open": "08:00",
+            "close": "16:00"
+          }
+        ]
+      },
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Batchworks%20Collective%20Bangkok",
+      "sources": [
+        "https://www.timeout.com/bangkok/restaurants/bangkok-best-new-cafes-of-2026"
+      ],
+      "verified": false
+    },
+    {
+      "id": "unhour",
+      "name": "Unhour",
+      "area": "Srinakarin 16, Suan Luang",
+      "zone": "On Nut & Bang Na",
+      "station": "MRT Hua Mak",
+      "line": [
+        "MRT Yellow"
+      ],
+      "lat": 13.73644,
+      "lng": 100.64026,
+      "price": 2,
+      "moods": [
+        "work"
+      ],
+      "features": [
+        "quiet",
+        "wifi"
+      ],
+      "description": "Café and coworking space in a converted apartment block with bare concrete walls. Quietest before noon on weekdays.",
+      "hours": "Mon–Fri 07:00–19:00; Sat–Sun 08:00–20:00",
+      "openingHours": {
+        "mon": [
+          {
+            "open": "07:00",
+            "close": "19:00"
+          }
+        ],
+        "tue": [
+          {
+            "open": "07:00",
+            "close": "19:00"
+          }
+        ],
+        "wed": [
+          {
+            "open": "07:00",
+            "close": "19:00"
+          }
+        ],
+        "thu": [
+          {
+            "open": "07:00",
+            "close": "19:00"
+          }
+        ],
+        "fri": [
+          {
+            "open": "07:00",
+            "close": "19:00"
+          }
+        ],
+        "sat": [
+          {
+            "open": "08:00",
+            "close": "20:00"
+          }
+        ],
+        "sun": [
+          {
+            "open": "08:00",
+            "close": "20:00"
+          }
+        ]
+      },
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Unhour%20Bangkok",
+      "sources": [
+        "https://www.timeout.com/bangkok/restaurants/bangkok-best-new-cafes-of-2026"
+      ],
+      "verified": false
+    },
+    {
+      "id": "back-of-house-pattakarn",
+      "name": "Back of House Pattakarn",
+      "area": "Pattanakarn, Suan Luang",
+      "zone": "On Nut & Bang Na",
+      "station": "",
+      "line": [],
+      "lat": 13.7279,
+      "lng": 100.62041,
+      "price": 2,
+      "moods": [
+        "work"
+      ],
+      "features": [
+        "quiet"
+      ],
+      "description": "Cosy green-and-brown café with parking.",
+      "hours": "Daily 08:00–17:00",
+      "openingHours": {
+        "mon": [
+          {
+            "open": "08:00",
+            "close": "17:00"
+          }
+        ],
+        "tue": [
+          {
+            "open": "08:00",
+            "close": "17:00"
+          }
+        ],
+        "wed": [
+          {
+            "open": "08:00",
+            "close": "17:00"
+          }
+        ],
+        "thu": [
+          {
+            "open": "08:00",
+            "close": "17:00"
+          }
+        ],
+        "fri": [
+          {
+            "open": "08:00",
+            "close": "17:00"
+          }
+        ],
+        "sat": [
+          {
+            "open": "08:00",
+            "close": "17:00"
+          }
+        ],
+        "sun": [
+          {
+            "open": "08:00",
+            "close": "17:00"
+          }
+        ]
+      },
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Back%20of%20House%20Pattakarn%20Bangkok",
+      "sources": [
+        "https://www.timeout.com/bangkok/restaurants/bangkok-best-new-cafes-of-2026"
+      ],
+      "verified": false
+    },
+    {
+      "id": "apa-matcha",
+      "name": "APA Matcha",
+      "area": "Bang Chak",
+      "zone": "On Nut & Bang Na",
+      "station": "BTS Bang Chak",
+      "line": [
+        "BTS Sukhumvit"
+      ],
+      "lat": 13.69603,
+      "lng": 100.60624,
+      "price": 3,
+      "moods": [
+        "aesthetic"
+      ],
+      "features": [],
+      "description": "Matcha specialist serving several ceremonial-grade varieties.",
+      "hours": "Mon–Fri 09:00–17:00; Sat–Sun 10:00–18:00",
+      "openingHours": {
+        "mon": [
+          {
+            "open": "09:00",
+            "close": "17:00"
+          }
+        ],
+        "tue": [
+          {
+            "open": "09:00",
+            "close": "17:00"
+          }
+        ],
+        "wed": [
+          {
+            "open": "09:00",
+            "close": "17:00"
+          }
+        ],
+        "thu": [
+          {
+            "open": "09:00",
+            "close": "17:00"
+          }
+        ],
+        "fri": [
+          {
+            "open": "09:00",
+            "close": "17:00"
+          }
+        ],
+        "sat": [
+          {
+            "open": "10:00",
+            "close": "18:00"
+          }
+        ],
+        "sun": [
+          {
+            "open": "10:00",
+            "close": "18:00"
+          }
+        ]
+      },
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=APA%20Matcha%20Bangkok",
+      "sources": [
+        "https://thailandwithtereza.com/best-cafes-in-bangkok/"
+      ],
+      "verified": false
+    },
+    {
+      "id": "la-mesa-coffee-co",
+      "name": "La Mesa Coffee Co.",
+      "area": "Sukhumvit 68, Bang Na",
+      "zone": "On Nut & Bang Na",
+      "station": "BTS Udom Suk",
+      "line": [
+        "BTS Sukhumvit"
+      ],
+      "lat": 13.67729,
+      "lng": 100.60791,
+      "price": 2,
+      "moods": [
+        "work"
+      ],
+      "features": [
+        "specialty"
+      ],
+      "description": "Neighbourhood café with two espresso blends and cold brew.",
+      "hours": "",
+      "openingHours": null,
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=La%20Mesa%20Coffee%20Co.%20Bangkok",
+      "sources": [
+        "https://www.thewaytocoffee.com/bangkok-cafe-guide/"
+      ],
+      "verified": false
+    },
+    {
+      "id": "nana-coffee-roasters-ari",
+      "name": "Nana Coffee Roasters Ari",
+      "area": "Ari",
+      "zone": "Ari & Phaya Thai",
+      "station": "BTS Ari",
+      "line": [
+        "BTS Sukhumvit"
+      ],
+      "lat": 13.78264,
+      "lng": 100.54198,
+      "price": 2,
+      "moods": [
+        "green"
+      ],
+      "features": [
+        "specialty",
+        "garden",
+        "brunch"
+      ],
+      "description": "Serious pour-over bar with 30+ single origins, a garden and brunch.",
+      "hours": "",
+      "openingHours": null,
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Nana%20Coffee%20Roasters%20Ari%20Bangkok",
+      "sources": [
+        "https://www.thattravelblog.com/blog/best-cafes-in-bangkok/",
+        "https://www.visitthailandtoday.com/top-lists/best-cafes-bangkok"
+      ],
+      "verified": false
+    },
+    {
+      "id": "factory-coffee",
+      "name": "Factory Coffee",
+      "area": "Phaya Thai",
+      "zone": "Ari & Phaya Thai",
+      "station": "BTS Phaya Thai",
+      "line": [
+        "BTS Sukhumvit"
+      ],
+      "lat": 13.75945,
+      "lng": 100.53547,
+      "price": 2,
+      "moods": [],
+      "features": [
+        "specialty"
+      ],
+      "description": "Competition-level coffee with technique-driven signature drinks.",
+      "hours": "Closes 16:00",
+      "openingHours": null,
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Factory%20Coffee%20Bangkok",
+      "sources": [
+        "https://www.thattravelblog.com/blog/best-cafes-in-bangkok/",
+        "https://www.visitthailandtoday.com/top-lists/best-cafes-bangkok"
+      ],
+      "verified": false
+    },
+    {
+      "id": "mystery-hug",
+      "name": "Mystery Hug",
+      "area": "Near the railway, Phaya Thai",
+      "zone": "Ari & Phaya Thai",
+      "station": "",
+      "line": [],
+      "lat": 13.75415,
+      "lng": 100.51981,
+      "price": 2,
+      "moods": [
+        "aesthetic"
+      ],
+      "features": [],
+      "description": "Trains pass by about every 15 minutes. Also serves chicken wings.",
+      "hours": "",
+      "openingHours": null,
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Mystery%20Hug%20Bangkok",
+      "sources": [
+        "https://www.thattravelblog.com/blog/best-cafes-in-bangkok/"
+      ],
+      "verified": false
+    },
+    {
+      "id": "friends-and-duck",
+      "name": "Friends and Duck",
+      "area": "Sanam Pao",
+      "zone": "Ari & Phaya Thai",
+      "station": "BTS Sanam Pao",
+      "line": [
+        "BTS Sukhumvit"
+      ],
+      "lat": 13.7729,
+      "lng": 100.54247,
+      "price": 1,
+      "moods": [
+        "work",
+        "budget"
+      ],
+      "features": [],
+      "description": "Homey, affordable and work-friendly.",
+      "hours": "",
+      "openingHours": null,
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Friends%20and%20Duck%20Bangkok",
+      "sources": [
+        "https://www.thattravelblog.com/blog/best-cafes-in-bangkok/"
+      ],
+      "verified": false
+    },
+    {
+      "id": "kaffa-brunch-and-brew",
+      "name": "Kaffa: Brunch and Brew",
+      "area": "Josh Hotel, Ari",
+      "zone": "Ari & Phaya Thai",
+      "station": "BTS Ari",
+      "line": [
+        "BTS Sukhumvit"
+      ],
+      "lat": 13.7837,
+      "lng": 100.54408,
+      "price": 2,
+      "moods": [
+        "work",
+        "date"
+      ],
+      "features": [
+        "brunch"
+      ],
+      "description": "All-day espresso and brunch with poolside seats, laptop space and outlets.",
+      "hours": "",
+      "openingHours": null,
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Kaffa%3A%20Brunch%20and%20Brew%20Bangkok",
+      "sources": [
+        "https://www.thattravelblog.com/blog/best-cafes-in-bangkok/",
+        "https://www.driproast.com/bangkok-laptop-cafes-by-neighborhood/"
+      ],
+      "verified": false
+    },
+    {
+      "id": "landhaus-bakery",
+      "name": "Landhaus Bakery",
+      "area": "Ari",
+      "zone": "Ari & Phaya Thai",
+      "station": "BTS Ari",
+      "line": [
+        "BTS Sukhumvit"
+      ],
+      "lat": 13.77748,
+      "lng": 100.54104,
+      "price": 2,
+      "moods": [
+        "green"
+      ],
+      "features": [
+        "garden",
+        "brunch"
+      ],
+      "description": "German bakery in a white house with a garden and its own butcher.",
+      "hours": "",
+      "openingHours": null,
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Landhaus%20Bakery%20Bangkok",
+      "sources": [
+        "https://www.thattravelblog.com/blog/best-cafes-in-bangkok/"
+      ],
+      "verified": false
+    },
+    {
+      "id": "cafe-la-rose",
+      "name": "Cafe La Rose",
+      "area": "Phaya Thai",
+      "zone": "Ari & Phaya Thai",
+      "station": "",
+      "line": [],
+      "lat": 13.78252,
+      "lng": 100.53719,
+      "price": 2,
+      "moods": [
+        "date",
+        "aesthetic"
+      ],
+      "features": [
+        "outdoor"
+      ],
+      "description": "Floral décor with indoor and outdoor seating.",
+      "hours": "Tue–Sun 11:00–22:00",
+      "openingHours": {
+        "mon": [],
+        "tue": [
+          {
+            "open": "11:00",
+            "close": "22:00"
+          }
+        ],
+        "wed": [
+          {
+            "open": "11:00",
+            "close": "22:00"
+          }
+        ],
+        "thu": [
+          {
+            "open": "11:00",
+            "close": "22:00"
+          }
+        ],
+        "fri": [
+          {
+            "open": "11:00",
+            "close": "22:00"
+          }
+        ],
+        "sat": [
+          {
+            "open": "11:00",
+            "close": "22:00"
+          }
+        ],
+        "sun": [
+          {
+            "open": "11:00",
+            "close": "22:00"
+          }
+        ]
+      },
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Cafe%20La%20Rose%20Bangkok",
+      "sources": [
+        "https://thailand.tripcanvas.co/bangkok/garden-cafes-restaurants/"
+      ],
+      "verified": false
+    },
+    {
+      "id": "daydream-believer",
+      "name": "Daydream Believer",
+      "area": "Ari",
+      "zone": "Ari & Phaya Thai",
+      "station": "BTS Ari",
+      "line": [
+        "BTS Sukhumvit"
+      ],
+      "lat": 13.78491,
+      "lng": 100.54803,
+      "price": 2,
+      "moods": [
+        "green",
+        "aesthetic",
+        "date"
+      ],
+      "features": [],
+      "description": "Glass garden house with hanging ferns and lots of natural light.",
+      "hours": "Tue–Sun 10:00–21:30",
+      "openingHours": {
+        "mon": [],
+        "tue": [
+          {
+            "open": "10:00",
+            "close": "21:30"
+          }
+        ],
+        "wed": [
+          {
+            "open": "10:00",
+            "close": "21:30"
+          }
+        ],
+        "thu": [
+          {
+            "open": "10:00",
+            "close": "21:30"
+          }
+        ],
+        "fri": [
+          {
+            "open": "10:00",
+            "close": "21:30"
+          }
+        ],
+        "sat": [
+          {
+            "open": "10:00",
+            "close": "21:30"
+          }
+        ],
+        "sun": [
+          {
+            "open": "10:00",
+            "close": "21:30"
+          }
+        ]
+      },
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Daydream%20Believer%20Bangkok",
+      "sources": [
+        "https://thailand.tripcanvas.co/bangkok/garden-cafes-restaurants/"
+      ],
+      "verified": false
+    },
+    {
+      "id": "cafe-vondervic",
+      "name": "Cafe Vondervic",
+      "area": "Ari",
+      "zone": "Ari & Phaya Thai",
+      "station": "BTS Ari",
+      "line": [
+        "BTS Sukhumvit"
+      ],
+      "lat": 13.7823,
+      "lng": 100.54363,
+      "price": 2,
+      "moods": [
+        "aesthetic",
+        "work"
+      ],
+      "features": [
+        "dessert"
+      ],
+      "description": "Three floors of artsy seating and fresh pastries. Quiet on weekday mornings.",
+      "hours": "Daily 07:30–18:00",
+      "openingHours": {
+        "mon": [
+          {
+            "open": "07:30",
+            "close": "18:00"
+          }
+        ],
+        "tue": [
+          {
+            "open": "07:30",
+            "close": "18:00"
+          }
+        ],
+        "wed": [
+          {
+            "open": "07:30",
+            "close": "18:00"
+          }
+        ],
+        "thu": [
+          {
+            "open": "07:30",
+            "close": "18:00"
+          }
+        ],
+        "fri": [
+          {
+            "open": "07:30",
+            "close": "18:00"
+          }
+        ],
+        "sat": [
+          {
+            "open": "07:30",
+            "close": "18:00"
+          }
+        ],
+        "sun": [
+          {
+            "open": "07:30",
+            "close": "18:00"
+          }
+        ]
+      },
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Cafe%20Vondervic%20Bangkok",
+      "sources": [
+        "https://thailandwithtereza.com/best-cafes-in-bangkok/"
+      ],
+      "verified": false
+    },
+    {
+      "id": "coffee-no-9",
+      "name": "Coffee No. 9",
+      "area": "Ari 1",
+      "zone": "Ari & Phaya Thai",
+      "station": "BTS Ari",
+      "line": [
+        "BTS Sukhumvit"
+      ],
+      "lat": 13.77991,
+      "lng": 100.54384,
+      "price": 1,
+      "moods": [
+        "budget"
+      ],
+      "features": [],
+      "description": "Popular takeaway spot known for nitro cold brew.",
+      "hours": "",
+      "openingHours": null,
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Coffee%20No.%209%20Bangkok",
+      "sources": [
+        "https://www.thewaytocoffee.com/bangkok-cafe-guide/"
+      ],
+      "verified": false
+    },
+    {
+      "id": "klor-bkk",
+      "name": "Klor BKK",
+      "area": "Lat Phrao",
+      "zone": "Lat Phrao & North",
+      "station": "",
+      "line": [],
+      "lat": 13.80809,
+      "lng": 100.5979,
+      "price": 2,
+      "moods": [],
+      "features": [
+        "pets"
+      ],
+      "description": "Homey café in a former recording studio. Pet-friendly.",
+      "hours": "",
+      "openingHours": null,
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Klor%20BKK%20Bangkok",
+      "sources": [
+        "https://www.thattravelblog.com/blog/best-cafes-in-bangkok/"
+      ],
+      "verified": false
+    },
+    {
+      "id": "mansion-in-copenhagen",
+      "name": "Mansion in Copenhagen",
+      "area": "Lat Phrao",
+      "zone": "Lat Phrao & North",
+      "station": "",
+      "line": [],
+      "lat": 13.80776,
+      "lng": 100.60553,
+      "price": 2,
+      "moods": [
+        "date",
+        "aesthetic"
+      ],
+      "features": [
+        "rooftop"
+      ],
+      "description": "Danish mid-century décor, a vinyl corner and rooftop seats for sunset.",
+      "hours": "",
+      "openingHours": null,
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Mansion%20in%20Copenhagen%20Bangkok",
+      "sources": [
+        "https://www.thattravelblog.com/blog/best-cafes-in-bangkok/"
+      ],
+      "verified": false
+    },
+    {
+      "id": "beachboy-coffee",
+      "name": "Beachboy Coffee",
+      "area": "Lat Phrao",
+      "zone": "Lat Phrao & North",
+      "station": "",
+      "line": [],
+      "lat": 13.82311,
+      "lng": 100.61454,
+      "price": 2,
+      "moods": [
+        "work",
+        "aesthetic"
+      ],
+      "features": [
+        "quiet"
+      ],
+      "description": "Quiet slow bar with a book library and vintage décor.",
+      "hours": "",
+      "openingHours": null,
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Beachboy%20Coffee%20Bangkok",
+      "sources": [
+        "https://www.thattravelblog.com/blog/best-cafes-in-bangkok/"
+      ],
+      "verified": false
+    },
+    {
+      "id": "wood-caf",
+      "name": "Wood Café",
+      "area": "Lat Phrao",
+      "zone": "Lat Phrao & North",
+      "station": "",
+      "line": [],
+      "lat": 13.81876,
+      "lng": 100.59389,
+      "price": 3,
+      "moods": [
+        "date",
+        "green"
+      ],
+      "features": [
+        "garden"
+      ],
+      "description": "English cottage hidden in a garden, sometimes with live music.",
+      "hours": "Fri–Sun 11:30–21:00",
+      "openingHours": {
+        "mon": [],
+        "tue": [],
+        "wed": [],
+        "thu": [],
+        "fri": [
+          {
+            "open": "11:30",
+            "close": "21:00"
+          }
+        ],
+        "sat": [
+          {
+            "open": "11:30",
+            "close": "21:00"
+          }
+        ],
+        "sun": [
+          {
+            "open": "11:30",
+            "close": "21:00"
+          }
+        ]
+      },
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Wood%20Caf%C3%A9%20Bangkok",
+      "sources": [
+        "https://thailand.tripcanvas.co/bangkok/garden-cafes-restaurants/"
+      ],
+      "verified": false
+    },
+    {
+      "id": "rom-mai-ai-aoon",
+      "name": "Rom Mai Ai Aoon",
+      "area": "Lat Phrao",
+      "zone": "Lat Phrao & North",
+      "station": "",
+      "line": [],
+      "lat": 13.77189,
+      "lng": 100.61381,
+      "price": 2,
+      "moods": [
+        "green"
+      ],
+      "features": [
+        "outdoor"
+      ],
+      "description": "Greenhouse-style café with big windows and outdoor umbrella seating.",
+      "hours": "Daily 07:00–22:00",
+      "openingHours": {
+        "mon": [
+          {
+            "open": "07:00",
+            "close": "22:00"
+          }
+        ],
+        "tue": [
+          {
+            "open": "07:00",
+            "close": "22:00"
+          }
+        ],
+        "wed": [
+          {
+            "open": "07:00",
+            "close": "22:00"
+          }
+        ],
+        "thu": [
+          {
+            "open": "07:00",
+            "close": "22:00"
+          }
+        ],
+        "fri": [
+          {
+            "open": "07:00",
+            "close": "22:00"
+          }
+        ],
+        "sat": [
+          {
+            "open": "07:00",
+            "close": "22:00"
+          }
+        ],
+        "sun": [
+          {
+            "open": "07:00",
+            "close": "22:00"
+          }
+        ]
+      },
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Rom%20Mai%20Ai%20Aoon%20Bangkok",
+      "sources": [
+        "https://thailand.tripcanvas.co/bangkok/garden-cafes-restaurants/"
+      ],
+      "verified": false
+    },
+    {
+      "id": "portobello-desire",
+      "name": "Portobello & Desire",
+      "area": "Lat Phrao",
+      "zone": "Lat Phrao & North",
+      "station": "",
+      "line": [],
+      "lat": 13.82925,
+      "lng": 100.62143,
+      "price": 3,
+      "moods": [
+        "date",
+        "aesthetic"
+      ],
+      "features": [],
+      "description": "English summer-house style café decorated with roses.",
+      "hours": "",
+      "openingHours": null,
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Portobello%20%26%20Desire%20Bangkok",
+      "sources": [
+        "https://thailand.tripcanvas.co/bangkok/garden-cafes-restaurants/"
+      ],
+      "verified": false
+    },
+    {
+      "id": "plantation-caf",
+      "name": "Plantation Café",
+      "area": "Pud English Garden, Khlong Kum",
+      "zone": "Lat Phrao & North",
+      "station": "",
+      "line": [],
+      "lat": 13.82091,
+      "lng": 100.62712,
+      "price": 3,
+      "moods": [
+        "green",
+        "date"
+      ],
+      "features": [
+        "garden",
+        "specialty"
+      ],
+      "description": "Café inside an English garden, serving specialty coffee.",
+      "hours": "Closed Monday",
+      "openingHours": null,
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Plantation%20Caf%C3%A9%20Bangkok",
+      "sources": [
+        "https://thailand.tripcanvas.co/bangkok/garden-cafes-restaurants/"
+      ],
+      "verified": false
+    },
+    {
+      "id": "misstar-caf",
+      "name": "Misstar Café",
+      "area": "Sai Mai",
+      "zone": "Lat Phrao & North",
+      "station": "",
+      "line": [],
+      "lat": 13.88905,
+      "lng": 100.65761,
+      "price": 3,
+      "moods": [
+        "green"
+      ],
+      "features": [
+        "garden"
+      ],
+      "description": "Garden with a fountain, statues and flowers.",
+      "hours": "Tue–Sun 10:00–19:00",
+      "openingHours": {
+        "mon": [],
+        "tue": [
+          {
+            "open": "10:00",
+            "close": "19:00"
+          }
+        ],
+        "wed": [
+          {
+            "open": "10:00",
+            "close": "19:00"
+          }
+        ],
+        "thu": [
+          {
+            "open": "10:00",
+            "close": "19:00"
+          }
+        ],
+        "fri": [
+          {
+            "open": "10:00",
+            "close": "19:00"
+          }
+        ],
+        "sat": [
+          {
+            "open": "10:00",
+            "close": "19:00"
+          }
+        ],
+        "sun": [
+          {
+            "open": "10:00",
+            "close": "19:00"
+          }
+        ]
+      },
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Misstar%20Caf%C3%A9%20Bangkok",
+      "sources": [
+        "https://thailand.tripcanvas.co/bangkok/garden-cafes-restaurants/"
+      ],
+      "verified": false
+    },
+    {
+      "id": "la-bonne-cafe-wattana-mansion",
+      "name": "La Bonne Cafe (Wattana Mansion)",
+      "area": "Din Daeng",
+      "zone": "Lat Phrao & North",
+      "station": "",
+      "line": [],
+      "lat": 13.78625,
+      "lng": 100.57276,
+      "price": 1,
+      "moods": [
+        "work",
+        "green",
+        "budget"
+      ],
+      "features": [
+        "lateNight",
+        "garden",
+        "quiet"
+      ],
+      "description": "24-hour café with a quiet air-conditioned room, a garden and Thai dishes.",
+      "hours": "24 hours",
+      "openingHours": {
+        "mon": [
+          {
+            "open": "00:00",
+            "close": "24:00"
+          }
+        ],
+        "tue": [
+          {
+            "open": "00:00",
+            "close": "24:00"
+          }
+        ],
+        "wed": [
+          {
+            "open": "00:00",
+            "close": "24:00"
+          }
+        ],
+        "thu": [
+          {
+            "open": "00:00",
+            "close": "24:00"
+          }
+        ],
+        "fri": [
+          {
+            "open": "00:00",
+            "close": "24:00"
+          }
+        ],
+        "sat": [
+          {
+            "open": "00:00",
+            "close": "24:00"
+          }
+        ],
+        "sun": [
+          {
+            "open": "00:00",
+            "close": "24:00"
+          }
+        ]
+      },
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=La%20Bonne%20Cafe%20%28Wattana%20Mansion%29%20Bangkok",
+      "sources": [
+        "https://thethaiger.com/guides/best-of/food/cafe/24-hour-cafes-in-bangkok-for-work-and-relaxation"
+      ],
+      "verified": false
+    },
+    {
+      "id": "hollys-cafe-the-street-ratchada",
+      "name": "Hollys Cafe (The Street Ratchada)",
+      "area": "Din Daeng",
+      "zone": "Lat Phrao & North",
+      "station": "",
+      "line": [],
+      "lat": 13.77014,
+      "lng": 100.5721,
+      "price": 2,
+      "moods": [
+        "work"
+      ],
+      "features": [
+        "lateNight",
+        "outdoor"
+      ],
+      "description": "24-hour café with air-conditioned and open-air seating. Cash only.",
+      "hours": "24 hours",
+      "openingHours": {
+        "mon": [
+          {
+            "open": "00:00",
+            "close": "24:00"
+          }
+        ],
+        "tue": [
+          {
+            "open": "00:00",
+            "close": "24:00"
+          }
+        ],
+        "wed": [
+          {
+            "open": "00:00",
+            "close": "24:00"
+          }
+        ],
+        "thu": [
+          {
+            "open": "00:00",
+            "close": "24:00"
+          }
+        ],
+        "fri": [
+          {
+            "open": "00:00",
+            "close": "24:00"
+          }
+        ],
+        "sat": [
+          {
+            "open": "00:00",
+            "close": "24:00"
+          }
+        ],
+        "sun": [
+          {
+            "open": "00:00",
+            "close": "24:00"
+          }
+        ]
+      },
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Hollys%20Cafe%20%28The%20Street%20Ratchada%29%20Bangkok",
+      "sources": [
+        "https://thethaiger.com/guides/best-of/food/cafe/24-hour-cafes-in-bangkok-for-work-and-relaxation"
+      ],
+      "verified": false
+    },
+    {
+      "id": "bones-cafe",
+      "name": "Bones Cafe",
+      "area": "Yothin Phatthana, Bang Kapi",
+      "zone": "Lat Phrao & North",
+      "station": "",
+      "line": [],
+      "lat": 13.81449,
+      "lng": 100.62397,
+      "price": 2,
+      "moods": [
+        "work",
+        "aesthetic"
+      ],
+      "features": [
+        "quiet",
+        "dessert"
+      ],
+      "description": "Calm café with stone and wood furniture and fresh pastries.",
+      "hours": "Tue–Fri 07:30–16:30; Sat–Sun 08:30–17:30; closed Mon",
+      "openingHours": {
+        "mon": [],
+        "tue": [
+          {
+            "open": "07:30",
+            "close": "16:30"
+          }
+        ],
+        "wed": [
+          {
+            "open": "07:30",
+            "close": "16:30"
+          }
+        ],
+        "thu": [
+          {
+            "open": "07:30",
+            "close": "16:30"
+          }
+        ],
+        "fri": [
+          {
+            "open": "07:30",
+            "close": "16:30"
+          }
+        ],
+        "sat": [
+          {
+            "open": "08:30",
+            "close": "17:30"
+          }
+        ],
+        "sun": [
+          {
+            "open": "08:30",
+            "close": "17:30"
+          }
+        ]
+      },
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Bones%20Cafe%20Bangkok",
+      "sources": [
+        "https://www.timeout.com/bangkok/restaurants/bangkok-best-new-cafes-of-2026"
+      ],
+      "verified": false
+    },
+    {
+      "id": "norman-s-collective",
+      "name": "Norman's Collective",
+      "area": "Chatuchak",
+      "zone": "Lat Phrao & North",
+      "station": "MRT Kamphaeng Phet",
+      "line": [
+        "MRT Blue"
+      ],
+      "lat": 13.80218,
+      "lng": 100.55181,
+      "price": 2,
+      "moods": [
+        "aesthetic"
+      ],
+      "features": [],
+      "description": "Clothing studio and café, known for its burnt coconut water drink.",
+      "hours": "Wed–Sun 11:00–18:00; closed Mon–Tue",
+      "openingHours": {
+        "mon": [],
+        "tue": [],
+        "wed": [
+          {
+            "open": "11:00",
+            "close": "18:00"
+          }
+        ],
+        "thu": [
+          {
+            "open": "11:00",
+            "close": "18:00"
+          }
+        ],
+        "fri": [
+          {
+            "open": "11:00",
+            "close": "18:00"
+          }
+        ],
+        "sat": [
+          {
+            "open": "11:00",
+            "close": "18:00"
+          }
+        ],
+        "sun": [
+          {
+            "open": "11:00",
+            "close": "18:00"
+          }
+        ]
+      },
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Norman%27s%20Collective%20Bangkok",
+      "sources": [
+        "https://www.timeout.com/bangkok/restaurants/bangkok-best-new-cafes-of-2026"
+      ],
+      "verified": false
+    },
+    {
+      "id": "nana-coffee-roasters-niche-3",
+      "name": "Nana Coffee Roasters Niche 3",
+      "area": "Pradit Manutham Road",
+      "zone": "Lat Phrao & North",
+      "station": "",
+      "line": [],
+      "lat": 13.77638,
+      "lng": 100.60647,
+      "price": 2,
+      "moods": [
+        "work"
+      ],
+      "features": [
+        "specialty"
+      ],
+      "description": "Busy Nana branch with Modbar, siphon and nitro cold brew.",
+      "hours": "",
+      "openingHours": null,
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Nana%20Coffee%20Roasters%20Niche%203%20Bangkok",
+      "sources": [
+        "https://www.thewaytocoffee.com/bangkok-cafe-guide/"
+      ],
+      "verified": false
+    },
+    {
+      "id": "book-addicts-caf",
+      "name": "Book Addicts Café",
+      "area": "Bueng Kum",
+      "zone": "Lat Phrao & North",
+      "station": "",
+      "line": [],
+      "lat": 13.79506,
+      "lng": 100.6699,
+      "price": 1,
+      "moods": [
+        "budget"
+      ],
+      "features": [
+        "books"
+      ],
+      "description": "Second-hand English books and a kids' corner, with coffee and croissants.",
+      "hours": "",
+      "openingHours": null,
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Book%20Addicts%20Caf%C3%A9%20Bangkok",
+      "sources": [
+        "https://www.timeout.com/bangkok/shopping/best-bookstores"
+      ],
+      "verified": false
+    },
+    {
+      "id": "bagel-shop-yen-akat",
+      "name": "Bagel Shop (Yen Akat)",
+      "area": "Yen Akat",
+      "zone": "Silom, Sathorn & Riverside",
+      "station": "",
+      "line": [],
+      "lat": 13.71703,
+      "lng": 100.54733,
+      "price": 2,
+      "moods": [
+        "green"
+      ],
+      "features": [
+        "garden",
+        "brunch"
+      ],
+      "description": "Handmade bagels with garden-style seating.",
+      "hours": "",
+      "openingHours": null,
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Bagel%20Shop%20%28Yen%20Akat%29%20Bangkok",
+      "sources": [
+        "https://www.thattravelblog.com/blog/best-cafes-in-bangkok/"
+      ],
+      "verified": false
+    },
+    {
+      "id": "bo-bkk",
+      "name": "Bo.bkk",
+      "area": "Sathorn, near Lumphini Park",
+      "zone": "Silom, Sathorn & Riverside",
+      "station": "MRT Lumphini",
+      "line": [
+        "MRT Blue"
+      ],
+      "lat": 13.72358,
+      "lng": 100.54465,
+      "price": 2,
+      "moods": [
+        "date"
+      ],
+      "features": [
+        "pets",
+        "brunch"
+      ],
+      "description": "Bagel and coffee spot near Lumphini Park that welcomes pets and hosts Saturday morning group runs.",
+      "hours": "Mon, Tue, Thu 18:00–22:00; Fri–Sun 12:00–14:30 and 18:00–22:00; closed Wed",
+      "openingHours": {
+        "mon": [
+          {
+            "open": "18:00",
+            "close": "22:00"
+          }
+        ],
+        "tue": [
+          {
+            "open": "18:00",
+            "close": "22:00"
+          }
+        ],
+        "wed": [],
+        "thu": [
+          {
+            "open": "18:00",
+            "close": "22:00"
+          }
+        ],
+        "fri": [
+          {
+            "open": "12:00",
+            "close": "14:30"
+          },
+          {
+            "open": "18:00",
+            "close": "22:00"
+          }
+        ],
+        "sat": [
+          {
+            "open": "12:00",
+            "close": "14:30"
+          },
+          {
+            "open": "18:00",
+            "close": "22:00"
+          }
+        ],
+        "sun": [
+          {
+            "open": "12:00",
+            "close": "14:30"
+          },
+          {
+            "open": "18:00",
+            "close": "22:00"
+          }
+        ]
+      },
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Bo.bkk%20Bangkok",
+      "sources": [
+        "https://www.timeout.com/bangkok/restaurants/bangkok-best-new-cafes-of-2026"
+      ],
+      "verified": false
+    },
+    {
+      "id": "onibus-coffee-central-park",
+      "name": "Onibus Coffee Central Park",
+      "area": "Central Park, Saladaeng",
+      "zone": "Silom, Sathorn & Riverside",
+      "station": "MRT Silom",
+      "line": [
+        "MRT Blue"
+      ],
+      "lat": 13.7281,
+      "lng": 100.53708,
+      "price": 2,
+      "moods": [
+        "work",
+        "aesthetic"
+      ],
+      "features": [
+        "specialty"
+      ],
+      "description": "Japanese specialty roaster's branch with a soba salad on the menu and soft afternoon light.",
+      "hours": "Daily 09:00–20:00",
+      "openingHours": {
+        "mon": [
+          {
+            "open": "09:00",
+            "close": "20:00"
+          }
+        ],
+        "tue": [
+          {
+            "open": "09:00",
+            "close": "20:00"
+          }
+        ],
+        "wed": [
+          {
+            "open": "09:00",
+            "close": "20:00"
+          }
+        ],
+        "thu": [
+          {
+            "open": "09:00",
+            "close": "20:00"
+          }
+        ],
+        "fri": [
+          {
+            "open": "09:00",
+            "close": "20:00"
+          }
+        ],
+        "sat": [
+          {
+            "open": "09:00",
+            "close": "20:00"
+          }
+        ],
+        "sun": [
+          {
+            "open": "09:00",
+            "close": "20:00"
+          }
+        ]
+      },
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Onibus%20Coffee%20Central%20Park%20Bangkok",
+      "sources": [
+        "https://www.timeout.com/bangkok/restaurants/bangkok-best-new-cafes-of-2026"
+      ],
+      "verified": false
+    },
+    {
+      "id": "ksana-central-park",
+      "name": "Ksana Central Park",
+      "area": "Central Park, Saladaeng",
+      "zone": "Silom, Sathorn & Riverside",
+      "station": "MRT Silom",
+      "line": [
+        "MRT Blue"
+      ],
+      "lat": 13.72819,
+      "lng": 100.53816,
+      "price": 2,
+      "moods": [
+        "aesthetic",
+        "work"
+      ],
+      "features": [
+        "quiet"
+      ],
+      "description": "All-white matcha café with hand-whisked matcha. Quiet on weekdays.",
+      "hours": "Daily 10:00–22:00",
+      "openingHours": {
+        "mon": [
+          {
+            "open": "10:00",
+            "close": "22:00"
+          }
+        ],
+        "tue": [
+          {
+            "open": "10:00",
+            "close": "22:00"
+          }
+        ],
+        "wed": [
+          {
+            "open": "10:00",
+            "close": "22:00"
+          }
+        ],
+        "thu": [
+          {
+            "open": "10:00",
+            "close": "22:00"
+          }
+        ],
+        "fri": [
+          {
+            "open": "10:00",
+            "close": "22:00"
+          }
+        ],
+        "sat": [
+          {
+            "open": "10:00",
+            "close": "22:00"
+          }
+        ],
+        "sun": [
+          {
+            "open": "10:00",
+            "close": "22:00"
+          }
+        ]
+      },
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Ksana%20Central%20Park%20Bangkok",
+      "sources": [
+        "https://www.timeout.com/bangkok/restaurants/bangkok-best-new-cafes-of-2026"
+      ],
+      "verified": false
+    },
+    {
+      "id": "tfd-coffee",
+      "name": "TFD Coffee",
+      "area": "Soi Phiphat 2, Silom",
+      "zone": "Silom, Sathorn & Riverside",
+      "station": "BTS Sala Daeng",
+      "line": [
+        "BTS Silom"
+      ],
+      "lat": 13.72497,
+      "lng": 100.53258,
+      "price": 1,
+      "moods": [
+        "budget"
+      ],
+      "features": [
+        "outdoor"
+      ],
+      "description": "Small owner-run coffee spot with a few outdoor seats.",
+      "hours": "Daily 07:00–16:00",
+      "openingHours": {
+        "mon": [
+          {
+            "open": "07:00",
+            "close": "16:00"
+          }
+        ],
+        "tue": [
+          {
+            "open": "07:00",
+            "close": "16:00"
+          }
+        ],
+        "wed": [
+          {
+            "open": "07:00",
+            "close": "16:00"
+          }
+        ],
+        "thu": [
+          {
+            "open": "07:00",
+            "close": "16:00"
+          }
+        ],
+        "fri": [
+          {
+            "open": "07:00",
+            "close": "16:00"
+          }
+        ],
+        "sat": [
+          {
+            "open": "07:00",
+            "close": "16:00"
+          }
+        ],
+        "sun": [
+          {
+            "open": "07:00",
+            "close": "16:00"
+          }
+        ]
+      },
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=TFD%20Coffee%20Bangkok",
+      "sources": [
+        "https://www.timeout.com/bangkok/restaurants/bangkok-best-new-cafes-of-2026"
+      ],
+      "verified": false
+    },
+    {
+      "id": "rocket-coffeebar-sathorn-12",
+      "name": "Rocket Coffeebar Sathorn 12",
+      "area": "Sathorn Soi 12",
+      "zone": "Silom, Sathorn & Riverside",
+      "station": "BTS Saint Louis",
+      "line": [
+        "BTS Silom"
+      ],
+      "lat": 13.7228,
+      "lng": 100.52594,
+      "price": 3,
+      "moods": [
+        "work"
+      ],
+      "features": [
+        "brunch",
+        "specialty"
+      ],
+      "description": "Airy Scandinavian-style café with all-day breakfast and single origins including Thai beans.",
+      "hours": "",
+      "openingHours": null,
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Rocket%20Coffeebar%20Sathorn%2012%20Bangkok",
+      "sources": [
+        "https://www.thatbangkoklife.com/best-coffee-shops-in-bangkok/",
+        "https://www.thewaytocoffee.com/bangkok-cafe-guide/"
+      ],
+      "verified": false
+    },
+    {
+      "id": "unicorn-cafe",
+      "name": "Unicorn Cafe",
+      "area": "Silom",
+      "zone": "Silom, Sathorn & Riverside",
+      "station": "BTS Chong Nonsi",
+      "line": [
+        "BTS Silom"
+      ],
+      "lat": 13.72343,
+      "lng": 100.53122,
+      "price": 2,
+      "moods": [
+        "aesthetic"
+      ],
+      "features": [
+        "dessert"
+      ],
+      "description": "Colourful themed café with rainbow drinks and desserts. Here for the photos more than the coffee.",
+      "hours": "",
+      "openingHours": null,
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Unicorn%20Cafe%20Bangkok",
+      "sources": [
+        "https://www.thatbangkoklife.com/best-coffee-shops-in-bangkok/"
+      ],
+      "verified": false
+    },
+    {
+      "id": "la-cabra-bakery-silom",
+      "name": "La Cabra Bakery Silom",
+      "area": "Silom 3",
+      "zone": "Silom, Sathorn & Riverside",
+      "station": "BTS Chong Nonsi",
+      "line": [
+        "BTS Silom"
+      ],
+      "lat": 13.72681,
+      "lng": 100.53094,
+      "price": 3,
+      "moods": [
+        "date"
+      ],
+      "features": [
+        "specialty",
+        "dessert"
+      ],
+      "description": "Bakery café from the Danish roaster La Cabra, with hand brew and two single origins.",
+      "hours": "",
+      "openingHours": null,
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=La%20Cabra%20Bakery%20Silom%20Bangkok",
+      "sources": [
+        "https://www.thewaytocoffee.com/bangkok-cafe-guide/"
+      ],
+      "verified": false
+    },
+    {
+      "id": "pobnar",
+      "name": "Pobnar",
+      "area": "Convent Road, Silom",
+      "zone": "Silom, Sathorn & Riverside",
+      "station": "BTS Sala Daeng",
+      "line": [
+        "BTS Silom"
+      ],
+      "lat": 13.72673,
+      "lng": 100.53367,
+      "price": 2,
+      "moods": [
+        "aesthetic"
+      ],
+      "features": [
+        "specialty",
+        "pets"
+      ],
+      "description": "Hidden down a narrow alley, with its own roasted single origins and resident cats.",
+      "hours": "",
+      "openingHours": null,
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Pobnar%20Bangkok",
+      "sources": [
+        "https://www.thewaytocoffee.com/bangkok-cafe-guide/"
+      ],
+      "verified": false
+    },
+    {
+      "id": "balzac-bangkok",
+      "name": "Balzac Bangkok",
+      "area": "Charoen Krung",
+      "zone": "Silom, Sathorn & Riverside",
+      "station": "BTS Saphan Taksin",
+      "line": [
+        "BTS Silom"
+      ],
+      "lat": 13.71874,
+      "lng": 100.51517,
+      "price": 2,
+      "moods": [
+        "aesthetic",
+        "date"
+      ],
+      "features": [
+        "books",
+        "music"
+      ],
+      "description": "Three floors of books, art and café, with a vinyl corner and Wednesday film nights.",
+      "hours": "",
+      "openingHours": null,
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Balzac%20Bangkok%20Bangkok",
+      "sources": [
+        "https://www.timeout.com/bangkok/shopping/best-bookstores"
+      ],
+      "verified": false
+    },
+    {
+      "id": "nielson-hays-library-garden-caf",
+      "name": "Nielson Hays Library Garden Café",
+      "area": "Surawong",
+      "zone": "Silom, Sathorn & Riverside",
+      "station": "BTS Chong Nonsi",
+      "line": [
+        "BTS Silom"
+      ],
+      "lat": 13.72706,
+      "lng": 100.52295,
+      "price": 2,
+      "moods": [
+        "green",
+        "date"
+      ],
+      "features": [
+        "books",
+        "garden",
+        "quiet"
+      ],
+      "description": "Garden café at a historic early-1900s library with a rotating art gallery.",
+      "hours": "",
+      "openingHours": null,
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Nielson%20Hays%20Library%20Garden%20Caf%C3%A9%20Bangkok",
+      "sources": [
+        "https://www.timeout.com/bangkok/shopping/best-bookstores"
+      ],
+      "verified": false
+    },
+    {
+      "id": "fathom-bookspace",
+      "name": "Fathom Bookspace",
+      "area": "Suan Phlu, Sathorn",
+      "zone": "Silom, Sathorn & Riverside",
+      "station": "",
+      "line": [],
+      "lat": 13.71817,
+      "lng": 100.53916,
+      "price": 2,
+      "moods": [
+        "aesthetic"
+      ],
+      "features": [
+        "books",
+        "quiet"
+      ],
+      "description": "Bookshop with reader notes written in the books, a piano and rotating exhibitions.",
+      "hours": "",
+      "openingHours": null,
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Fathom%20Bookspace%20Bangkok",
+      "sources": [
+        "https://www.timeout.com/bangkok/shopping/best-bookstores"
+      ],
+      "verified": false
+    }
+  ]
+}

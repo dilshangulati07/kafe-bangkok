@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kafé Bangkok · find a café that fits your mood</title>
+  <meta name="description" content="Find a Bangkok café that fits your mood: a garden to sit in, a quiet place to work, a date spot or somewhere cheap and cheerful. Cafés ranked for you, with a note on why each one fits.">
+  <meta name="theme-color" content="#FBF7F0">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+
+  <!-- Open Graph: the title, text and picture shown when the link is shared.
+       og:image and og:url must be full addresses: change them to your Netlify address. -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Kafé Bangkok">
+  <meta property="og:title" content="Kafé Bangkok · find a café that fits your mood">
+  <meta property="og:description" content="Pick a mood and a part of town, and get Bangkok cafés ranked for you, with a note on why each one fits.">
+  <meta property="og:url" content="https://kafe-bangkok.netlify.app/">
+  <meta property="og:image" content="https://kafe-bangkok.netlify.app/images/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="An iced coffee and a navy hot cup, each with a K mark, floating in a soft morning sky next to the words Find your Bangkok café, today">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Fonts: Bricolage Grotesque (headings), Instrument Serif italic (accent words and notes), Manrope (text) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600..800&family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700&display=swap">
+  <!-- Manrope has no ฿ sign, so prices get it from Noto Sans Thai. "text=฿" asks
+       Google for a tiny file with only that one character in it. (When Thai is
+       switched on, js/i18n.js loads the whole of Noto Sans Thai for the Thai letters.) -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@500;700&text=%E0%B8%BF&display=swap">
+
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Runs straight away, before the page is drawn:
+       - adds a "js" class to <html>. The CSS uses it to turn the mobile menu
+         into a drop-down only when JavaScript is running.
+       - sets <html lang> to "th" or "en": the saved choice, or Thai for a first
+         visit from a browser set to Thai. Doing it here (not later in i18n.js)
+         means the page never flashes up in the wrong language's fonts. -->
+  <script>
+    document.documentElement.classList.add('js');
+    (function () {
+      var lang = null;
+      try { lang = JSON.parse(localStorage.getItem('kafe-bangkok:lang')); } catch (e) {}
+      if (lang !== 'en' && lang !== 'th') lang = /^th\b/i.test(navigator.language || '') ? 'th' : 'en';
+      document.documentElement.lang = lang;
+    })();
+  </script>
+  <script type="module" src="js/app.js"></script>
+</head>
+<body>
+  <!-- The English words below are for anyone without JavaScript. js/i18n.js
+       holds every word in English and Thai and fills in each data-i18n. -->
+  <a class="skip-link" href="#main" data-i18n="skip">Skip to content</a>
+
+  <!-- ============ Top bar ============ -->
+  <header class="topbar">
+    <div class="wrap topbar__inner">
+      <!-- "#top" always scrolls back to the top of the page -->
+      <a class="wordmark" href="#top">
+        <svg class="k-mark wordmark__mark" viewBox="0 0 28 28" aria-hidden="true">
+          <circle class="k-mark__disc" cx="14" cy="14" r="13"/>
+          <path class="k-mark__k" d="M10.5 8v12M10.5 14.6L17 8M12.4 13.1l5.1 6.9"/>
+        </svg>
+        Kafé Bangkok
+      </a>
+
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+        <svg class="icon icon--sm nav-toggle__open" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M4 7.5h16M4 12h12M4 16.5h16"/>
+        </svg>
+        <svg class="icon icon--sm nav-toggle__close" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M6.5 6.5l11 11M17.5 6.5l-11 11"/>
+        </svg>
+        <!-- On the narrowest phones the word is hidden (screen readers still hear it) -->
+        <span class="nav-toggle__label" data-i18n="nav.menu">Menu</span>
+        <!-- On phones the "Saved" link is inside this menu, so the saved count
+             sits on the button's corner instead. Shown once something is saved. -->
+        <span class="menu-count" data-saved-badge hidden>
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 19.5s-7.5-4.6-7.5-10A4.2 4.2 0 0 1 8.7 5.2c1.5 0 2.6.8 3.3 2 .7-1.2 1.8-2 3.3-2a4.2 4.2 0 0 1 4.2 4.3c0 5.4-7.5 10-7.5 10z"/>
+          </svg>
+          <span data-saved-count>0</span><span class="visually-hidden" data-i18n="nav.savedBadge"> saved</span>
+        </span>
+      </button>
+
+      <nav id="site-nav" class="site-nav" aria-label="Main" data-i18n-attr="aria-label:nav.label">
+        <ul>
+          <li><a class="nav-link" href="#finder" data-i18n="nav.find">Find a café</a></li>
+          <li><a class="nav-link" href="#neighbourhoods" data-i18n="nav.areas">Neighbourhoods</a></li>
+          <!-- A button, not a link: it opens the chat instead of going somewhere -->
+          <li><button class="nav-link" type="button" data-open-chat data-i18n="nav.barista">Ask the barista</button></li>
+          <!-- app.js fills in the count and shows it once something is saved -->
+          <li><a class="nav-link" href="#saved"><span data-i18n="nav.saved">Saved</span> <span class="nav-count" data-saved-badge hidden><span data-saved-count>0</span><span class="visually-hidden" data-i18n="nav.savedCount"> cafés</span></span></a></li>
+          <li><a class="nav-link" href="#suggest" data-i18n="nav.suggest">Suggest a café</a></li>
+        </ul>
+      </nav>
+
+      <!-- Thai / English. aria-pressed says which one is on. Each button's
+           lang lets screen readers say "ภาษาไทย" in a Thai voice. -->
+      <div class="lang-switch" role="group" aria-label="Language" data-i18n-attr="aria-label:lang.label">
+        <button type="button" class="lang-switch__option" data-lang="th" lang="th" aria-pressed="false">TH<span class="visually-hidden"> ภาษาไทย</span></button>
+        <button type="button" class="lang-switch__option" data-lang="en" lang="en" aria-pressed="true">EN<span class="visually-hidden"> English</span></button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- ============ Hero ============ -->
+    <section class="hero" aria-labelledby="hero-title">
+      <!-- The sky: soft clouds and a huge, faint line of words drifting sideways.
+           It's all decoration, so screen readers skip it (aria-hidden). -->
+      <div class="hero__sky" aria-hidden="true">
+        <span class="cloud cloud--1"></span>
+        <span class="cloud cloud--2"></span>
+        <span class="cloud cloud--3"></span>
+        <span class="cloud cloud--4"></span>
+        <div class="marquee">
+          <!-- The words are written twice. The line slides left by exactly one
+               copy, then starts again, so the loop never jumps. -->
+          <div class="marquee__track">
+            <span>Bangkok · 7:00 coffee · garden seats · late-night lattes ·&nbsp;</span>
+            <span>Bangkok · 7:00 coffee · garden seats · late-night lattes ·&nbsp;</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="wrap hero__inner">
+        <!-- Two small labels in the top corners. CSS makes them uppercase. -->
+        <div class="hero__labels">
+          <span class="pill-label">Kafé Bangkok<span class="pill-label__more" data-i18n="hero.pillMore"> · Café finder</span></span>
+          <!-- clock.js fills in Bangkok's time -->
+          <span class="pill-label pill-label--clock">
+            <span class="clock-dot" aria-hidden="true"></span>
+            <span class="visually-hidden" data-i18n="hero.timeIn">Time in Bangkok:</span>
+            <span aria-hidden="true" data-i18n="hero.city">Bangkok</span>
+            <time data-clock-time>--:--</time>
+          </span>
+        </div>
+
+        <h1 id="hero-title" class="hero__title" data-i18n-html="hero.title">Find your Bangkok café, <em>today</em>.</h1>
+
+        <!-- Two Kafé Bangkok cups, drawn in SVG, floating gently (see "Hero cups" in style.css) -->
+        <div class="hero__cups" role="img" aria-label="Two Kafé Bangkok cups: an iced coffee with a straw, and a navy hot cup with a lid" data-i18n-attr="aria-label:hero.cups">
+          <span class="cup-shadow cup-shadow--iced"></span>
+          <span class="cup-shadow cup-shadow--hot"></span>
+
+          <!-- Iced coffee in a clear cup -->
+          <div class="cup cup--iced">
+            <svg class="cup__svg" viewBox="0 0 160 240" aria-hidden="true" focusable="false">
+              <defs>
+                <clipPath id="iced-cup-inside">
+                  <path d="M21 60 L35.5 222 Q36.5 229 44 229 L116 229 Q123.5 229 124.5 222 L139 60 Z"/>
+                </clipPath>
+              </defs>
+              <!-- the straw first, so the clear cup sits over its lower part -->
+              <rect class="cup-straw" x="92" y="2" width="10" height="132" rx="5" transform="rotate(10 97 68)"/>
+              <!-- the drink: milk on top, coffee below, a few ice cubes -->
+              <g clip-path="url(#iced-cup-inside)">
+                <rect class="cup-milk" x="0" y="92" width="160" height="150"/>
+                <path class="cup-coffee" d="M0 138 C30 126 52 150 82 138 C108 128 128 142 160 132 V240 H0 Z"/>
+                <rect class="cup-ice" x="38" y="78" width="26" height="26" rx="6" transform="rotate(-14 51 91)"/>
+                <rect class="cup-ice" x="72" y="72" width="28" height="28" rx="6" transform="rotate(9 86 86)"/>
+                <rect class="cup-ice" x="104" y="84" width="22" height="22" rx="5" transform="rotate(-6 115 95)"/>
+              </g>
+              <!-- the clear plastic cup, a shine, our K mark and the lid -->
+              <path class="cup-glass" d="M21 60 L35.5 222 Q36.5 229 44 229 L116 229 Q123.5 229 124.5 222 L139 60 Z"/>
+              <path class="cup-shine" d="M34 78 L45 206"/>
+              <circle class="cup-badge" cx="80" cy="172" r="22"/>
+              <path class="cup-k" d="M73 160 V184 M73 173 L86.5 160 M76.5 170 L87.5 184"/>
+              <rect class="cup-lid cup-lid--clear" x="14" y="50" width="132" height="12" rx="6"/>
+            </svg>
+          </div>
+
+          <!-- Navy paper hot cup with a lid -->
+          <div class="cup cup--hot">
+            <svg class="cup__svg" viewBox="0 0 160 240" aria-hidden="true" focusable="false">
+              <path class="cup-steam" d="M68 32 C60 22 76 16 68 4"/>
+              <path class="cup-steam cup-steam--2" d="M92 34 C84 24 100 18 92 6"/>
+              <path class="cup-paper" d="M28 70 L42 226 Q43 233 50 233 L110 233 Q117 233 118 226 L132 70 Z"/>
+              <path class="cup-shine cup-shine--soft" d="M44 86 L53 212"/>
+              <!-- the cardboard sleeve, with our K mark -->
+              <path class="cup-sleeve" d="M32.3 118 H127.7 L122 182 H38 Z"/>
+              <circle class="cup-badge" cx="80" cy="150" r="21"/>
+              <path class="cup-k" d="M73 138.5 V161.5 M73 151 L86 138.5 M76.5 148 L87 161.5"/>
+              <!-- the lid: a dome on a rim, with a sip hole -->
+              <path class="cup-lid" d="M34 58 C36 45 48 40 80 40 C112 40 124 45 126 58 Z"/>
+              <rect class="cup-lid" x="22" y="56" width="116" height="15" rx="7.5"/>
+              <path class="cup-sip" d="M96 49 H110"/>
+            </svg>
+          </div>
+        </div>
+
+        <div class="hero__body">
+          <!-- clock.js changes this line with the time of day in Bangkok -->
+          <p class="hero__greeting" data-greeting>Good morning. Here's where to get your first cup.</p>
+          <p class="hero__lead" data-i18n="hero.lead">Pick a mood and a part of town, and we'll match you with a café: a garden in Ari, a quiet desk in Thonglor, a seat by the river in Thonburi.</p>
+
+          <div class="hero__actions">
+            <a class="btn btn--primary" href="#finder">
+              <span data-i18n="hero.find">Find my café</span>
+              <svg class="icon icon--sm" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 5v13M6.5 12.5 12 18l5.5-5.5"/>
+              </svg>
+            </a>
+            <button class="btn btn--secondary" type="button" data-open-chat>
+              <svg class="icon icon--sm" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M5 5.5h14A1.5 1.5 0 0 1 20.5 7v8a1.5 1.5 0 0 1-1.5 1.5h-9l-4 3.5v-3.5H5A1.5 1.5 0 0 1 3.5 15V7A1.5 1.5 0 0 1 5 5.5z"/>
+              </svg>
+              <span data-i18n="hero.ask">Ask the barista</span>
+            </button>
+            <!-- Only at night: clock.js shows it, app.js ticks "Open late / 24h" -->
+            <button class="btn btn--night" type="button" data-open-late hidden>
+              <svg class="icon icon--sm" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M19.5 14.6A8 8 0 0 1 9.4 4.5a8 8 0 1 0 10.1 10.1z"/>
+              </svg>
+              <span data-i18n="hero.openLate">Open late right now</span>
+            </button>
+          </div>
+
+          <!-- app.js fills this in from cafes.json (e.g. "95 cafés across 9 neighbourhoods"), so it is always right -->
+          <p class="hero__meta" data-cafe-summary hidden></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Café of the day ============
+         One café a day, the same for everyone: app.js picks it from today's
+         date in Bangkok and ui.js fills it in. Hidden until the data loads. -->
+    <section id="today" class="today" aria-labelledby="today-title" hidden>
+      <div class="wrap today__inner">
+        <div class="today__label">
+          <h2 id="today-title" class="today__heading" data-i18n="today.heading">Café of the day</h2>
+          <p class="today__date"><time data-today-date></time></p>
+        </div>
+        <div class="today__cafe" data-today-cafe></div>
+      </div>
+    </section>
+
+    <!-- ============ Finder ============ -->
+    <section id="finder" class="section" aria-labelledby="finder-title">
+      <div class="wrap">
+        <p class="section-label" aria-hidden="true" data-i18n="finder.label">01 / Find</p>
+        <h2 id="finder-title" data-i18n="finder.title">Find a café</h2>
+        <p class="section__intro" data-i18n="finder.intro">Pick a mood, add a must-have or two, and choose a part of town. The best matches come first.</p>
+
+        <!-- Shows a message if cafes.json fails to load -->
+        <p class="load-status" data-load-status role="status"></p>
+
+        <!-- Hidden until the café data has loaded (app.js removes "hidden") -->
+        <div id="finder-app" hidden>
+          <!-- The filters are one form. Every time anything in it changes,
+               app.js reads the whole form into a single `prefs` object.
+               The mood cards, chips, areas and prices are built from cafes.json. -->
+          <form id="filters" class="filters" aria-label="Café filters" data-i18n-attr="aria-label:finder.form">
+
+            <fieldset class="filter-group">
+              <legend class="filter-group__legend" data-i18n="finder.moodLegend">What are you in the mood for?</legend>
+              <p class="filter-group__hint" data-i18n="finder.moodHint">Pick as many as you like.</p>
+              <div id="mood-options" class="pill-list"></div>
+            </fieldset>
+
+            <fieldset class="filter-group">
+              <legend class="filter-group__legend" data-i18n="finder.mustLegend">Must-haves</legend>
+              <p class="filter-group__hint" data-i18n="finder.mustHint">Tick anything you'd really miss. We'll only show cafés with all of them.</p>
+              <div id="feature-options" class="chip-list"></div>
+            </fieldset>
+
+            <div class="filter-row">
+              <div class="field">
+                <label class="field__label" for="zone" data-i18n="finder.area">Area</label>
+                <select id="zone" name="zone" class="select"></select>
+              </div>
+
+              <!-- BTS/MRT lines come from meta.lines in cafes.json (ui.js fills this in) -->
+              <div class="field">
+                <label class="field__label" for="line" data-i18n="finder.line">Line</label>
+                <select id="line" name="line" class="select"></select>
+              </div>
+
+              <fieldset class="field">
+                <legend class="field__label" data-i18n="finder.maxPrice">Max price</legend>
+                <div id="price-options" class="segmented"></div>
+              </fieldset>
+
+              <div class="field">
+                <span class="field__label" data-i18n="finder.gettingThere">Getting there</span>
+                <label class="switch">
+                  <input class="visually-hidden" type="checkbox" role="switch" name="nearStation" value="yes">
+                  <span class="switch__track" aria-hidden="true"></span>
+                  <span data-i18n="finder.nearStation">Near BTS/MRT</span>
+                </label>
+              </div>
+
+              <div class="field">
+                <span class="field__label" data-i18n="finder.hours">Opening hours</span>
+                <label class="switch">
+                  <input class="visually-hidden" type="checkbox" role="switch" name="openNow" value="yes" aria-describedby="open-now-hint">
+                  <span class="switch__track" aria-hidden="true"></span>
+                  <span data-i18n="finder.openNow">Open now</span>
+                </label>
+                <p id="open-now-hint" class="field__hint" data-i18n="finder.openNowHint">Bangkok time. Cafés with unknown hours are hidden.</p>
+              </div>
+
+              <div class="field">
+                <label class="field__label" for="search" data-i18n="finder.search">Search</label>
+                <div class="search">
+                  <svg class="icon icon--sm search__icon" viewBox="0 0 24 24" aria-hidden="true">
+                    <circle cx="10.5" cy="10.5" r="6"/>
+                    <path d="M15 15l5 5"/>
+                  </svg>
+                  <input id="search" name="query" type="search" class="input" placeholder="Café name or area" autocomplete="off" data-i18n-attr="placeholder:finder.searchPlaceholder">
+                </div>
+              </div>
+            </div>
+
+            <div class="filters__foot">
+              <!-- Copies the page address, which holds these filters (see "Shareable links" in app.js) -->
+              <button type="button" class="link-button copy-link" data-copy-link>
+                <span data-copy-label data-i18n="finder.copyLink">Copy link</span>
+              </button>
+              <p class="visually-hidden" role="status" data-copy-status></p>
+              <button type="button" class="link-button" data-clear-filters data-i18n="finder.clearAll">Clear all</button>
+            </div>
+          </form>
+
+          <div id="results-bar" class="results-bar">
+            <!-- aria-live: screen readers announce the new count after each change -->
+            <p id="result-count" class="results-bar__count" aria-live="polite" tabindex="-1"></p>
+            <div class="results-bar__tools">
+              <!-- List or Map. aria-pressed tells screen readers which one is on. -->
+              <div class="view-switch" role="group" aria-label="Show results as" data-i18n-attr="aria-label:results.view">
+                <button type="button" class="view-switch__option" data-view="list" aria-pressed="true" data-i18n="results.list">List</button>
+                <button type="button" class="view-switch__option" data-view="map" aria-pressed="false" data-i18n="results.map">Map</button>
+              </div>
+              <!-- Opens a random café from the top 10. The steam puffs when pressed. -->
+              <button type="button" class="btn btn--secondary btn--small surprise" data-surprise aria-haspopup="dialog">
+                <svg class="icon icon--sm" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M5 10h12v4a5 5 0 0 1-5 5h-2a5 5 0 0 1-5-5z"/>
+                  <path d="M17 11.5h1.2a2.3 2.3 0 0 1 0 4.6h-1.6"/>
+                  <path class="surprise__steam" d="M9.5 3.8c-.8 1 .8 1.8 0 3.2"/>
+                  <path class="surprise__steam surprise__steam--2" d="M13 3c-.8 1.1.8 2 0 3.5"/>
+                </svg>
+                <span data-i18n="results.surprise">Surprise me</span>
+              </button>
+              <div class="sort">
+                <label for="sort" data-i18n="results.sortBy">Sort by</label>
+                <select id="sort" class="select select--small">
+                  <option value="best" data-i18n="results.sortBest">Best match</option>
+                  <option value="price" data-i18n="results.sortPrice">Price, low to high</option>
+                  <option value="name" data-i18n="results.sortName">Name, A to Z</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <!-- An ordered list, because the results are a ranking -->
+          <ol id="results" class="results" aria-label="Café results" data-i18n-attr="aria-label:results.label"></ol>
+
+          <!-- Results are drawn 24 at a time; this adds the next 24 -->
+          <div class="results-more" data-show-more hidden>
+            <button type="button" class="btn btn--secondary" data-i18n="results.showMore">Show more cafés</button>
+          </div>
+
+          <!-- The Map view: the same filtered cafés as small pins (see js/map.js).
+               Leaflet draws the map inside #map-canvas the first time it's opened. -->
+          <div id="results-map" class="results-map map-frame" hidden>
+            <div id="map-canvas" class="results-map__canvas" role="region" aria-label="Map of the cafés in your results" data-i18n-attr="aria-label:map.label"></div>
+            <!-- What the three kinds of pin mean. map.js fills in the words and counts
+                 once the OpenStreetMap cafés are on the map. -->
+            <ul class="map-legend" data-map-legend aria-label="Map key" data-i18n-attr="aria-label:map.legend" hidden>
+              <li class="map-legend__item map-legend__item--picked" data-legend="picked"></li>
+              <li class="map-legend__item map-legend__item--local" data-legend="local"></li>
+              <li class="map-legend__item map-legend__item--chain" data-legend="chain"></li>
+            </ul>
+            <p class="results-map__note" data-map-note role="status"></p>
+          </div>
+
+          <div id="empty-state" class="empty-state" hidden>
+            <h3 class="empty-state__title">No café fits all of that</h3>
+            <p class="empty-state__text">Try another area, a higher price or a shorter search, or switch off “Near BTS/MRT”.</p>
+            <button class="btn btn--secondary" type="button" data-clear-filters data-i18n="empty.clear">Clear filters</button>
+          </div>
+
+          <!-- More cafés, from OpenStreetMap (js/osm.js; credited in the footer and
+               the map's corner only). data/osm-cafes.json is
+               only downloaded when "Show more cafés" is pressed or the map opens.
+               Then the heading gets its count ("Also nearby: 412 more cafés…"),
+               the chains switch appears, and the cards go in the list below. -->
+          <section class="more-cafes" aria-labelledby="more-title">
+            <h3 id="more-title" class="more-cafes__title" tabindex="-1" data-more-title data-i18n="more.titleIdle">More cafés nearby</h3>
+            <p class="more-cafes__note" data-i18n="more.note">Moods, must-haves and price can't apply to these, as we haven't tagged them. Area, line, near BTS/MRT, open now and search do.</p>
+
+            <div class="more-cafes__controls" data-more-controls hidden>
+              <label class="switch">
+                <input class="visually-hidden" type="checkbox" role="switch" data-chains>
+                <span class="switch__track" aria-hidden="true"></span>
+                <span data-i18n="more.chains">Include chains (Starbucks, Amazon…)</span>
+              </label>
+              <!-- Shown while "Include chains" is on: every chain brand, biggest first -->
+              <div class="field more-cafes__brand" data-brand-field hidden>
+                <label class="field__label" for="brand" data-i18n="more.brand">Brand</label>
+                <select id="brand" class="select select--small" data-brand></select>
+              </div>
+            </div>
+
+            <p class="more-cafes__status" data-more-status role="status"></p>
+            <button class="btn btn--secondary more-cafes__open" type="button" data-more-open data-i18n="more.show">Show more cafés nearby</button>
+
+            <ol class="results more-cafes__list" data-more-list aria-label="More cafés nearby" data-i18n-attr="aria-label:more.list" hidden></ol>
+            <p class="more-cafes__empty" data-more-empty data-i18n="more.empty" hidden>No more cafés nearby fit these filters.</p>
+            <div class="results-more" data-more-next hidden>
+              <button type="button" class="btn btn--secondary"></button>
+            </div>
+          </section>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Neighbourhoods ============ -->
+    <section id="neighbourhoods" class="section" aria-labelledby="neighbourhoods-title">
+      <div class="wrap">
+        <p class="section-label" aria-hidden="true" data-i18n="areas.label">02 / Areas</p>
+        <h2 id="neighbourhoods-title" data-i18n="areas.title">Neighbourhoods</h2>
+        <p class="section__intro" data-i18n="areas.intro">Every part of town has its own café habits. Pick one to see its cafés.</p>
+        <!-- ui.js builds a card for each zone in cafes.json -->
+        <ul id="zone-list" class="zone-grid"></ul>
+      </div>
+    </section>
+
+    <!-- ============ Café crawl ============ -->
+    <section id="crawl" class="section" aria-labelledby="crawl-title">
+      <div class="wrap">
+        <p class="section-label" aria-hidden="true" data-i18n="crawl.label">03 / Crawl</p>
+        <h2 id="crawl-title" data-i18n="crawl.title">Plan a café crawl</h2>
+        <p class="section__intro" data-i18n="crawl.intro">Pick where to start and a mood. We'll line up two to four cafés close to each other, in the order with the least walking.</p>
+
+        <!-- Hidden until the café data has loaded (crawl.js removes "hidden").
+             crawl.js fills in the moods and the starting points from cafes.json. -->
+        <div id="crawl-app" hidden>
+          <form id="crawl-form" class="filters crawl-form" aria-label="Plan a café crawl" data-i18n-attr="aria-label:crawl.form">
+            <fieldset class="filter-group">
+              <legend class="filter-group__legend" data-i18n="crawl.mood">Mood</legend>
+              <p class="filter-group__hint" data-i18n="crawl.moodHint">Every stop will have this one.</p>
+              <div class="pill-list" data-crawl-moods></div>
+            </fieldset>
+
+            <div class="filter-row">
+              <div class="field">
+                <label class="field__label" for="crawl-start" data-i18n="crawl.start">Start from</label>
+                <select id="crawl-start" name="start" class="select"></select>
+              </div>
+
+              <fieldset class="field">
+                <legend class="field__label" data-i18n="crawl.stops">Stops</legend>
+                <div class="segmented">
+                  <label class="segmented__option"><input class="visually-hidden" type="radio" name="stops" value="2">2</label>
+                  <label class="segmented__option"><input class="visually-hidden" type="radio" name="stops" value="3" checked>3</label>
+                  <label class="segmented__option"><input class="visually-hidden" type="radio" name="stops" value="4">4</label>
+                </div>
+              </fieldset>
+
+              <div class="field crawl-form__submit">
+                <button type="submit" class="btn btn--primary" data-i18n="crawl.plan">Plan my crawl</button>
+              </div>
+            </div>
+          </form>
+
+          <!-- The plan. crawl.js fills it in and shows it after "Plan my crawl". -->
+          <div id="crawl-result" class="crawl" hidden>
+            <!-- tabindex="-1": crawl.js moves focus here, so screen readers read the new plan -->
+            <h3 class="crawl__title" tabindex="-1" data-crawl-title></h3>
+            <p class="crawl__meta" data-crawl-meta></p>
+            <p class="crawl__note" data-crawl-note></p>
+
+            <div class="crawl__layout" data-crawl-layout>
+              <div class="crawl__route">
+                <!-- An ordered list, because the stops are a route: 1, then 2, then 3 -->
+                <ol class="crawl__stops" aria-label="Stops, in order" data-i18n-attr="aria-label:crawl.stopsLabel" data-crawl-stops></ol>
+                <!-- crawl.js sets the address (and adds the arrow icon) -->
+                <a class="btn btn--primary crawl__maps" href="https://www.google.com/maps" target="_blank" rel="noopener noreferrer" data-crawl-maps>
+                  <span data-i18n="crawl.openRoute">Open route in Google Maps</span><span class="visually-hidden" data-i18n="newTab"> (opens in a new tab)</span>
+                </a>
+              </div>
+
+              <!-- The same stops as numbered pins (js/map.js, showCrawlMap) -->
+              <div class="crawl__map map-frame">
+                <div id="crawl-map" class="crawl__canvas" role="region" aria-label="Map of your café crawl" data-i18n-attr="aria-label:crawl.mapLabel"></div>
+                <p class="results-map__note" data-crawl-map-note role="status"></p>
+              </div>
+            </div>
+          </div>
+          <!-- Says "Stop 2 is now …" to screen readers after a swap -->
+          <p class="visually-hidden" role="status" data-crawl-status></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Saved ============ -->
+    <section id="saved" class="section" aria-labelledby="saved-title">
+      <div class="wrap">
+        <p class="section-label" aria-hidden="true" data-i18n="saved.label">04 / Saved</p>
+        <!-- tabindex="-1": app.js can move focus here (after un-hearting a café in this list) -->
+        <h2 id="saved-title" tabindex="-1" data-i18n="saved.title">Saved</h2>
+        <!-- ui.js writes the summary, e.g. "3 cafés saved, 1 of them visited." -->
+        <p id="saved-summary" class="section__intro">Cafés you heart will wait for you here.</p>
+
+        <!-- Café passport: ui.js fills in the progress and a stamp per visited neighbourhood -->
+        <div class="passport">
+          <h3 class="passport__title" data-i18n="passport.title">Café passport</h3>
+          <p id="passport-progress" class="passport__progress"></p>
+          <div class="passport__bar" aria-hidden="true"><span></span></div>
+          <ul id="passport-stamps" class="passport__stamps" aria-label="Neighbourhood stamps" data-i18n-attr="aria-label:passport.stamps"></ul>
+          <p id="passport-note" class="passport__note"></p>
+        </div>
+
+        <ol id="saved-list" class="results saved-list" aria-label="Saved cafés" data-i18n-attr="aria-label:saved.list" hidden></ol>
+
+        <div id="saved-empty" class="empty-state" hidden>
+          <h3 class="empty-state__title" data-i18n="saved.emptyTitle">Nothing saved yet</h3>
+          <p class="empty-state__text" data-i18n="saved.emptyText">Tap the heart on any café and it'll wait for you here, on this device.</p>
+          <a class="btn btn--secondary" href="#finder" data-i18n="saved.emptyButton">Find a café</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Café stats ============ -->
+    <section id="stats" class="section" aria-labelledby="stats-title">
+      <div class="wrap">
+        <p class="section-label" aria-hidden="true" data-i18n="stats.label">05 / Stats</p>
+        <h2 id="stats-title" data-i18n="stats.title">Café stats</h2>
+        <p class="section__intro" data-i18n="stats.intro">The list in numbers. Every figure is counted straight from the café data.</p>
+        <!-- ui.js draws the charts here (plain HTML and CSS bars), counted by app.js from cafes.json -->
+        <div class="stats" data-stats></div>
+      </div>
+    </section>
+
+    <!-- ============ How it works ============ -->
+    <section id="how-it-works" class="section how" aria-labelledby="how-title">
+      <div class="wrap">
+        <p class="section-label" aria-hidden="true" data-i18n="how.label">06 / How it works</p>
+        <h2 id="how-title" data-i18n="how.title">How it works</h2>
+        <p class="section__intro" data-i18n="how.intro">Three small steps, and the list sorts itself.</p>
+
+        <ol class="how__steps">
+          <li class="how__step">
+            <span class="how__num" aria-hidden="true">01</span>
+            <h3 class="how__title" data-i18n="how.step1Title">Pick your mood</h3>
+            <p class="how__text" data-i18n="how.step1Text">A date, a quiet desk, a garden, somewhere pretty or somewhere cheap. Choose one, or a few.</p>
+          </li>
+          <li class="how__step">
+            <span class="how__num" aria-hidden="true">02</span>
+            <h3 class="how__title" data-i18n="how.step2Title">Add your must-haves</h3>
+            <p class="how__text" data-i18n="how.step2Text">Good Wi-Fi, a river view, open late, room for the dog. You'll only see cafés that have every one you tick.</p>
+          </li>
+          <li class="how__step">
+            <span class="how__num" aria-hidden="true">03</span>
+            <h3 class="how__title" data-i18n="how.step3Title">Get cafés ranked for you</h3>
+            <p class="how__text" data-i18n="how.step3Text">Every café gets a match score from your picks, with a short note on why it fits.</p>
+          </li>
+        </ol>
+
+        <div class="how__note">
+          <p data-i18n="how.note1">Must-haves are strict: a café without one of yours isn't shown. The rest are ranked by a custom match score. Your moods count the most, and being near a BTS or MRT station adds a little. A café that ticks every box gets close to 100%.</p>
+          <p data-i18n="how.note2">Ask the barista is a chat built from simple word rules. It runs fully in your browser, with no AI service and no account, and your saved cafés stay on this device too.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Suggest a café ============ -->
+    <section id="suggest" class="section" aria-labelledby="suggest-title">
+      <div class="wrap">
+        <p class="section-label" aria-hidden="true" data-i18n="suggest.label">07 / Suggest</p>
+        <h2 id="suggest-title" data-i18n="suggest.title">Suggest a café</h2>
+        <p class="section__intro" data-i18n="suggest.intro">Know a Bangkok café that should be on the list? Tell us about it. Every suggestion is checked on Google Maps before it's added.</p>
+
+        <!-- Netlify Forms: data-netlify="true" asks Netlify to collect what this
+             form sends (see js/suggest.js). netlify-honeypot names the hidden
+             spam trap below. "name" is what the form is called in Netlify. -->
+        <form id="suggest-form" class="suggest-form" name="suggest-cafe" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+          <!-- The honeypot: hidden from people, but spam bots fill it in, and
+               Netlify throws away anything that has it filled in -->
+          <p hidden>
+            <label>Leave this empty: <input name="bot-field" tabindex="-1" autocomplete="off"></label>
+          </p>
+
+          <div class="suggest-form__grid">
+            <div class="field">
+              <label class="field__label" for="suggest-name" data-i18n="suggest.name">Café name</label>
+              <input id="suggest-name" class="input" type="text" name="name" required maxlength="100" autocomplete="off" aria-describedby="suggest-name-error">
+              <p id="suggest-name-error" class="field__error" data-error-for="name" hidden></p>
+            </div>
+
+            <div class="field">
+              <label class="field__label" for="suggest-area" data-i18n="suggest.area">Area</label>
+              <input id="suggest-area" class="input" type="text" name="area" required maxlength="80" autocomplete="off" placeholder="For example Ari or Thonglor" data-i18n-attr="placeholder:suggest.areaPlaceholder" aria-describedby="suggest-area-error">
+              <p id="suggest-area-error" class="field__error" data-error-for="area" hidden></p>
+            </div>
+
+            <div class="field field--wide">
+              <label class="field__label" for="suggest-maps" data-i18n="suggest.maps">Google Maps link</label>
+              <input id="suggest-maps" class="input" type="url" name="mapsUrl" required maxlength="500" autocomplete="off" inputmode="url" placeholder="https://maps.app.goo.gl/…" aria-describedby="suggest-maps-hint suggest-maps-error">
+              <p id="suggest-maps-hint" class="field__hint" data-i18n="suggest.mapsHint">In Google Maps, open the café, tap Share, then Copy link.</p>
+              <p id="suggest-maps-error" class="field__error" data-error-for="mapsUrl" hidden></p>
+            </div>
+
+            <div class="field field--wide">
+              <label class="field__label" for="suggest-why" data-i18n="suggest.why">Why you like it</label>
+              <textarea id="suggest-why" class="input textarea" name="why" rows="4" required maxlength="1000" aria-describedby="suggest-why-error"></textarea>
+              <p id="suggest-why-error" class="field__error" data-error-for="why" hidden></p>
+            </div>
+
+            <!-- Netlify has to see a field called "moods[]" here in the HTML.
+                 suggest.js rebuilds these boxes from meta.moods in cafes.json. -->
+            <fieldset class="field field--wide" aria-describedby="suggest-moods-hint suggest-moods-error">
+              <legend class="field__label" data-i18n="suggest.goodFor">Good for</legend>
+              <p id="suggest-moods-hint" class="field__hint suggest-form__moods-hint" data-i18n="suggest.goodForHint">Tick any that fit.</p>
+              <div class="chip-list" data-suggest-moods>
+                <label class="chip"><input class="visually-hidden" type="checkbox" name="moods[]" value="date"> Date spot</label>
+                <label class="chip"><input class="visually-hidden" type="checkbox" name="moods[]" value="green"> Green escape</label>
+                <label class="chip"><input class="visually-hidden" type="checkbox" name="moods[]" value="work"> Work / study</label>
+                <label class="chip"><input class="visually-hidden" type="checkbox" name="moods[]" value="aesthetic"> Aesthetic</label>
+                <label class="chip"><input class="visually-hidden" type="checkbox" name="moods[]" value="budget"> Budget</label>
+              </div>
+              <p id="suggest-moods-error" class="field__error" data-error-for="moods[]" hidden></p>
+            </fieldset>
+
+            <div class="field">
+              <label class="field__label" for="suggest-email"><span data-i18n="suggest.email">Email</span> <span class="field__optional" data-i18n="suggest.optional">(optional)</span></label>
+              <input id="suggest-email" class="input" type="email" name="email" maxlength="200" autocomplete="email" aria-describedby="suggest-email-hint suggest-email-error">
+              <p id="suggest-email-hint" class="field__hint" data-i18n="suggest.emailHint">Only if you'd like to hear when it's added.</p>
+              <p id="suggest-email-error" class="field__error" data-error-for="email" hidden></p>
+            </div>
+          </div>
+
+          <div class="suggest-form__foot">
+            <button type="submit" class="btn btn--primary" data-i18n="suggest.send">Send suggestion</button>
+            <!-- "Sorry, it didn't send" goes here (role="status" reads it out) -->
+            <p class="suggest-form__status" role="status" data-suggest-status></p>
+          </div>
+        </form>
+
+        <!-- Shown instead of the form once it has been sent -->
+        <div id="suggest-thanks" class="suggest-thanks" hidden>
+          <h3 class="suggest-thanks__title" tabindex="-1" data-i18n="suggest.thanksTitle">Thank you!</h3>
+          <p><span data-i18n="suggest.thanksBefore">We've got your suggestion for </span><strong data-suggest-name></strong><span data-i18n="suggest.thanksAfter">. We'll check it on Google Maps and add it to the list if it's a good fit.</span></p>
+          <button type="button" class="btn btn--secondary" data-suggest-again data-i18n="suggest.again">Suggest another café</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ Footer ============ -->
+  <footer class="site-footer">
+    <div class="wrap site-footer__inner">
+      <div class="site-footer__about">
+        <p class="site-footer__name" data-i18n="footer.byline">
+          Kafé Bangkok · a project by Dilshan Gulati
+        </p>
+        <!-- Source code and portfolio -->
+        <ul class="site-footer__links">
+          <li><a href="https://github.com/dilshangulati07-crypto/kafe-bangkok">GitHub</a></li>
+          <li><a href="https://dilshanportfolio1.netlify.app" data-i18n="footer.portfolio">Portfolio</a></li>
+          <li><a href="#how-it-works" data-i18n="footer.how">How it works</a></li>
+          <li><a href="#suggest" data-i18n="footer.suggest">Suggest a café</a></li>
+        </ul>
+      </div>
+      <div class="site-footer__data">
+        <!-- ui.js adds the list of source sites from cafes.json after "public guides" -->
+        <p><span data-i18n="footer.data">Café data compiled from public guides and cafés' own websites</span><span data-source-list></span>.</p>
+        <p data-i18n-html="footer.locations">Café locations from <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors and <a href="https://www.wongnai.com/">Wongnai</a> listings.</p>
+        <p data-i18n-html="footer.osm">Café locations © <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors (<a href="https://opendatacommons.org/licenses/odbl/">ODbL</a>)</p>
+        <p data-i18n="footer.check">Cafés change often. Check Google Maps before you go.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============ Café drawer ============
+       A <dialog>: ui.js fills it in and opens it with showModal() when a card
+       is clicked. It's a panel on the right on wide screens and a sheet that
+       slides up from the bottom on phones (see "Café drawer" in style.css). -->
+  <dialog id="cafe-drawer" class="drawer" aria-labelledby="drawer-title">
+    <div class="drawer__panel">
+      <button class="icon-button drawer__close" type="button" data-close-drawer>
+        <svg class="icon icon--sm" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M6.5 6.5l11 11M17.5 6.5l-11 11"/>
+        </svg>
+        <span class="visually-hidden" data-i18n="drawer.close">Close</span>
+      </button>
+      <!-- ui.js puts the café's details here -->
+      <div class="drawer__body"></div>
+      <!-- and the "Open in Google Maps" button here, always in view at the bottom -->
+      <div class="drawer__foot"></div>
+    </div>
+  </dialog>
+
+  <!-- ============ Compare ============ -->
+  <!-- The bar at the bottom while cafés are ticked for Compare. The round
+       chat button moves up above it (see "Compare" in style.css). -->
+  <div class="compare-bar" role="region" aria-label="Compare cafés" data-i18n-attr="aria-label:compare.label" hidden>
+    <div class="wrap compare-bar__inner">
+      <ul class="compare-bar__list"></ul>
+      <button type="button" class="link-button compare-bar__clear" data-compare-clear data-i18n="compare.clear">Clear</button>
+      <button type="button" class="btn btn--primary btn--small" data-compare-open aria-haspopup="dialog">
+        <span data-i18n="compare.button">Compare</span> <span class="compare-bar__count" data-compare-count>0</span>
+      </button>
+    </div>
+  </div>
+  <!-- Says "Natura Café added to compare" to screen readers -->
+  <p id="compare-status" class="visually-hidden" aria-live="polite"></p>
+
+  <!-- The side-by-side table. A sheet from the bottom on phones, centred on wider screens. -->
+  <dialog id="compare-dialog" class="compare-dialog" aria-labelledby="compare-title">
+    <div class="compare-dialog__panel">
+      <div class="compare-dialog__head">
+        <h2 id="compare-title" class="compare-dialog__title" tabindex="-1" data-i18n="compare.title">Side by side</h2>
+        <button class="icon-button" type="button" data-close-compare>
+          <svg class="icon icon--sm" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M6.5 6.5l11 11M17.5 6.5l-11 11"/>
+          </svg>
+          <span class="visually-hidden" data-i18n="compare.close">Close</span>
+        </button>
+      </div>
+      <div class="compare-dialog__body">
+        <p class="compare-dialog__hint" data-i18n="compare.hint">Swipe the table sideways to see every café.</p>
+        <!-- tabindex="0" lets keyboard users scroll the table with the arrow keys -->
+        <div class="compare-scroll" tabindex="0" role="region" aria-label="Comparison table" data-i18n-attr="aria-label:compare.table">
+          <table class="compare-table"></table>
+        </div>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- ============ Ask the barista ============ -->
+  <!-- Round button in the bottom-right corner. chat.js shows it once the
+       café data has loaded (until then the barista has nothing to suggest). -->
+  <button class="chat-fab" type="button" data-open-chat hidden>
+    <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M5 10h12v4a5 5 0 0 1-5 5h-2a5 5 0 0 1-5-5z"/>
+      <path d="M17 11.5h1.2a2.3 2.3 0 0 1 0 4.6h-1.6"/>
+      <path class="chat-fab__steam" d="M9.5 3.8c-.8 1 .8 1.8 0 3.2"/>
+      <path class="chat-fab__steam chat-fab__steam--2" d="M13 3c-.8 1.1.8 2 0 3.5"/>
+    </svg>
+    <span class="visually-hidden" data-i18n="chat.open">Ask the barista</span>
+  </button>
+
+  <!-- The chat panel: a <dialog>, like the drawer. Full screen on phones,
+       a panel in the bottom-right corner on wider screens. -->
+  <dialog id="chat" class="chat" aria-labelledby="chat-title">
+    <div class="chat__panel">
+      <header class="chat__head">
+        <!-- chat.js draws the barista's face in every [data-avatar] -->
+        <span class="chat__avatar" data-avatar></span>
+        <div class="chat__heading">
+          <h2 id="chat-title" class="chat__title" tabindex="-1" data-i18n="chat.title">Ask the barista</h2>
+          <p class="chat__sub" data-i18n="chat.sub">Tell me what you're after.</p>
+        </div>
+        <button class="icon-button chat__close" type="button" data-close-chat>
+          <svg class="icon icon--sm" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M6.5 6.5l11 11M17.5 6.5l-11 11"/>
+          </svg>
+          <span class="visually-hidden" data-i18n="chat.close">Close chat</span>
+        </button>
+      </header>
+
+      <div class="chat__scroll">
+        <!-- role="log" (with aria-live) makes screen readers read each new message -->
+        <div class="chat__log" role="log" aria-live="polite" aria-label="Conversation" data-i18n-attr="aria-label:chat.log"></div>
+        <!-- The "typing" dots. Outside the log and aria-hidden, so they're not read out. -->
+        <div class="msg msg--barista chat__typing" aria-hidden="true" hidden>
+          <span class="msg__avatar" data-avatar></span>
+          <div class="msg__bubble"><span class="typing-dots"><i></i><i></i><i></i></span></div>
+        </div>
+      </div>
+
+      <!-- Quick replies. chat.js swaps these after every message. -->
+      <div class="chat__chips" role="group" aria-label="Quick replies" data-i18n-attr="aria-label:chat.chips" hidden></div>
+
+      <form class="chat__form">
+        <label class="visually-hidden" for="chat-input" data-i18n="chat.inputLabel">Message the barista</label>
+        <input id="chat-input" class="input chat__input" type="text" maxlength="200" autocomplete="off" placeholder="Try “quiet café in Ari”" data-i18n-attr="placeholder:chat.placeholder">
+        <button class="chat__send" type="submit">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M5 12h13.5"/>
+            <path d="M13 6.5l5.5 5.5-5.5 5.5"/>
+          </svg>
+          <span class="visually-hidden" data-i18n="chat.send">Send</span>
+        </button>
+      </form>
+    </div>
+  </dialog>
+
+  <!-- Small pop-up message. role="status" makes screen readers read it out. -->
+  <div id="toast" class="toast" role="status"></div>
+</body>
+</html>

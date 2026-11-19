@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Search engines: please don't list this page or follow its links -->
+  <meta name="robots" content="noindex, nofollow">
+  <title>Café admin · Kafé Bangkok</title>
+  <meta name="theme-color" content="#FBF7F0">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600..800&family=Manrope:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@500;700&text=%E0%B8%BF&display=swap">
+
+  <!-- The site's own styles (colours, fonts, fields, buttons), plus a few for this page -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/admin.css">
+  <script type="module" src="js/admin.js"></script>
+</head>
+<body class="admin-page">
+  <!-- The admin page for Kafé Bangkok. It isn't linked from the site.
+       Everything happens in this browser tab (js/admin.js): it saves nothing online. -->
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="topbar">
+    <div class="wrap topbar__inner">
+      <a class="wordmark" href="./">
+        <svg class="k-mark wordmark__mark" viewBox="0 0 28 28" aria-hidden="true">
+          <circle class="k-mark__disc" cx="14" cy="14" r="13"/>
+          <path class="k-mark__k" d="M10.5 8v12M10.5 14.6L17 8M12.4 13.1l5.1 6.9"/>
+        </svg>
+        Kafé Bangkok
+      </a>
+      <span class="admin-badge">Admin</span>
+    </div>
+  </header>
+
+  <main id="main" class="wrap admin">
+    <h1 class="admin__title">Café admin</h1>
+
+    <section class="admin-note" aria-labelledby="admin-how">
+      <h2 id="admin-how" class="admin-note__title">How to use this page</h2>
+      <ol class="admin-note__steps">
+        <li>This page loads <code>data/cafes.json</code> from the site and lists every café. Search the table, or press <strong>Add a café</strong>.</li>
+        <li>Press <strong>Edit</strong> or <strong>Delete</strong> on any café. Your changes stay in this browser tab only: nothing is saved online, and closing or reloading the tab loses them.</li>
+        <li>When you're done, press <strong>Download cafes.json</strong>. Put the downloaded file in the project's <code>data</code> folder in place of the old <code>cafes.json</code>, then deploy the site as usual.</li>
+      </ol>
+      <p class="admin-note__small">Anyone who finds this page can open it, but it can't change the live site: only the file you put in the project does. It isn't linked from the site, and search engines are asked not to list it.</p>
+    </section>
+
+    <p class="load-status" data-admin-load role="status"></p>
+
+    <div class="admin-app" data-admin-app hidden>
+      <div class="admin-bar">
+        <div class="field admin-bar__search">
+          <label class="field__label" for="admin-search">Search</label>
+          <input id="admin-search" class="input" type="search" placeholder="Name, area, zone or id" autocomplete="off">
+        </div>
+        <p class="admin-bar__count" data-admin-count aria-live="polite"></p>
+        <div class="admin-bar__actions">
+          <button type="button" class="btn btn--secondary btn--small" data-admin-add>Add a café</button>
+          <button type="button" class="btn btn--primary btn--small" data-admin-download>Download cafes.json</button>
+        </div>
+      </div>
+
+      <!-- "Saved Blue Whale…", "Deleted…" and the unsaved-changes reminder -->
+      <p class="admin-status" role="status" data-admin-status></p>
+
+      <!-- tabindex="0": keyboard users can scroll the table sideways on a phone -->
+      <div class="admin-table-wrap" role="region" aria-label="Cafés" tabindex="0">
+        <table class="admin-table">
+          <thead>
+            <tr>
+              <th scope="col">Café</th>
+              <th scope="col">Area</th>
+              <th scope="col">Zone</th>
+              <th scope="col">Price</th>
+              <th scope="col">Moods</th>
+              <th scope="col">Hours by day</th>
+              <th scope="col">Location</th>
+              <th scope="col">Checked</th>
+              <th scope="col"><span class="visually-hidden">Actions</span></th>
+            </tr>
+          </thead>
+          <tbody data-admin-rows></tbody>
+        </table>
+      </div>
+      <p class="admin-empty" data-admin-empty hidden>No café matches that search.</p>
+    </div>
+  </main>
+
+  <!-- ============ The add / edit form ============
+       A <dialog>, like the café drawer on the main site. admin.js fills in
+       the choices (zones, stations, lines, moods, features) from cafes.json. -->
+  <dialog id="admin-editor" class="admin-editor" aria-labelledby="editor-title">
+    <form class="admin-form" data-admin-form novalidate>
+      <div class="admin-editor__head">
+        <h2 id="editor-title" class="admin-editor__title" data-editor-title>Edit café</h2>
+        <button class="icon-button" type="button" data-editor-close>
+          <svg class="icon icon--sm" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M6.5 6.5l11 11M17.5 6.5l-11 11"/>
+          </svg>
+          <span class="visually-hidden">Close without saving</span>
+        </button>
+      </div>
+
+      <div class="admin-editor__body">
+        <fieldset class="admin-form__group">
+          <legend class="admin-form__legend">The café</legend>
+          <div class="admin-form__grid">
+            <div class="field">
+              <label class="field__label" for="f-name">Name</label>
+              <input id="f-name" class="input" name="name" type="text" required autocomplete="off" aria-describedby="f-name-error">
+              <p id="f-name-error" class="field__error" data-error-for="name" hidden></p>
+            </div>
+            <div class="field">
+              <label class="field__label" for="f-id">Id</label>
+              <input id="f-id" class="input" name="id" type="text" autocomplete="off" spellcheck="false" aria-describedby="f-id-hint f-id-error">
+              <p id="f-id-hint" class="field__hint">Small letters, numbers and hyphens, like <code>blue-whale</code>. Leave it empty to make one from the name. Changing an existing café's id drops it from visitors' saved lists.</p>
+              <p id="f-id-error" class="field__error" data-error-for="id" hidden></p>
+            </div>
+            <div class="field">
+              <label class="field__label" for="f-area">Area</label>
+              <input id="f-area" class="input" name="area" type="text" required autocomplete="off" aria-describedby="f-area-hint f-area-error">
+              <p id="f-area-hint" class="field__hint">The small part of town shown on the card, like "Ari" or "Charoen Krung".</p>
+              <p id="f-area-error" class="field__error" data-error-for="area" hidden></p>
+            </div>
+            <div class="field">
+              <label class="field__label" for="f-zone">Zone</label>
+              <input id="f-zone" class="input" name="zone" type="text" list="zone-list" required autocomplete="off" aria-describedby="f-zone-hint f-zone-error">
+              <datalist id="zone-list" data-list-zones></datalist>
+              <p id="f-zone-hint" class="field__hint">One of the neighbourhoods (pick from the list). A new name makes a new neighbourhood.</p>
+              <p id="f-zone-error" class="field__error" data-error-for="zone" hidden></p>
+            </div>
+            <div class="field field--wide">
+              <label class="field__label" for="f-description">Description</label>
+              <textarea id="f-description" class="input textarea" name="description" rows="3" required aria-describedby="f-description-error"></textarea>
+              <p id="f-description-error" class="field__error" data-error-for="description" hidden></p>
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset class="admin-form__group">
+          <legend class="admin-form__legend">Getting there</legend>
+          <div class="admin-form__grid">
+            <div class="field">
+              <label class="field__label" for="f-station">Station</label>
+              <input id="f-station" class="input" name="station" type="text" list="station-list" autocomplete="off" aria-describedby="f-station-hint">
+              <datalist id="station-list" data-list-stations></datalist>
+              <p id="f-station-hint" class="field__hint">Like "BTS Ari". Leave empty if it isn't near one. A new station also needs a position in <code>meta.stations</code> to be a crawl starting point.</p>
+            </div>
+            <fieldset class="field" aria-describedby="f-line-hint">
+              <legend class="field__label">Line</legend>
+              <div class="chip-list" data-choices-line></div>
+              <p id="f-line-hint" class="field__hint">The station's line. Tick both for a station on two lines, like Siam.</p>
+            </fieldset>
+            <div class="field">
+              <label class="field__label" for="f-lat">Latitude</label>
+              <input id="f-lat" class="input" name="lat" type="text" inputmode="decimal" autocomplete="off" aria-describedby="f-latlng-hint f-lat-error">
+              <p id="f-lat-error" class="field__error" data-error-for="lat" hidden></p>
+            </div>
+            <div class="field">
+              <label class="field__label" for="f-lng">Longitude</label>
+              <input id="f-lng" class="input" name="lng" type="text" inputmode="decimal" autocomplete="off" aria-describedby="f-latlng-hint f-lng-error">
+              <p id="f-lng-error" class="field__error" data-error-for="lng" hidden></p>
+            </div>
+            <p id="f-latlng-hint" class="field__hint field--wide">For the map. Fill in both, or leave both empty. In Google Maps, right-click the café: the first line is "latitude, longitude" (Bangkok is about 13.7, 100.5).</p>
+          </div>
+        </fieldset>
+
+        <fieldset class="admin-form__group">
+          <legend class="admin-form__legend">Price and tags</legend>
+          <fieldset class="field">
+            <legend class="field__label">Price</legend>
+            <div class="segmented admin-form__price" data-choices-price></div>
+          </fieldset>
+          <fieldset class="field" aria-describedby="f-moods-error">
+            <legend class="field__label">Moods</legend>
+            <div class="chip-list" data-choices-moods></div>
+            <p id="f-moods-error" class="field__error" data-error-for="moods" hidden></p>
+          </fieldset>
+          <fieldset class="field">
+            <legend class="field__label">Features</legend>
+            <div class="chip-list" data-choices-features></div>
+          </fieldset>
+        </fieldset>
+
+        <fieldset class="admin-form__group">
+          <legend class="admin-form__legend">Opening hours</legend>
+          <div class="field">
+            <label class="field__label" for="f-hours">Hours, as shown to visitors</label>
+            <input id="f-hours" class="input" name="hours" type="text" autocomplete="off" placeholder="Daily 08:00–18:00" aria-describedby="f-hours-hint">
+            <p id="f-hours-hint" class="field__hint">Leave empty if they aren't known: the drawer then says "Not listed — check Google Maps".</p>
+          </div>
+          <label class="switch admin-form__known">
+            <input class="visually-hidden" type="checkbox" role="switch" name="hoursKnown" aria-describedby="f-days-hint">
+            <span class="switch__track" aria-hidden="true"></span>
+            The full hours are known for every day
+          </label>
+          <p id="f-days-hint" class="field__hint">Only then can the site say "Open now". For each day write <code>10:00-22:00</code>, <code>closed</code>, or two opening times like <code>08:00-12:00, 13:00-18:00</code>. Past midnight: <code>18:00-02:00</code>. All day: <code>00:00-24:00</code>.</p>
+          <div class="admin-form__days" data-days></div>
+        </fieldset>
+
+        <fieldset class="admin-form__group">
+          <legend class="admin-form__legend">Links</legend>
+          <div class="field">
+            <label class="field__label" for="f-maps">Google Maps link</label>
+            <input id="f-maps" class="input" name="mapsUrl" type="url" autocomplete="off" aria-describedby="f-maps-hint f-maps-error">
+            <p id="f-maps-hint" class="field__hint">Leave empty to use a Google Maps search for the café's name.</p>
+            <p id="f-maps-error" class="field__error" data-error-for="mapsUrl" hidden></p>
+          </div>
+          <div class="field">
+            <label class="field__label" for="f-sources">Sources</label>
+            <textarea id="f-sources" class="input textarea" name="sources" rows="3" spellcheck="false" aria-describedby="f-sources-hint f-sources-error"></textarea>
+            <p id="f-sources-hint" class="field__hint">The pages the details come from, one web address per line.</p>
+            <p id="f-sources-error" class="field__error" data-error-for="sources" hidden></p>
+          </div>
+        </fieldset>
+
+        <label class="switch admin-form__checked">
+          <input class="visually-hidden" type="checkbox" role="switch" name="verified">
+          <span class="switch__track" aria-hidden="true"></span>
+          Checked by hand: still open, details confirmed
+        </label>
+      </div>
+
+      <div class="admin-editor__foot">
+        <button type="submit" class="btn btn--primary">Save café</button>
+        <button type="button" class="btn btn--secondary" data-editor-close>Cancel</button>
+      </div>
+    </form>
+  </dialog>
+</body>
+</html>

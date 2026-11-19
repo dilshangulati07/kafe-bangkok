@@ -1,0 +1,29 @@
+# Dependencies (none are used, but just in case)
+node_modules/
+
+# Secrets and local settings
+.env
+.env.*
+
+# OS and editor files
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+.vscode/
+.idea/
+
+# Deploy zips and archives
+*.zip
+*.tar.gz
+kafe-bangkok-deploy/
+
+# The OpenStreetMap script's saved raw reply (~850 KB, regenerate with tools/fetch-osm.mjs --save-raw)
+data-raw/
+
+# Test screenshots and temp files (README screenshots live in docs/screenshots and are kept)
+/screenshots/
+/test-*.png
+*.tmp
+*.log
+*.backup*.json

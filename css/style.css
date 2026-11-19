@@ -1,0 +1,4153 @@
+/* =========================================================
+   Kafé Bangkok: styles. Design: a "morning sky" hero, then a
+   quiet, editorial page below it (cream, hairlines, navy, coffee accents)
+   Mobile first: the base styles are for small phones.
+   The @media (min-width: ...) blocks add changes for wider screens.
+
+   Contents
+   1. Design tokens (colours, fonts, sizes)
+   2. Base styles
+   3. Small helpers (skip link, icons, buttons, pill labels)
+   4. Top bar and menu
+   5. Hero (sky, clouds, marquee, headline, clock)
+   6. Hero cups
+   7. Sections (everything from here down is the quiet, editorial part)
+   8. Finder: filters
+   9. Finder: results (café cards, Save, "Been there" and Compare)
+   10. Saved cafés and the café passport
+   11. Café drawer (side panel / bottom sheet)
+   12. Ask the barista (chat)
+   13. Neighbourhoods
+   14. Compare (bar and side-by-side table)
+   15. How it works, the footer and the 404 page
+   16. Café of the day
+   17. Plan a café crawl
+   18. Suggest a café (the form)
+   19. Café stats (the charts)
+   20. Thai (fonts and spacing when Thai is on)
+   21. Toast message
+   22. Motion (only for people who haven't asked for less)
+   (admin.html has its own few styles in css/admin.css)
+   ========================================================= */
+
+
+/* ---------- 1. Design tokens ---------- */
+:root {
+  /* Palette */
+  --navy: #1F2A44;       /* text, headings, primary buttons, the hot cup */
+  --navy-soft: #4A5470;  /* quieter text */
+  --navy-deep: #141C30;  /* primary button hover */
+  --coffee: #8A5A2B;     /* the italic accent word and little notes */
+  --cream: #FBF7F0;      /* page background below the hero, and the top bar */
+  --white: #FFFFFF;      /* pills, buttons, panels */
+  --sky-top: #C9E2F5;    /* top of the sky */
+  --sky-mid: #E3F0FA;    /* middle of the sky */
+  --dawn: #F6EEE2;       /* where the sky turns warm, just above the cream */
+  --focus: #2F6FB3;      /* keyboard focus ring */
+  --kraft: #E7CFAE;      /* the cardboard sleeve on the hot cup */
+
+  /* Two soft tints the hero's cups and night button use */
+  --sky: #DCEBFA;        /* the iced cup's straw */
+  --butter: #FBF0C9;     /* the moon on "Open late right now" */
+
+  /* Below the hero: hairlines and greys, all slightly warm */
+  --hairline: #E5DED2;          /* 1px borders on cards, panels and rules */
+  --hairline-strong: #CFC6B8;   /* a card's border on hover */
+  --grey: #6B6660;              /* small grey text (5:1 on cream) */
+  --mist: #F2EFEA;              /* the barista's message bubbles */
+
+  /* Lines are see-through navy, so they work on cream, white and every pastel */
+  --line: rgb(31 42 68 / 0.12);       /* dividers */
+  --line-mid: rgb(31 42 68 / 0.22);   /* pill borders, hover */
+  --line-strong: #948B7E;             /* outlines on pills and form fields (3:1 on cream and white) */
+  --placeholder: #6B7387;             /* placeholder text in inputs */
+
+  /* Fonts */
+  --font-display: "Bricolage Grotesque", "Manrope", system-ui, sans-serif;
+  --font-serif: "Instrument Serif", Georgia, serif;
+  --font-body: "Manrope", system-ui, sans-serif;
+  /* Prices: Manrope has no ฿ sign, so it comes from Noto Sans Thai (index.html
+     loads a tiny file with only that one character, so nothing else changes) */
+  --font-price: "Manrope", "Noto Sans Thai", system-ui, sans-serif;
+
+  /* Type scale */
+  --text-xs: 0.75rem;   /* small uppercase labels */
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-md: 1.25rem;
+  --text-lg: 1.75rem;
+  --text-xl: 2.5rem;
+
+  /* Spacing (4px steps at the small end, bigger jumps after) */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4rem;
+  --space-9: 6rem;
+
+  /* Shapes */
+  --radius-card: 22px;   /* the top bar's drop-down menu */
+  --radius: 12px;        /* cards, panels and inputs below the hero */
+  --radius-lg: 16px;     /* the drawer, chat and compare dialogs */
+  --radius-pill: 999px;
+  --shadow-lift: 0 18px 44px rgb(31 42 68 / 0.16);
+
+  /* Layout */
+  --page-max: 72rem;     /* widest the content gets */
+  --page-pad: 1.25rem;   /* space at the left and right edges */
+  --measure: 65ch;       /* comfortable line length for reading */
+  --topbar-height: 4rem;
+  --compare-bar-height: 7rem; /* the Compare bar (two rows on phones, one from 40em) */
+  --compare-bar-gap: 0.75rem; /* the bar floats this far above the bottom edge */
+
+  /* Every line icon uses the same stroke weight */
+  --icon-stroke: 1.75;
+}
+
+
+/* ---------- 2. Base styles ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  /* Anything the page scrolls to (a #link, or the next thing you Tab to)
+     stops below the sticky top bar instead of hiding under it */
+  scroll-padding-top: calc(var(--topbar-height) + var(--space-4));
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  line-height: 1.6;
+  color: var(--navy);
+  background: var(--cream);
+}
+
+h1,
+h2,
+h3 {
+  margin: 0 0 var(--space-4);
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+  color: var(--navy);
+  text-wrap: balance; /* evens out line lengths in headings */
+}
+
+h1 { font-size: var(--text-xl); }
+h2 { font-size: clamp(2rem, 1.4rem + 2.4vw, 2.75rem); }
+h3 { font-size: var(--text-md); letter-spacing: -0.02em; }
+
+/* The one italic serif word in a big heading, in coffee brown */
+h1 em,
+h2 em {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  color: var(--coffee);
+}
+
+p {
+  margin: 0 0 var(--space-4);
+  max-width: var(--measure);
+}
+
+a {
+  color: var(--navy);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+}
+
+a:hover {
+  text-decoration-thickness: 2px;
+}
+
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+}
+
+/* Anything with the hidden attribute stays hidden, even if a class says display: flex */
+[hidden] {
+  display: none !important;
+}
+
+/* A clear focus ring for keyboard users (mouse clicks don't show it) */
+:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 3px;
+}
+
+::selection {
+  background: var(--sky);
+  color: var(--navy);
+}
+
+
+/* ---------- 3. Small helpers ---------- */
+
+/* Centres the content and keeps it off the screen edges */
+.wrap {
+  width: 100%;
+  max-width: var(--page-max);
+  margin-inline: auto;
+  padding-inline: var(--page-pad);
+}
+
+/* Hidden off-screen until a keyboard user tabs to it */
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: var(--space-4);
+  z-index: 100;
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-pill);
+  background: var(--navy);
+  color: var(--white);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.skip-link:focus {
+  top: var(--space-3);
+}
+
+/* Invisible on screen but still read by screen readers (and still focusable,
+   which is how the hidden checkboxes in the finder keep working by keyboard) */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* A button that looks like a text link */
+.link-button {
+  min-height: 2.75rem;
+  padding: 0;
+  border: 0;
+  background: none;
+  font-weight: 700;
+  color: var(--navy);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+  cursor: pointer;
+}
+
+.link-button:hover {
+  text-decoration-thickness: 2px;
+}
+
+/* Line icons: no fill, rounded line ends, colour taken from the text */
+.icon {
+  flex: none;
+  width: 1.5rem;
+  height: 1.5rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: var(--icon-stroke);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.icon--sm {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+/* Our "K" mark: a navy disc with a white K (top bar, footer, cups, favicon) */
+.k-mark {
+  flex: none;
+  width: 1.75rem;
+  height: 1.75rem;
+}
+
+.k-mark__disc { fill: var(--navy); }
+
+.k-mark__k {
+  fill: none;
+  stroke: var(--white);
+  stroke-width: 2.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* Round icon-only buttons, like the X that closes the drawer and the chat */
+.icon-button {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 2.75rem;
+  height: 2.75rem;
+  padding: 0;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  background: var(--white);
+  color: var(--navy);
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.icon-button:hover {
+  background: var(--mist);
+}
+
+/* Buttons: rounded pills. Primary = navy, secondary = white. */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  min-height: 3rem;
+  padding: 0.75rem 1.5rem;
+  border: 1.5px solid var(--navy);
+  border-radius: var(--radius-pill);
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  font-weight: 700;
+  line-height: 1.2;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.15s ease;
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+.btn--primary {
+  background: var(--navy);
+  color: var(--white);
+}
+
+.btn--primary:hover {
+  background: var(--navy-deep);
+  border-color: var(--navy-deep);
+}
+
+.btn--secondary {
+  border-color: var(--line-mid);
+  background: var(--white);
+  color: var(--navy);
+  box-shadow: 0 1px 2px rgb(31 42 68 / 0.06);
+}
+
+.btn--secondary:hover {
+  border-color: var(--navy);
+}
+
+/* "Open late right now": a white pill with a butter-yellow moon */
+.btn--night {
+  border-color: var(--line-mid);
+  background: var(--white);
+  color: var(--navy);
+}
+
+.btn--night .icon {
+  fill: var(--butter);
+}
+
+.btn--night:hover {
+  border-color: var(--navy);
+}
+
+/* A smaller pill, for buttons that sit in a row of other controls */
+.btn--small {
+  min-height: 2.75rem;
+  padding: 0.5rem 1.125rem;
+  font-size: var(--text-sm);
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Small spaced-out uppercase labels. The HTML has normal case, so screen
+   readers read words, not letters. */
+.pill-label,
+.section-label {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  border-radius: var(--radius-pill);
+  font-size: var(--text-xs);
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+/* The labels in the hero's top corners */
+.pill-label {
+  min-height: 2rem;
+  padding: 0.375rem 0.875rem;
+  background: rgb(255 255 255 / 0.85);
+  color: var(--navy);
+  box-shadow: 0 1px 2px rgb(31 42 68 / 0.06);
+}
+
+.pill-label time {
+  font-variant-numeric: tabular-nums; /* digits the same width, so the pill doesn't wobble */
+}
+
+/* "01 / FIND" above each section's heading: plain small text */
+.section-label {
+  margin: 0 0 var(--space-5);
+  color: var(--grey);
+}
+
+
+/* ---------- 4. Top bar and menu ---------- */
+/* The bar is cream, like the page below the hero, with one hairline under it.
+   The sky starts below that line, so the bar reads as the café's masthead. */
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: var(--cream);
+  border-bottom: 1px solid var(--hairline);
+  color: var(--navy);
+}
+
+.topbar__inner {
+  position: relative; /* the mobile drop-down is positioned against this */
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  min-height: var(--topbar-height);
+}
+
+.wordmark {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-family: var(--font-display);
+  font-size: var(--text-md);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  color: var(--navy);
+  text-decoration: none;
+}
+
+/* Links and the "Ask the barista" button look the same in the menu */
+.nav-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.75rem; /* big enough to tap */
+  padding: 0;
+  border: 0;
+  border-radius: var(--radius-pill);
+  background: none;
+  font-weight: 600;
+  color: var(--navy);
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+/* Without JavaScript, the menu is just a row of links under the wordmark */
+.site-nav {
+  width: 100%;
+}
+
+.site-nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 var(--space-5);
+  margin: 0;
+  padding: 0 0 var(--space-2);
+  list-style: none;
+}
+
+/* With JavaScript the bar is always one row: the wordmark on the left, the
+   Menu button and the TH / EN switch on the right */
+.js .topbar__inner {
+  flex-wrap: nowrap;
+  column-gap: var(--space-3);
+}
+
+/* The Menu button only appears when JavaScript can make it work */
+.nav-toggle {
+  display: none;
+}
+
+.js .nav-toggle {
+  position: relative; /* the saved-count badge sits on its corner */
+  margin-left: auto;  /* pushes it (and the TH / EN switch after it) to the right */
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-height: 2.75rem;
+  padding: 0 var(--space-4) 0 var(--space-3);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-pill);
+  background: var(--white);
+  color: var(--navy);
+  font-size: var(--text-sm);
+  font-weight: 700;
+  cursor: pointer;
+}
+
+/* Swap the icon between "lines" and "X" depending on whether the menu is open */
+.nav-toggle__close { display: none; }
+.nav-toggle[aria-expanded="true"] .nav-toggle__open { display: none; }
+.nav-toggle[aria-expanded="true"] .nav-toggle__close { display: block; }
+
+/* The narrowest phones (under 480px) have no room for the word "Menu" next
+   to the TH / EN switch, so the button is just its icon in a round button.
+   The word is still there for screen readers (hidden like .visually-hidden). */
+@media (max-width: 29.99em) {
+  .js .nav-toggle {
+    width: 2.75rem;
+    padding: 0;
+    justify-content: center;
+  }
+
+  .nav-toggle__label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+}
+
+/* TH / EN: two joined options, like the List / Map switch. The one that's
+   on (aria-pressed="true") is filled navy. It needs JavaScript, so it only
+   shows when JavaScript is running (the "js" class on <html>). */
+.lang-switch {
+  display: none;
+}
+
+.js .lang-switch {
+  display: inline-flex;
+  flex: none;
+  gap: 2px;
+  padding: 3px;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-pill);
+  background: var(--white);
+}
+
+.lang-switch__option {
+  min-width: 2rem;
+  min-height: 2rem;
+  padding: 0 var(--space-2);
+  border: 0;
+  border-radius: var(--radius-pill);
+  background: none;
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--grey);
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.lang-switch__option:hover {
+  color: var(--navy);
+}
+
+.lang-switch__option[aria-pressed="true"] {
+  background: var(--navy);
+  color: var(--white);
+}
+
+/* With JavaScript on small screens, the menu becomes a drop-down panel */
+.js .site-nav {
+  display: none;
+  position: absolute;
+  top: calc(100% + var(--space-2));
+  left: var(--page-pad);
+  right: var(--page-pad);
+  border-radius: var(--radius-card);
+  background: var(--white);
+  box-shadow: var(--shadow-lift);
+}
+
+.js .site-nav.is-open {
+  display: block;
+}
+
+.js .site-nav ul {
+  flex-direction: column;
+  padding: var(--space-2) var(--space-5) var(--space-3);
+}
+
+.js .site-nav li + li {
+  border-top: 1px solid var(--line);
+}
+
+.js .site-nav .nav-link {
+  width: 100%;
+  min-height: 3rem;
+  border-radius: 0;
+}
+
+/* How many cafés are saved: a small navy bubble after "Saved" */
+.nav-count {
+  display: inline-grid;
+  place-items: center;
+  min-width: 1.5rem;
+  height: 1.5rem;
+  margin-left: 0.375rem;
+  padding: 0 0.375rem;
+  border-radius: var(--radius-pill);
+  background: var(--navy);
+  color: var(--white);
+  font-size: var(--text-sm);
+  font-weight: 700;
+  line-height: 1;
+}
+
+/* Phones: the saved count as a little heart badge on the Menu button's
+   corner. It's positioned on top of the button, so it takes no extra room
+   in the bar (there's no space for another item at 375px). */
+.menu-count {
+  position: absolute;
+  top: -0.5rem;
+  right: -0.5rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.125rem;
+  height: 1.5rem;
+  padding: 0 0.4rem;
+  border: 2px solid var(--cream); /* a ring in the bar's colour separates it from the button */
+  border-radius: var(--radius-pill);
+  background: var(--navy);
+  color: var(--white);
+  font-size: var(--text-sm);
+  line-height: 1;
+}
+
+.menu-count .icon {
+  width: 0.75rem;
+  height: 0.75rem;
+  fill: currentColor;
+  stroke-width: 2;
+}
+
+/* Wider screens: the links sit in the bar as pills, and the Menu button goes away.
+   From 64em (1024px): the wordmark, the five links and the TH / EN switch
+   need about 940px, so on a tablet or a small laptop they wouldn't fit in
+   one row. Until then, the Menu. */
+@media (min-width: 64em) {
+  .topbar__inner {
+    flex-wrap: nowrap;
+  }
+
+  .site-nav,
+  .js .site-nav {
+    display: block;
+    position: static;
+    width: auto;
+    margin-left: auto; /* the links sit on the right, just before TH / EN */
+    border-radius: 0;
+    background: none;
+    box-shadow: none;
+  }
+
+  .site-nav ul,
+  .js .site-nav ul {
+    flex-direction: row;
+    gap: var(--space-1);
+    padding: 0;
+  }
+
+  .js .site-nav li + li {
+    border-top: 0;
+  }
+
+  .nav-link,
+  .js .site-nav .nav-link {
+    width: auto;
+    min-height: 2.5rem;
+    padding: 0 var(--space-4);
+    border-radius: var(--radius-pill);
+  }
+
+  /* A white pill wouldn't show on the cream bar, so hover underlines the link */
+  .nav-link:hover {
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.35em;
+  }
+
+  .js .nav-toggle {
+    display: none;
+  }
+}
+
+
+/* ---------- 5. Hero ---------- */
+/* The sky: pale blue at the top, warming to cream at the bottom.
+   overflow: hidden clips the clouds and the marquee, so nothing scrolls sideways. */
+.hero {
+  position: relative;
+  isolation: isolate; /* the sky's negative z-index stays inside the hero */
+  overflow: hidden;
+  padding-block: var(--space-5) var(--space-8);
+  background: linear-gradient(180deg, var(--sky-top) 0%, var(--sky-mid) 42%, var(--dawn) 82%, var(--cream) 100%);
+}
+
+.hero__sky {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Soft clouds: white ovals that fade out at the edges (no images, no blur filter) */
+.cloud {
+  position: absolute;
+  display: block;
+  border-radius: 50%;
+  background: radial-gradient(closest-side, rgb(255 255 255 / 0.95), rgb(255 255 255 / 0));
+}
+
+.cloud--1 { top: 6%; left: -8%; width: 26rem; height: 9rem; }
+.cloud--2 { top: 26%; right: -12%; width: 30rem; height: 10rem; opacity: 0.85; }
+.cloud--3 { top: 64%; left: 10%; width: 22rem; height: 7rem; opacity: 0.7; }
+.cloud--4 { top: 12%; left: 46%; width: 16rem; height: 6rem; opacity: 0.8; }
+
+/* The huge, faint line of words behind everything. The track holds the words
+   twice and slides left by half its width (one copy), then repeats. */
+.marquee {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 52%;
+  transform: translateY(-50%);
+}
+
+.marquee__track {
+  display: flex;
+  width: max-content;
+}
+
+.marquee__track span {
+  font-family: var(--font-display);
+  font-size: clamp(6rem, 22vw, 15rem);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  white-space: nowrap;
+  color: rgb(255 255 255 / 0.3);
+}
+
+/* Phones: labels, headline, cups, then the rest. Desktop: two columns. */
+.hero__inner {
+  display: grid;
+  grid-template-areas:
+    "labels"
+    "title"
+    "cups"
+    "body";
+  gap: var(--space-5);
+}
+
+.hero__labels {
+  grid-area: labels;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: var(--space-2);
+}
+
+/* "· Café finder" is left out on the narrowest phones so both pills fit */
+.pill-label__more {
+  display: none;
+}
+
+/* A small blue dot that says "this is live" */
+.clock-dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background: var(--focus);
+}
+
+.hero__title {
+  grid-area: title;
+  max-width: 12ch;
+  margin: var(--space-4) 0 0;
+  font-size: clamp(2.75rem, 1.5rem + 7vw, 5.5rem);
+  font-weight: 800;
+  line-height: 0.98;
+  letter-spacing: -0.045em;
+}
+
+.hero__title em {
+  margin-right: -0.02em; /* tucks the full stop in close after the leaning italic */
+  letter-spacing: -0.02em;
+}
+
+.hero__body {
+  grid-area: body;
+}
+
+.hero__greeting {
+  margin-bottom: var(--space-3);
+  font-family: var(--font-display);
+  font-size: var(--text-md);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.35;
+}
+
+.hero__lead {
+  max-width: 34rem;
+  margin-bottom: var(--space-6);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  color: var(--navy-soft);
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+.hero__meta {
+  margin: var(--space-5) 0 0;
+  font-size: var(--text-xs);
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--navy-soft);
+}
+
+@media (min-width: 30em) {
+  .pill-label__more {
+    display: inline;
+  }
+}
+
+/* Desktop: words on the left, cups on the right */
+@media (min-width: 56em) {
+  .hero {
+    padding-block: var(--space-6) var(--space-9);
+  }
+
+  .hero__inner {
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+    grid-template-areas:
+      "labels labels"
+      "title  cups"
+      "body   cups";
+    column-gap: var(--space-7);
+    row-gap: var(--space-5);
+  }
+}
+
+
+/* ---------- 6. Hero cups ----------
+   Two SVG cups inside .hero__cups. On phones they sit side by side under the
+   headline; on desktop they fill the right-hand column. Each has a soft
+   shadow on the "ground" underneath. (The floating is in section 17.) */
+.hero__cups {
+  grid-area: cups;
+  position: relative;
+  height: 13rem;
+}
+
+.cup {
+  position: absolute;
+}
+
+.cup__svg {
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+/* A gentle tilt, even when the floating is switched off */
+.cup--iced { left: calc(50% - 8.5rem); top: 0.25rem; width: 7rem; transform: rotate(-6deg); }
+.cup--hot { left: calc(50% + 0.75rem); top: 1.5rem; width: 7.25rem; transform: rotate(5deg); }
+
+.cup-shadow {
+  position: absolute;
+  height: 1.25rem;
+  border-radius: 50%;
+  background: radial-gradient(closest-side, rgb(31 42 68 / 0.26), rgb(31 42 68 / 0));
+}
+
+.cup-shadow--iced { left: calc(50% - 8.25rem); top: 11rem; width: 6.5rem; }
+.cup-shadow--hot { left: calc(50% + 1rem); top: 12rem; width: 6.75rem; }
+
+/* The parts of the cups (the classes are on the SVG shapes in index.html) */
+.cup-straw { fill: var(--sky); stroke: var(--navy); stroke-width: 2.5; }
+.cup-milk { fill: #F3E4CF; }
+.cup-coffee { fill: var(--coffee); }
+.cup-ice { fill: rgb(255 255 255 / 0.7); stroke: rgb(31 42 68 / 0.3); stroke-width: 1.5; }
+.cup-glass { fill: rgb(255 255 255 / 0.3); stroke: var(--navy); stroke-width: 3; stroke-linejoin: round; }
+.cup-shine { fill: none; stroke: rgb(255 255 255 / 0.85); stroke-width: 6; stroke-linecap: round; }
+.cup-shine--soft { stroke: rgb(255 255 255 / 0.16); }
+.cup-badge { fill: var(--white); stroke: var(--navy); stroke-width: 2.5; }
+.cup-k { fill: none; stroke: var(--navy); stroke-width: 3.6; stroke-linecap: round; stroke-linejoin: round; }
+.cup-lid { fill: var(--cream); stroke: var(--navy); stroke-width: 3; stroke-linejoin: round; }
+.cup-lid--clear { fill: rgb(255 255 255 / 0.8); }
+.cup-paper { fill: var(--navy); stroke: var(--navy); stroke-width: 3; stroke-linejoin: round; }
+.cup-sleeve { fill: var(--kraft); stroke: var(--navy); stroke-width: 2.5; stroke-linejoin: round; }
+.cup-sip { fill: none; stroke: var(--navy); stroke-width: 3.5; stroke-linecap: round; }
+.cup-steam { fill: none; stroke: var(--navy); stroke-width: 3; stroke-linecap: round; opacity: 0.3; }
+
+@media (min-width: 56em) {
+  .hero__cups {
+    height: 27rem;
+    align-self: center;
+  }
+
+  .cup--iced { left: 2%; top: 4%; width: 12rem; }
+  .cup--hot { left: 46%; top: 20%; width: 12.5rem; }
+  .cup-shadow--iced { left: 4%; top: 21.5rem; width: 11rem; }
+  .cup-shadow--hot { left: 48%; top: 25.5rem; width: 11.5rem; }
+}
+
+
+/* ---------- 7. Sections ----------
+   Everything below the hero is quiet on purpose: cream page, white panels,
+   1px warm-grey hairlines, navy text, and coffee only for small accents.
+   Big tight headings and small uppercase labels do the work. */
+.section {
+  padding-block: var(--space-9);
+}
+
+/* A hairline between one section and the next */
+.section + .section {
+  border-top: 1px solid var(--hairline);
+}
+
+.section h2 {
+  max-width: 18ch;
+  margin-bottom: var(--space-4);
+  font-size: clamp(2.5rem, 1.6rem + 3.6vw, 4rem);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.045em;
+}
+
+.section__intro {
+  max-width: 38rem;
+  font-size: 1.0625rem;
+  color: var(--grey);
+}
+
+.load-status {
+  margin-top: var(--space-4);
+  font-weight: 700;
+}
+
+.load-status:empty {
+  display: none;
+}
+
+@media (min-width: 56em) {
+  .section {
+    padding-block: 8rem;
+  }
+}
+
+
+/* ---------- 8. Finder: filters ---------- */
+
+/* No box around the filters: each group sits between thin hairlines */
+.filters {
+  position: relative;
+  margin-top: var(--space-7);
+  border-top: 1px solid var(--hairline);
+}
+
+.filter-group {
+  min-width: 0; /* lets a fieldset shrink on small screens */
+  margin: 0;
+  padding: 0 0 var(--space-6);
+  border: 0;
+  border-bottom: 1px solid var(--hairline);
+}
+
+/* "What are you in the mood for?" as a small spaced label.
+   A fieldset puts its legend above its own top padding, so the space under
+   the hairline goes on the legend instead. Otherwise the legend hugs the
+   line above and sits far from its hint. */
+.filter-group__legend {
+  padding: var(--space-5) 0 0;
+  font-size: var(--text-xs);
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--navy);
+}
+
+.filter-group__hint {
+  margin: var(--space-1) 0 var(--space-4);
+  font-size: var(--text-sm);
+  color: var(--grey);
+}
+
+/* The hidden checkboxes and radios can't show focus themselves,
+   so the pill or button around them shows it instead. */
+.mood-pill:has(:focus-visible),
+.chip:has(:focus-visible),
+.segmented__option:has(:focus-visible),
+.switch:has(:focus-visible) .switch__track {
+  outline: 3px solid var(--focus);
+  outline-offset: 3px;
+}
+
+/* --- Moods: a row of outlined pills, filled navy when chosen --- */
+.pill-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.mood-pill {
+  position: relative; /* keeps the hidden checkbox inside the pill */
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.75rem;
+  padding: 0 var(--space-5);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-pill);
+  background: var(--white);
+  font-size: var(--text-base);
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.mood-pill:hover {
+  border-color: var(--navy);
+}
+
+/* :has(:checked) means "a pill whose checkbox is ticked" */
+.mood-pill:has(:checked) {
+  border-color: var(--navy);
+  background: var(--navy);
+  color: var(--white);
+}
+
+/* --- Must-haves: smaller outlined pills --- */
+.chip-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.chip {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.25rem;
+  padding: 0 var(--space-4);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-pill);
+  background: var(--white);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.chip:hover {
+  border-color: var(--navy);
+}
+
+.chip:has(:checked) {
+  border-color: var(--navy);
+  background: var(--navy);
+  color: var(--white);
+}
+
+/* --- Area, price, station, search --- */
+.filter-row {
+  display: grid;
+  gap: var(--space-5);
+  padding: var(--space-5) 0 var(--space-6);
+  border-bottom: 1px solid var(--hairline);
+}
+
+.field {
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.field__label {
+  display: block;
+  margin-bottom: var(--space-2);
+  padding: 0;
+  font-size: var(--text-xs);
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--navy);
+}
+
+.input,
+.select {
+  width: 100%;
+  min-height: 2.75rem;
+  padding: 0 var(--space-4);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-pill);
+  background-color: var(--white);
+  font: inherit;
+  color: var(--navy);
+}
+
+.input:hover,
+.select:hover {
+  border-color: var(--navy);
+}
+
+.input::placeholder {
+  color: var(--placeholder);
+  opacity: 1;
+}
+
+/* Dropdowns: hide the browser's arrow and draw our own (a thin navy chevron) */
+.select {
+  appearance: none;
+  padding-right: 2.75rem;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231F2A44' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9.5l6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 1rem;
+  cursor: pointer;
+}
+
+.select--small {
+  width: auto;
+}
+
+.search {
+  position: relative;
+}
+
+.search__icon {
+  position: absolute;
+  top: 50%;
+  left: 1rem;
+  transform: translateY(-50%);
+  color: var(--grey);
+  pointer-events: none;
+}
+
+.search .input {
+  padding-left: 2.75rem;
+}
+
+/* Price: three joined options, the chosen one filled navy */
+.segmented {
+  display: flex;
+  gap: 2px;
+  min-height: 2.75rem;
+  padding: 3px;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-pill);
+  background: var(--white);
+}
+
+.segmented__option {
+  position: relative;
+  flex: 1;
+  display: grid;
+  place-items: center;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-price);
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: var(--grey);
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.segmented__option:hover {
+  color: var(--navy);
+}
+
+.segmented__option:has(:checked) {
+  background: var(--navy);
+  color: var(--white);
+}
+
+/* "Near BTS/MRT" on/off switch */
+.switch {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  min-height: 2.75rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.switch__track {
+  position: relative;
+  flex: none;
+  width: 2.5rem;
+  height: 1.5rem;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-pill);
+  background: var(--white);
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+/* The round knob, drawn with ::after so it needs no extra HTML */
+.switch__track::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 3px;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  background: var(--line-strong);
+  transform: translateY(-50%);
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.switch:has(:checked) .switch__track {
+  border-color: var(--navy);
+  background: var(--navy);
+}
+
+.switch:has(:checked) .switch__track::after {
+  background: var(--white);
+  transform: translate(1rem, -50%);
+}
+
+/* A small grey note under a control ("Bangkok time. Cafés with unknown hours are hidden.") */
+.field__hint {
+  margin: var(--space-1) 0 0;
+  font-size: var(--text-xs);
+  line-height: 1.4;
+  color: var(--grey);
+}
+
+.filters__foot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0 var(--space-5);
+  margin-top: var(--space-3);
+  font-size: var(--text-sm);
+}
+
+.copy-link {
+  display: inline-flex;
+  align-items: center;
+}
+
+/* While it says "Copied", the underline goes */
+.copy-link.is-copied {
+  text-decoration: none;
+}
+
+@media (min-width: 40em) {
+  .filter-row {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* Wide screens: three columns, two rows (Area, Line, Price / Station, Open now, Search) */
+@media (min-width: 64em) {
+  .filter-row {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    align-items: start;
+  }
+}
+
+
+/* ---------- 9. Finder: results ---------- */
+.results-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  margin: var(--space-8) 0 var(--space-5);
+}
+
+/* "Surprise me" and "Sort by", side by side */
+.results-bar__tools {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-3) var(--space-4);
+}
+
+.results-bar__count {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+}
+
+.sort {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--text-xs);
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.results {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr); /* one column on phones, never wider than the screen */
+  gap: var(--space-4);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* Each list item stretches its card, so cards in a row are the same height.
+   content-visibility: auto lets the browser skip laying out cards that are
+   off screen until you scroll to them, which made filter changes about ten
+   times faster on a slow phone. contain-intrinsic-height is the guessed height
+   of a card it hasn't laid out yet ("auto" remembers the real one after).
+   Only the height is guessed: the width always comes from the grid column. */
+.results__item {
+  display: flex;
+  content-visibility: auto;
+  contain-intrinsic-height: auto 22rem;
+}
+
+/* A café card: white, a hairline border, small corners, no shadow */
+.cafe-card {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding: var(--space-5);
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius);
+  background: var(--white);
+  cursor: pointer; /* clicking anywhere on a card opens the drawer (app.js) */
+  transition: border-color 0.2s ease;
+}
+
+.cafe-card:hover {
+  border-color: var(--hairline-strong);
+}
+
+/* Phones: the name on top and "92% match" under it, like in the drawer.
+   Side by side, the match took almost a third of a phone-width card and
+   squeezed long names onto three short lines. */
+.cafe-card__head {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-1);
+}
+
+/* From 30em there's room: name on the left, "92% match" top-right */
+@media (min-width: 30em) {
+  .cafe-card__head {
+    flex-direction: row;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: var(--space-4);
+  }
+}
+
+/* From 40em to 54em the cards sit two to a row, so each one is narrow again
+   (about 290-400px). The match goes back under the name: side by side, about
+   half the names were squeezed onto extra lines at 700px. */
+@media (min-width: 40em) and (max-width: 53.99em) {
+  .cafe-card__head {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-1);
+  }
+}
+
+/* Name, then the small "Checked" / "Open late" labels */
+.cafe-card__title {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-1);
+  min-width: 0;
+}
+
+.cafe-card__name {
+  margin: 0;
+  font-size: 1.375rem;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+}
+
+/* The name is a <button> (so the keyboard can open the drawer) that looks
+   like a heading. A thin underline shows when you hover the card. */
+.cafe-card__open {
+  padding: 0;
+  border: 0;
+  background: none;
+  font: inherit;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
+  transition: text-decoration-color 0.2s ease;
+}
+
+.cafe-card:hover .cafe-card__open {
+  text-decoration-color: currentColor;
+}
+
+/* Small spaced labels: "Checked", and "Open late" at night */
+.checked,
+.late-badge {
+  margin: 0;
+  font-size: var(--text-xs);
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--coffee);
+}
+
+/* "Open late": hidden all day, shown at night (clock.js sets data-time) */
+.late-badge {
+  display: none;
+}
+
+[data-time="night"] .late-badge {
+  display: inline;
+}
+
+/* At night, late-night cafés also get a navy border so they stand out */
+[data-time="night"] .cafe-card:has(.late-badge) {
+  border-color: var(--navy);
+}
+
+/* "92% match": a small coffee-brown number */
+.match {
+  flex: none;
+  font-size: var(--text-sm);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  color: var(--coffee);
+  white-space: nowrap;
+}
+
+/* "Ari · BTS Ari" in small grey, the price on the right */
+.cafe-card__meta {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-3);
+  font-size: var(--text-sm);
+  color: var(--grey);
+}
+
+.cafe-card__meta p {
+  margin: 0;
+}
+
+.cafe-card__no-station {
+  font-style: italic;
+}
+
+.cafe-card__price {
+  flex: none;
+  font-family: var(--font-price);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--navy);
+}
+
+.cafe-card__desc {
+  margin: var(--space-2) 0 0;
+  line-height: 1.55;
+}
+
+/* "Open now · Closes 22:00" in small text; only "Open now" is navy and bold.
+   Closed and unknown stay grey, so the open ones are easy to spot. */
+.hours-status {
+  margin: 0;
+  font-size: var(--text-sm);
+  color: var(--grey);
+}
+
+.hours-status__state {
+  font-weight: 600;
+}
+
+.hours-status__state--open {
+  font-weight: 700;
+  color: var(--navy);
+}
+
+/* Tags: one line of small grey text, "Aesthetic · Date spot · Garden".
+   The " ·" comes from ::after (the "/ ''" part means screen readers skip it). */
+.tags {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: var(--text-sm);
+  color: var(--grey);
+}
+
+/* nowrap: a tag never breaks in the middle ("Outdoor / seating"). The dot is
+   inside the tag before it, so lines break in the space between tags (ui.js
+   puts one there) and a line never starts with a dot. */
+.tag {
+  display: inline;
+  white-space: nowrap;
+}
+
+.tag:not(:last-child)::after {
+  content: " ·";
+  content: " ·" / "";
+}
+
+.tag--mood {
+  color: var(--navy);
+}
+
+/* The reasons and the small buttons, pushed to the bottom of the card */
+.cafe-card__foot {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  margin-top: auto;
+  padding-top: var(--space-3);
+}
+
+/* "Why it fits", in one small grey line */
+.cafe-card__note {
+  margin: 0;
+  font-size: var(--text-sm);
+  line-height: 1.45;
+  color: var(--grey);
+}
+
+/* Each reason moves to the next line as a whole instead of breaking inside
+   ("good Wi-" / "Fi"). inline-block rather than nowrap, because a reason
+   with a long station name can be wider than the card and must still wrap. */
+.cafe-card__reason {
+  display: inline-block;
+  max-width: 100%;
+}
+
+.cafe-card__actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding-top: var(--space-3);
+  border-top: 1px solid var(--hairline);
+}
+
+/* Save (heart) and "Been there". On cards they're small round icon buttons
+   (.toggle--icon); in the drawer they're outlined pills with words.
+   aria-pressed="true" (set by ui.js) fills the icon in coffee brown. */
+.toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  min-height: 2.5rem;
+  padding: 0 var(--space-4) 0 var(--space-3);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-pill);
+  background: var(--white);
+  color: var(--navy);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  cursor: pointer;
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.toggle:hover {
+  border-color: var(--navy);
+}
+
+.toggle .icon {
+  width: 1.125rem;
+  height: 1.125rem;
+}
+
+.toggle--icon {
+  width: 2.5rem;
+  padding: 0;
+  border-color: var(--hairline);
+}
+
+.toggle[aria-pressed="true"] {
+  border-color: var(--coffee);
+  color: var(--coffee);
+}
+
+/* A saved heart is filled in */
+.toggle--save[aria-pressed="true"] .icon {
+  fill: currentColor;
+}
+
+/* "Been there": the circle fills in and the tick shows white */
+.toggle--visited[aria-pressed="true"] .icon circle {
+  fill: currentColor;
+}
+
+.toggle--visited[aria-pressed="true"] .icon path {
+  stroke: var(--white);
+}
+
+/* "Compare": a small checkbox with a word, on the right of the card */
+.compare-toggle {
+  position: relative; /* keeps the hidden checkbox inside the label */
+  margin-left: auto;
+  min-height: 2.5rem;
+  padding: 0 var(--space-1);
+  border: 0;
+  background: none;
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--grey);
+}
+
+.compare-toggle:hover {
+  color: var(--navy);
+}
+
+.compare-toggle__box {
+  display: grid;
+  place-items: center;
+  width: 1rem;
+  height: 1rem;
+  border: 1px solid var(--line-strong);
+  border-radius: 3px;
+  background: var(--white);
+  color: var(--white); /* white tick on white: invisible until ticked */
+}
+
+.compare-toggle .compare-toggle__box .icon {
+  width: 0.8rem;
+  height: 0.8rem;
+  stroke-width: 2.5;
+}
+
+.compare-toggle:has(:checked) {
+  color: var(--navy);
+}
+
+.compare-toggle:has(:checked) .compare-toggle__box {
+  border-color: var(--coffee);
+  background: var(--coffee);
+}
+
+.compare-toggle:has(:focus-visible) {
+  outline: 3px solid var(--focus);
+  outline-offset: 2px;
+}
+
+/* "Show more cafés" under the list */
+.results-more {
+  display: flex;
+  justify-content: center;
+  margin-top: var(--space-7);
+}
+
+/* Nothing matched: just words and a button */
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: var(--space-7) 0;
+  border-top: 1px solid var(--hairline);
+}
+
+.empty-state__title {
+  margin-bottom: var(--space-2);
+  font-size: var(--text-lg);
+  letter-spacing: -0.03em;
+}
+
+.empty-state__text {
+  margin-bottom: var(--space-5);
+  color: var(--grey);
+}
+
+@media (min-width: 40em) {
+  .results {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 64em) {
+  .results {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+/* --- List / Map switch: two joined options, like the price picker --- */
+.view-switch {
+  display: inline-flex;
+  gap: 2px;
+  padding: 3px;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-pill);
+  background: var(--white);
+}
+
+.view-switch__option {
+  min-height: 2.25rem;
+  padding: 0 var(--space-4);
+  border: 0;
+  border-radius: var(--radius-pill);
+  background: none;
+  font-size: var(--text-sm);
+  font-weight: 700;
+  color: var(--grey);
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.view-switch__option:hover {
+  color: var(--navy);
+}
+
+.view-switch__option[aria-pressed="true"] {
+  background: var(--navy);
+  color: var(--white);
+}
+
+/* --- Map view (js/map.js). Leaflet's own CSS loads after this file, so
+   the overrides below start with .results-map to win over it. The ones
+   that start with .map-frame are shared with the café crawl's map. --- */
+.results-map__canvas {
+  height: clamp(22rem, 62vh, 36rem);
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius);
+  background: var(--cream);
+  overflow: hidden;
+}
+
+/* Softer map colours, closer to the cream-and-navy page */
+.map-frame .leaflet-tile-pane {
+  filter: saturate(0.4) brightness(1.03);
+}
+
+.map-frame .leaflet-container {
+  font-family: var(--font-body);
+  color: var(--navy);
+}
+
+.results-map__note {
+  margin: var(--space-3) 0 0;
+  font-size: var(--text-sm);
+  color: var(--grey);
+}
+
+.results-map__note:empty {
+  display: none;
+}
+
+/* A pin: a 28px tap area (sized by Leaflet) with a small navy dot in the middle */
+.results-map .map-pin {
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.results-map .map-pin::after {
+  content: "";
+  position: absolute;
+  inset: 7px;
+  border: 2px solid var(--white);
+  border-radius: 50%;
+  background: var(--navy);
+  box-shadow: 0 1px 3px rgb(31 42 68 / 0.35);
+  transition: transform 0.15s ease;
+}
+
+.results-map .map-pin:hover::after {
+  transform: scale(1.25);
+}
+
+.results-map .map-pin:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 0;
+}
+
+/* A group of nearby cafés: a navy circle with the number in white.
+   .leaflet-marker-icon is repeated so this beats Leaflet's own display: block. */
+.results-map .leaflet-marker-icon.map-cluster {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--white);
+  border-radius: 50%;
+  background: var(--navy);
+  box-shadow: 0 1px 4px rgb(31 42 68 / 0.35);
+  font-family: var(--font-body);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--white);
+  cursor: pointer;
+}
+
+.results-map .leaflet-marker-icon.map-cluster:hover {
+  background: var(--navy-deep);
+}
+
+.results-map .leaflet-marker-icon.map-cluster:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 2px;
+}
+
+/* The pop-up: a white hairline panel, like the cards */
+.results-map .leaflet-popup-content-wrapper {
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius);
+  box-shadow: 0 6px 18px rgb(31 42 68 / 0.12);
+}
+
+.results-map .leaflet-popup-content {
+  margin: var(--space-4) var(--space-5) var(--space-4) var(--space-4);
+  font-size: var(--text-sm);
+  line-height: 1.4;
+}
+
+.results-map .leaflet-popup-close-button {
+  width: 2rem;
+  height: 2rem;
+  font-size: 1.25rem;
+  line-height: 2rem;
+  color: var(--navy);
+}
+
+/* .results-map in front, because Leaflet gives every popup <p> a 17px margin */
+.results-map .map-popup__name {
+  margin: 0 0 0.125rem;
+  font-family: var(--font-display);
+  font-size: 1.0625rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.results-map .map-popup__meta {
+  margin: 0 0 var(--space-3);
+  color: var(--grey);
+}
+
+.map-frame .leaflet-bar a {
+  color: var(--navy);
+}
+
+.map-frame .leaflet-control-attribution {
+  font-size: 0.6875rem;
+  color: var(--navy);
+}
+
+.map-frame .leaflet-control-attribution a {
+  color: var(--navy);
+}
+
+/* --- Cafés from OpenStreetMap on the map (js/map.js) ---
+   Ours stay the navy dot above. Local OpenStreetMap cafés are a smaller
+   grey dot, and chains a small hollow navy ring, each in a 24px tap area. */
+.results-map .map-pin--osm::after,
+.results-map .map-pin--chain::after {
+  inset: 7px;
+  border-width: 1.5px;
+  box-shadow: 0 1px 2px rgb(31 42 68 / 0.3);
+}
+
+.results-map .map-pin--osm::after {
+  background: var(--grey);
+}
+
+.results-map .map-pin--chain::after {
+  border: 2px solid var(--navy);
+  background: var(--white);
+}
+
+/* A circle with only OpenStreetMap cafés in it: white, with a navy ring and number */
+.results-map .leaflet-marker-icon.map-cluster--osm {
+  border: 2px solid var(--navy);
+  background: var(--white);
+  color: var(--navy);
+}
+
+.results-map .leaflet-marker-icon.map-cluster--osm:hover {
+  background: var(--mist);
+}
+
+/* The map key under the map: a little pin drawn before each line */
+.map-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2) var(--space-5);
+  margin: var(--space-3) 0 0;
+  padding: 0;
+  list-style: none;
+  font-size: var(--text-sm);
+  color: var(--grey);
+}
+
+.map-legend__item {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.map-legend__item::before {
+  content: "";
+  flex: none;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--grey);
+}
+
+.map-legend__item--picked::before {
+  width: 12px;
+  height: 12px;
+  background: var(--navy);
+}
+
+.map-legend__item--chain::before {
+  border: 2px solid var(--navy);
+  background: var(--white);
+}
+
+/* An OpenStreetMap café's pop-up: its Thai name, hours, a Google Maps link and where it's from */
+.results-map .map-popup__thai {
+  margin: 0 0 var(--space-1);
+  color: var(--grey);
+}
+
+.results-map .map-popup__hours {
+  margin: 0 0 var(--space-2);
+}
+
+/* The same links as an OpenStreetMap card's foot (see .osm-card__foot) */
+.results-map .map-popup__links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0 var(--space-3);
+}
+
+.results-map .map-popup__maps,
+.results-map .map-popup__link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 1.5rem;
+  font-weight: 700;
+  color: var(--navy);
+}
+
+.results-map .map-popup__link {
+  font-weight: 600;
+}
+
+
+/* --- More cafés from OpenStreetMap, under the results (js/osm.js, app.js) --- */
+.more-cafes {
+  margin-top: var(--space-8);
+  padding-top: var(--space-6);
+  border-top: 1px solid var(--hairline);
+}
+
+.more-cafes__title {
+  margin: 0 0 var(--space-2);
+  font-size: clamp(1.5rem, 1.25rem + 1vw, 2rem);
+  line-height: 1.15;
+  letter-spacing: -0.035em;
+}
+
+.more-cafes__note {
+  max-width: var(--measure);
+  margin: 0 0 var(--space-5);
+  font-size: var(--text-sm);
+  color: var(--grey);
+}
+
+/* "Include chains" and, while it's on, the brand dropdown beside it */
+.more-cafes__controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: var(--space-3) var(--space-6);
+  margin-bottom: var(--space-5);
+}
+
+.more-cafes__brand {
+  min-width: min(100%, 14rem);
+}
+
+.more-cafes__status,
+.more-cafes__empty {
+  margin: 0 0 var(--space-4);
+  font-size: var(--text-sm);
+  color: var(--grey);
+}
+
+.more-cafes__status:empty {
+  display: none;
+}
+
+.more-cafes__list {
+  margin-top: var(--space-2);
+}
+
+/* An OpenStreetMap card: the same white hairline card, with less in it.
+   It has no drawer, so it isn't clickable as a whole. */
+.osm-item {
+  contain-intrinsic-height: auto 13rem;
+}
+
+.osm-card {
+  cursor: auto;
+}
+
+.osm-card .cafe-card__name {
+  font-size: 1.25rem;
+}
+
+.osm-card__thai {
+  margin: 0;
+  font-size: var(--text-sm);
+  color: var(--grey);
+}
+
+/* A small grey "Chain" tag on chain cafés, where a hand-picked card has its match % */
+.osm-card__chain {
+  flex: none;
+  margin: 0;
+  font-size: var(--text-xs);
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--grey);
+}
+
+.osm-card__where {
+  margin: 0;
+  font-size: var(--text-sm);
+  color: var(--grey);
+}
+
+.osm-card__brand {
+  margin: 0;
+  font-size: var(--text-sm);
+  font-weight: 600;
+}
+
+/* The links sit at the bottom, so the links in a row of cards line up:
+   Google Maps (bold), then Website, Facebook and the phone number when the
+   café has them. They wrap on phones. */
+.osm-card__foot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-1) var(--space-4);
+  margin-top: auto;
+  padding-top: var(--space-2);
+}
+
+.osm-card__maps,
+.osm-card__link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 1.5rem; /* 24px: big enough to tap */
+  font-size: var(--text-sm);
+  color: var(--navy);
+  text-underline-offset: 0.18em;
+}
+
+.osm-card__maps {
+  font-weight: 700;
+}
+
+.osm-card__link {
+  font-weight: 600;
+}
+
+
+/* ---------- 10. Saved cafés and the café passport ---------- */
+/* The list uses the same grid as the results (.results) */
+.saved-list {
+  margin-top: var(--space-6);
+}
+
+.saved__item {
+  display: flex; /* stretches each card, like .results__item */
+}
+
+/* --- Café passport: a white panel with a hairline border --- */
+.passport {
+  margin-top: var(--space-6);
+  padding: var(--space-5);
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius);
+  background: var(--white);
+}
+
+.passport__title {
+  margin: 0 0 var(--space-3);
+  font-size: var(--text-xs);
+  font-family: var(--font-body);
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.passport__progress {
+  margin: 0 0 var(--space-3);
+  font-family: var(--font-display);
+  font-size: var(--text-md);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+/* The thin progress line: coffee brown fills in as you visit more cafés */
+.passport__bar {
+  max-width: 24rem;
+  height: 3px;
+  border-radius: var(--radius-pill);
+  background: var(--hairline);
+  overflow: hidden;
+}
+
+.passport__bar span {
+  display: block;
+  width: 0;
+  height: 100%;
+  background: var(--coffee);
+  transition: width 0.4s ease;
+}
+
+.passport__stamps {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin: var(--space-5) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.passport__stamps:empty {
+  display: none;
+}
+
+.passport__note {
+  margin: var(--space-4) 0 0;
+  font-size: var(--text-sm);
+  color: var(--grey);
+}
+
+/* A visited neighbourhood: a small hairline box with its name and count */
+.stamp {
+  display: grid;
+  gap: 0.125rem;
+  min-width: 9rem;
+  padding: var(--space-3) var(--space-4);
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius);
+}
+
+.stamp__zone {
+  font-size: var(--text-sm);
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.stamp__count {
+  font-size: var(--text-sm);
+  color: var(--grey);
+}
+
+
+/* ---------- 11. Café drawer ----------
+   A <dialog>. On phones it's a sheet stuck to the bottom of the screen;
+   from 48em up it's a panel on the right-hand side. */
+
+/* While the drawer is open, the page behind it doesn't scroll */
+html:has(.drawer[open]) {
+  overflow: hidden;
+}
+
+.drawer {
+  /* Undo the browser's default dialog box (centred, with a border and padding) */
+  inset: auto 0 0 0;
+  width: 100%;
+  max-width: none;
+  max-height: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-top: 1px solid var(--hairline);
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  background: var(--white);
+  color: var(--navy);
+  overflow: hidden; /* keeps the corners round; the body scrolls instead */
+}
+
+/* The dimmed page behind the drawer */
+.drawer::backdrop {
+  background: rgb(31 42 68 / 0.3);
+}
+
+/* The panel fills the whole dialog. Body scrolls, the Maps button stays put. */
+.drawer__panel {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  max-height: 88dvh;
+}
+
+/* The X has its own row at the top of the panel (align-self pushes it to
+   the right). The body scrolls below that row, so text never slides under it. */
+.drawer__close {
+  align-self: flex-end;
+  margin: var(--space-3) var(--space-3) 0 0;
+}
+
+.drawer__body {
+  /* position: relative keeps the screen-reader-only text (.visually-hidden,
+     which is position: absolute) inside this scrolling box. Without it, that
+     text can stick out of the dialog and let the whole panel be scrolled. */
+  position: relative;
+  flex: 1;
+  min-height: 0; /* lets the body shrink and scroll inside the panel */
+  overflow-y: auto;
+  overscroll-behavior: contain; /* scrolling past the end doesn't move the page */
+  padding: var(--space-1) var(--page-pad) var(--space-6);
+}
+
+.drawer__foot {
+  padding: var(--space-3) var(--page-pad) calc(var(--space-3) + env(safe-area-inset-bottom));
+  border-top: 1px solid var(--hairline);
+}
+
+.drawer__foot:empty {
+  display: none;
+}
+
+.drawer__maps {
+  width: 100%;
+}
+
+.drawer__head {
+  padding-bottom: var(--space-5);
+  border-bottom: 1px solid var(--hairline);
+}
+
+.drawer__title {
+  margin: 0 0 var(--space-2);
+  font-size: clamp(1.75rem, 1.4rem + 1.5vw, 2.25rem);
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+}
+
+/* The title gets focus from code when the drawer opens, so screen readers
+   start at the café's name. It isn't a control, so it doesn't need a ring. */
+.drawer__title:focus {
+  outline: none;
+}
+
+.drawer__badges {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--space-3);
+  margin-bottom: var(--space-2);
+}
+
+.drawer__badges:empty {
+  display: none;
+}
+
+.drawer__where {
+  margin: 0;
+  font-size: var(--text-sm);
+  color: var(--grey);
+}
+
+.drawer__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin: var(--space-5) 0;
+}
+
+.drawer__desc {
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* Each part of the drawer, with a hairline above it */
+.drawer__section {
+  margin-top: var(--space-5);
+  padding-top: var(--space-5);
+  border-top: 1px solid var(--hairline);
+}
+
+.drawer__label {
+  margin: 0 0 var(--space-3);
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--navy);
+}
+
+.drawer__sublabel {
+  margin: var(--space-3) 0 var(--space-1);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--grey);
+}
+
+.drawer__sublabel:first-of-type {
+  margin-top: 0;
+}
+
+.drawer__muted {
+  color: var(--grey);
+}
+
+p.drawer__muted {
+  margin: 0;
+  font-size: var(--text-sm);
+}
+
+/* "Why it fits": every reason, one per line */
+.why-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: var(--text-sm);
+  line-height: 1.7;
+}
+
+/* Station / Price / Hours: labels on the left, values on the right */
+.details {
+  display: grid;
+  gap: var(--space-2);
+  margin: 0;
+  font-size: var(--text-sm);
+}
+
+.details div {
+  display: grid;
+  grid-template-columns: 5rem minmax(0, 1fr);
+  gap: var(--space-3);
+}
+
+.details dt {
+  color: var(--grey);
+}
+
+.details dd {
+  margin: 0;
+}
+
+/* Hours in the drawer: "Open now · Closes 22:00", then the hours as written */
+.hours-status--drawer {
+  margin: 0 0 0.125rem;
+}
+
+.drawer__hours-text {
+  display: block;
+}
+
+.drawer__baht {
+  font-family: var(--font-price);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+}
+
+.sources {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1) var(--space-4);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: var(--text-sm);
+}
+
+@media (min-width: 48em) {
+  .drawer {
+    inset: var(--space-3) var(--space-3) var(--space-3) auto;
+    width: min(30rem, calc(100% - 2 * var(--space-3)));
+    height: calc(100% - 2 * var(--space-3));
+    border: 1px solid var(--hairline);
+    border-radius: var(--radius-lg);
+  }
+
+  .drawer__panel {
+    height: 100%;
+    max-height: none;
+  }
+
+  .drawer__body {
+    padding: var(--space-2) var(--space-6) var(--space-6);
+  }
+
+  .drawer__foot {
+    padding: var(--space-4) var(--space-6);
+  }
+
+  .drawer__close {
+    margin: var(--space-4) var(--space-4) 0 0;
+  }
+}
+
+
+/* ---------- 12. Ask the barista (chat) ---------- */
+
+/* The round button in the bottom-right corner. Everything that opens over
+   it (the chat, the drawer) is a <dialog> in the browser's top layer, so it
+   can never sit on top of them. */
+.chat-fab {
+  position: fixed;
+  right: var(--page-pad);
+  bottom: calc(var(--space-5) + env(safe-area-inset-bottom));
+  z-index: 40; /* under the top bar (50) and its menu */
+  display: grid;
+  place-items: center;
+  width: 3.5rem;
+  height: 3.5rem;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: var(--navy);
+  color: var(--white);
+  box-shadow: 0 6px 20px rgb(31 42 68 / 0.18);
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.15s ease;
+}
+
+.chat-fab:hover {
+  background: var(--navy-deep);
+}
+
+.chat-fab:active {
+  transform: translateY(1px);
+}
+
+.chat-fab .icon {
+  width: 1.6rem;
+  height: 1.6rem;
+}
+
+/* While the chat is open, the page behind it doesn't scroll, and the
+   round button hides (on wide screens it would peek out from under the panel) */
+html:has(.chat[open]) {
+  overflow: hidden;
+}
+
+html:has(.chat[open]) .chat-fab {
+  visibility: hidden;
+}
+
+/* The panel. Phones: the whole screen. */
+.chat {
+  inset: 0;
+  width: 100%;
+  height: 100dvh;
+  max-width: none;
+  max-height: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: var(--white);
+  color: var(--navy);
+  overflow: hidden;
+}
+
+.chat::backdrop {
+  background: rgb(31 42 68 / 0.2);
+}
+
+/* Header, then the conversation (which scrolls), then chips, then the text box */
+.chat__panel {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.chat__head {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--page-pad);
+  border-bottom: 1px solid var(--hairline);
+}
+
+/* The barista's "K" avatar (the .k-mark colours are in section 3) */
+.avatar {
+  display: block;
+  flex: none;
+}
+
+.chat__avatar .avatar {
+  width: 2.25rem;
+  height: 2.25rem;
+}
+
+.chat__heading {
+  min-width: 0;
+}
+
+.chat__title {
+  margin: 0;
+  font-size: var(--text-md);
+  letter-spacing: -0.02em;
+}
+
+/* Gets focus from code when the chat opens; not a control, so no ring */
+.chat__title:focus {
+  outline: none;
+}
+
+.chat__sub {
+  margin: 0;
+  font-size: var(--text-sm);
+  color: var(--grey);
+}
+
+.chat__close {
+  margin-left: auto;
+}
+
+.chat__scroll {
+  position: relative; /* see .drawer__body: keeps hidden screen-reader text inside */
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: var(--space-5) var(--page-pad);
+}
+
+.chat__log {
+  display: grid;
+  gap: var(--space-3);
+}
+
+/* --- Messages: light grey for the barista, navy for you --- */
+.msg {
+  display: flex;
+  align-items: flex-end;
+  gap: var(--space-2);
+}
+
+.msg__avatar .avatar {
+  width: 1.75rem;
+  height: 1.75rem;
+}
+
+.msg__bubble {
+  min-width: 0;
+  padding: var(--space-3) var(--space-4);
+  border-radius: 16px;
+  font-family: var(--font-price); /* replies can mention prices ("up to ฿฿") */
+  font-size: 0.9375rem;
+  line-height: 1.5;
+}
+
+.msg__bubble > * {
+  margin: 0;
+}
+
+.msg__bubble > * + * {
+  margin-top: var(--space-2);
+}
+
+.msg--barista .msg__bubble {
+  max-width: calc(100% - 2.25rem);
+  border-bottom-left-radius: 4px;
+  background: var(--mist);
+}
+
+/* A reply with café cards in it uses the full width */
+.msg--barista .msg__bubble:has(.mini-cards) {
+  flex: 1;
+}
+
+.msg--user {
+  justify-content: flex-end;
+}
+
+.msg--user .msg__bubble {
+  max-width: 80%;
+  border-bottom-right-radius: 4px;
+  background: var(--navy);
+  color: var(--white);
+}
+
+.chat__typing {
+  margin-top: var(--space-3);
+}
+
+/* "Your order: ..." in small grey text */
+.msg__order {
+  font-size: var(--text-sm);
+  color: var(--grey);
+}
+
+.msg__order-label {
+  font-size: var(--text-xs);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--navy);
+}
+
+/* --- Mini café cards in a reply: white, hairline --- */
+.mini-cards {
+  display: grid;
+  gap: var(--space-2);
+  padding: 0;
+  list-style: none;
+}
+
+.mini-card {
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius);
+  background: var(--white);
+  transition: border-color 0.2s ease;
+}
+
+.mini-card:hover {
+  border-color: var(--hairline-strong);
+}
+
+/* The whole left part is one button that opens the drawer */
+.mini-card__open {
+  flex: 1;
+  min-width: 0;
+  display: grid;
+  gap: 0.125rem;
+  padding: var(--space-3) var(--space-4);
+  border: 0;
+  border-radius: var(--radius);
+  background: none;
+  text-align: left;
+  cursor: pointer;
+}
+
+.mini-card__name {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  color: var(--navy);
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
+  transition: text-decoration-color 0.2s ease;
+}
+
+.mini-card__open:hover .mini-card__name {
+  text-decoration-color: currentColor;
+}
+
+.mini-card__meta,
+.mini-card__reason {
+  font-size: var(--text-sm);
+  color: var(--grey);
+}
+
+/* The heart: the same small round button as on the big cards */
+.mini-card__save {
+  width: 2.5rem;
+  height: 2.5rem;
+  margin-right: var(--space-2);
+  padding: 0;
+  border-color: var(--hairline);
+}
+
+/* --- Quick-reply chips and the text box --- */
+.chat__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  max-height: 35dvh; /* lots of area chips scroll instead of filling the screen */
+  overflow-y: auto;
+  padding: var(--space-3) var(--page-pad) 0;
+  border-top: 1px solid var(--hairline);
+}
+
+.chat-chip {
+  min-height: 2.25rem;
+  padding: 0 var(--space-4);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-pill);
+  background: var(--white);
+  color: var(--navy);
+  font-family: var(--font-price); /* the budget chips show ฿ */
+  font-size: var(--text-sm);
+  font-weight: 500;
+  cursor: pointer;
+  transition: border-color 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+}
+
+.chat-chip:hover {
+  border-color: var(--navy);
+  background: var(--navy);
+  color: var(--white);
+}
+
+.chat__form {
+  display: flex;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--page-pad) calc(var(--space-3) + env(safe-area-inset-bottom));
+}
+
+.chat__input {
+  flex: 1;
+  min-width: 0;
+}
+
+.chat__send {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 2.75rem;
+  height: 2.75rem;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: var(--navy);
+  color: var(--white);
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.chat__send:hover {
+  background: var(--navy-deep);
+}
+
+/* Three dots while the barista "types" */
+.typing-dots {
+  display: inline-flex;
+  gap: 4px;
+  padding: 6px 0;
+}
+
+.typing-dots i {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--grey);
+  opacity: 0.5;
+}
+
+/* Wider screens: a panel in the bottom-right corner */
+@media (min-width: 48em) {
+  .chat {
+    inset: auto var(--space-5) var(--space-5) auto;
+    width: 25rem;
+    height: min(42rem, calc(100dvh - 2 * var(--space-5)));
+    border: 1px solid var(--hairline);
+    border-radius: var(--radius-lg);
+    box-shadow: 0 16px 48px rgb(31 42 68 / 0.12);
+  }
+
+  .chat__head,
+  .chat__scroll,
+  .chat__chips,
+  .chat__form {
+    padding-inline: var(--space-5);
+  }
+}
+
+
+/* ---------- 13. Neighbourhoods ----------
+   A list like a café menu: each row is a zone's name, how many cafés it has,
+   and its top moods. Rows sit between hairlines; hovering underlines the name. */
+.zone-grid {
+  display: grid;
+  margin: var(--space-7) 0 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--hairline);
+}
+
+.zone-grid li {
+  border-bottom: 1px solid var(--hairline);
+}
+
+/* Each row is one button */
+.zone-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-areas:
+    "name  count"
+    "moods moods";
+  gap: var(--space-1) var(--space-4);
+  width: 100%;
+  padding: var(--space-5) 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.zone-card__name {
+  grid-area: name;
+  font-family: var(--font-display);
+  font-size: var(--text-md);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.025em;
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
+  transition: text-decoration-color 0.2s ease;
+}
+
+.zone-card:hover .zone-card__name {
+  text-decoration-color: currentColor;
+}
+
+.zone-card__count {
+  grid-area: count;
+  align-self: baseline;
+  font-size: var(--text-sm);
+  font-variant-numeric: tabular-nums;
+  color: var(--grey);
+}
+
+/* "Aesthetic · Date spot" (the tags use the same " · " as on the cards) */
+.zone-card__moods {
+  grid-area: moods;
+  font-size: var(--text-sm);
+  color: var(--grey);
+}
+
+.zone-card__moods .tag {
+  color: var(--grey);
+}
+
+@media (min-width: 48em) {
+  .zone-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: var(--space-8);
+  }
+}
+
+
+/* ---------- 14. Compare ---------- */
+
+/* The bar while cafés are ticked for Compare: a white panel with a hairline
+   border, floating a little above the bottom edge */
+.compare-bar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: calc(var(--compare-bar-gap) + env(safe-area-inset-bottom));
+  z-index: 45; /* over the page, under the top bar's menu */
+  width: min(calc(100% - 2 * var(--space-3)), calc(var(--page-max) - 2 * var(--page-pad)));
+  height: var(--compare-bar-height);
+  margin-inline: auto;
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius);
+  background: var(--white);
+  box-shadow: 0 8px 28px rgb(31 42 68 / 0.08);
+}
+
+/* Phones: two rows, the chosen cafés across the top, Clear and Compare
+   below. Wider screens: everything on one row (see the media query below). */
+.compare-bar__inner {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-areas:
+    "list list"
+    "clear open";
+  align-content: center;
+  align-items: center;
+  gap: var(--space-2) var(--space-3);
+  height: 100%;
+  padding-inline: var(--space-4);
+}
+
+/* The chosen cafés. One line only: if they don't fit, it scrolls sideways,
+   so the bar's height never changes (the chat button relies on that). */
+.compare-bar__list {
+  grid-area: list;
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  gap: var(--space-2);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  overflow-x: auto;
+  scrollbar-width: thin;
+}
+
+.compare-chip {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  max-width: 11rem;
+  height: 2.25rem;
+  padding-left: var(--space-3);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-pill);
+  font-size: var(--text-sm);
+  font-weight: 500;
+}
+
+.compare-chip__name {
+  overflow: hidden;
+  text-overflow: ellipsis; /* long names end in "..." */
+  white-space: nowrap;
+}
+
+.compare-chip__remove {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 2rem;
+  height: 2rem;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: none;
+  color: var(--navy);
+  cursor: pointer;
+}
+
+.compare-chip__remove:hover {
+  background: var(--mist);
+}
+
+.compare-chip__remove .icon {
+  width: 0.9rem;
+  height: 0.9rem;
+}
+
+.compare-bar__clear { grid-area: clear; justify-self: start; flex: none; font-size: var(--text-sm); }
+.compare-bar [data-compare-open] { grid-area: open; flex: none; }
+
+.compare-bar__count {
+  display: inline-grid;
+  place-items: center;
+  min-width: 1.4rem;
+  height: 1.4rem;
+  padding: 0 0.35rem;
+  border-radius: var(--radius-pill);
+  background: var(--white);
+  color: var(--navy);
+  line-height: 1;
+}
+
+@media (min-width: 40em) {
+  :root {
+    --compare-bar-height: 4.5rem;
+  }
+
+  .compare-bar__inner {
+    display: flex;
+    gap: var(--space-3);
+  }
+}
+
+/* While the bar is showing: lift the round chat button and the toast above
+   it, and leave room at the bottom of the page so nothing hides under it. */
+html:has(.compare-bar:not([hidden])) .chat-fab,
+html:has(.compare-bar:not([hidden])) .toast {
+  bottom: calc(var(--compare-bar-gap) + var(--compare-bar-height) + var(--space-3) + env(safe-area-inset-bottom));
+}
+
+html:has(.compare-bar:not([hidden])) body {
+  padding-bottom: calc(var(--compare-bar-height) + var(--compare-bar-gap));
+}
+
+/* ...and when Tab moves to something near the bottom, scroll it above the bar */
+html:has(.compare-bar:not([hidden])) {
+  scroll-padding-bottom: calc(var(--compare-bar-height) + var(--compare-bar-gap) + var(--space-4));
+}
+
+/* --- The side-by-side table (a <dialog>) --- */
+html:has(.compare-dialog[open]) {
+  overflow: hidden;
+}
+
+/* Phones: a sheet from the bottom, like the café drawer */
+.compare-dialog {
+  inset: auto 0 0 0;
+  width: 100%;
+  max-width: none;
+  max-height: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-top: 1px solid var(--hairline);
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  background: var(--white);
+  color: var(--navy);
+  overflow: hidden;
+}
+
+.compare-dialog::backdrop {
+  background: rgb(31 42 68 / 0.3);
+}
+
+.compare-dialog__panel {
+  display: flex;
+  flex-direction: column;
+  max-height: 90dvh;
+}
+
+.compare-dialog__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  padding: var(--space-4) var(--page-pad);
+  border-bottom: 1px solid var(--hairline);
+}
+
+.compare-dialog__title {
+  margin: 0;
+  font-size: var(--text-lg);
+  letter-spacing: -0.03em;
+}
+
+/* Gets focus from code when the table opens; not a control, so no ring */
+.compare-dialog__title:focus {
+  outline: none;
+}
+
+.compare-dialog__body {
+  position: relative; /* keeps hidden screen-reader text inside (see .drawer__body) */
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: var(--space-4) var(--page-pad) calc(var(--space-5) + env(safe-area-inset-bottom));
+}
+
+.compare-dialog__hint {
+  margin: 0 0 var(--space-3);
+  font-size: var(--text-sm);
+  color: var(--grey);
+}
+
+/* The table's own box. When the table is wider than the screen (on phones),
+   this box scrolls sideways and the page itself never does. */
+.compare-scroll {
+  position: relative;
+  overflow-x: auto;
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius);
+}
+
+.compare-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--text-sm);
+}
+
+.compare-table th,
+.compare-table td {
+  padding: var(--space-3) var(--space-4);
+  border-bottom: 1px solid var(--hairline);
+  text-align: left;
+  vertical-align: top;
+}
+
+.compare-table tr:last-child > * {
+  border-bottom: 0;
+}
+
+/* The row labels (Area, Station...) stay put while the cafés scroll past */
+.compare-table tbody th,
+.compare-table thead td {
+  position: sticky;
+  left: 0;
+  z-index: 1;
+  width: 7rem;
+  background: var(--white);
+  font-size: var(--text-xs);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--grey);
+}
+
+/* Each café's name opens its drawer */
+.compare-table__name {
+  padding: 0;
+  border: 0;
+  background: none;
+  font-family: var(--font-display);
+  font-size: var(--text-base); /* bigger from 48em, where the columns are wider */
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  color: var(--navy);
+  text-align: left;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
+  cursor: pointer;
+}
+
+.compare-table__sub {
+  display: block;
+  color: var(--grey);
+}
+
+.compare-table__none {
+  font-style: italic;
+  color: var(--grey);
+}
+
+/* Wider screens: a centred panel, and the table fits without scrolling */
+@media (min-width: 48em) {
+  .compare-dialog {
+    inset: 0;
+    width: min(56rem, calc(100% - 4rem));
+    height: fit-content;
+    max-height: calc(100dvh - 4rem);
+    margin: auto;
+    border: 1px solid var(--hairline);
+    border-radius: var(--radius-lg);
+    box-shadow: 0 16px 48px rgb(31 42 68 / 0.12);
+  }
+
+  .compare-dialog__panel {
+    max-height: calc(100dvh - 4rem);
+  }
+
+  .compare-dialog__head,
+  .compare-dialog__body {
+    padding-inline: var(--space-6);
+  }
+
+  .compare-dialog__hint {
+    display: none;
+  }
+
+  .compare-table__name {
+    font-size: var(--text-md);
+  }
+}
+
+
+/* ---------- 15. How it works, the footer and the 404 page ---------- */
+
+/* Three short columns, each with a small number above it */
+.how__steps {
+  display: grid;
+  gap: var(--space-6);
+  margin: var(--space-7) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.how__step {
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--navy);
+}
+
+.how__num {
+  display: block;
+  margin-bottom: var(--space-4);
+  font-size: var(--text-xs);
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  font-variant-numeric: tabular-nums;
+  color: var(--coffee);
+}
+
+.how__title {
+  margin: 0 0 var(--space-2);
+  font-size: var(--text-md);
+  letter-spacing: -0.025em;
+}
+
+.how__text {
+  margin: 0;
+  color: var(--grey);
+}
+
+/* The two lines about the match score and the chat */
+.how__note {
+  max-width: 44rem;
+  margin-top: var(--space-8);
+  padding-top: var(--space-5);
+  border-top: 1px solid var(--hairline);
+  color: var(--grey);
+}
+
+.how__note p {
+  margin: 0;
+}
+
+.how__note p + p {
+  margin-top: var(--space-3);
+}
+
+@media (min-width: 48em) {
+  .how__steps {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--space-7);
+  }
+}
+
+/* --- Footer: navy, small text, nothing else --- */
+.site-footer {
+  /* the extra space at the bottom keeps the last line clear of the round chat button */
+  padding: var(--space-7) 0 calc(var(--space-7) + 3.5rem);
+  background: var(--navy);
+  font-size: var(--text-sm);
+  color: rgb(251 247 240 / 0.78);
+}
+
+.site-footer a {
+  color: var(--cream);
+}
+
+.site-footer :focus-visible {
+  outline-color: var(--sky-top); /* the blue ring would be hard to see on navy */
+}
+
+.site-footer__inner {
+  display: grid;
+  gap: var(--space-5);
+}
+
+.site-footer__name {
+  margin: 0 0 var(--space-2);
+  font-weight: 700;
+  color: var(--white);
+}
+
+.site-footer__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 var(--space-5);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* Tall enough to tap comfortably */
+.site-footer__links a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.75rem;
+}
+
+.site-footer__data p {
+  margin: 0;
+}
+
+.site-footer__data p + p {
+  margin-top: var(--space-2);
+}
+
+@media (min-width: 48em) {
+  .site-footer__inner {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    align-items: start;
+  }
+}
+
+/* --- The 404 page (404.html): a small piece of sky, then plain words --- */
+.not-found {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  min-height: calc(100vh - var(--topbar-height));
+  padding-block: var(--space-9);
+  background: linear-gradient(180deg, var(--sky-top) 0%, var(--sky-mid) 50%, var(--cream) 100%);
+}
+
+.not-found__title {
+  margin-bottom: var(--space-3);
+  font-size: clamp(2.5rem, 1.5rem + 5vw, 4.5rem);
+  font-weight: 800;
+  letter-spacing: -0.045em;
+}
+
+.not-found__text {
+  margin-bottom: var(--space-6);
+  color: var(--navy-soft);
+}
+
+
+/* ---------- 16. Café of the day ----------
+   A small band under the hero, between two hairlines: the label and the
+   date on the left, the café on the right (one under the other on phones). */
+.today {
+  padding-block: var(--space-7);
+  border-block: 1px solid var(--hairline);
+}
+
+.today__inner {
+  display: grid;
+  gap: var(--space-4);
+}
+
+/* "Café of the day" is the section's real heading (an h2), set as a small
+   spaced label, because the café's name below it is what should stand out */
+.today__heading {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+.today__date {
+  margin: var(--space-1) 0 0;
+  font-size: var(--text-sm);
+  color: var(--grey);
+}
+
+.today__name {
+  margin: 0 0 var(--space-2);
+  font-size: clamp(1.875rem, 1.5rem + 1.6vw, 2.75rem);
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+}
+
+.today__where {
+  margin: 0 0 var(--space-3);
+  font-size: var(--text-sm);
+  color: var(--grey);
+}
+
+.today__desc {
+  max-width: 40rem;
+  margin: 0 0 var(--space-5);
+}
+
+@media (min-width: 48em) {
+  .today {
+    padding-block: var(--space-8);
+  }
+
+  .today__inner {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+    align-items: start;
+    gap: var(--space-7);
+  }
+}
+
+
+/* ---------- 17. Plan a café crawl ----------
+   The form reuses the finder's pieces (.filters, .filter-group, .filter-row,
+   mood pills and the segmented picker). Below it: the plan, a numbered list
+   of stops with a hairline between each, and a small map. */
+
+/* "Plan my crawl" lines up with the bottom of the dropdown next to it */
+.crawl-form__submit {
+  align-self: end;
+}
+
+.crawl {
+  margin-top: var(--space-8);
+}
+
+.crawl__title {
+  margin: 0 0 var(--space-2);
+  font-size: var(--text-lg);
+  letter-spacing: -0.03em;
+}
+
+/* Gets focus from code when a plan appears; not a control, so no ring */
+.crawl__title:focus {
+  outline: none;
+}
+
+.crawl__meta {
+  margin: 0;
+  font-weight: 600;
+}
+
+.crawl__note {
+  margin: var(--space-1) 0 0;
+  font-size: var(--text-sm);
+  color: var(--grey);
+}
+
+.crawl__layout {
+  display: grid;
+  gap: var(--space-6);
+  margin-top: var(--space-5);
+}
+
+.crawl__stops {
+  margin: 0 0 var(--space-5);
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--hairline);
+}
+
+/* One stop:   .     leg  leg      ("450 m from BTS Ari")
+               num   name swap     ("01", the café, "Swap")
+               .     choices       (the nearby cafés, once Swap is pressed) */
+.crawl-stop {
+  display: grid;
+  grid-template-columns: 2rem minmax(0, 1fr) auto;
+  grid-template-areas:
+    ".   leg   leg"
+    "num body  swap"
+    ".   panel panel";
+  column-gap: var(--space-3);
+  padding: var(--space-4) 0;
+  border-bottom: 1px solid var(--hairline);
+}
+
+.crawl-stop__leg {
+  grid-area: leg;
+  margin: 0 0 var(--space-1);
+  font-size: var(--text-sm);
+  color: var(--grey);
+}
+
+/* "01" in small coffee-brown numbers, like How it works */
+.crawl-stop__num {
+  grid-area: num;
+  padding-top: 0.4rem;
+  font-size: var(--text-xs);
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  font-variant-numeric: tabular-nums;
+  color: var(--coffee);
+}
+
+.crawl-stop__body {
+  grid-area: body;
+  min-width: 0;
+}
+
+.crawl-stop__name {
+  margin: 0 0 0.125rem;
+  font-size: var(--text-md);
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+/* The name is a button that opens the café's drawer, styled like a heading */
+.crawl-stop__open {
+  padding: 0;
+  border: 0;
+  background: none;
+  font: inherit;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
+  transition: text-decoration-color 0.2s ease;
+}
+
+.crawl-stop__open:hover {
+  text-decoration-color: currentColor;
+}
+
+.crawl-stop__where {
+  margin: 0;
+  font-size: var(--text-sm);
+  color: var(--grey);
+}
+
+.crawl-stop__swap {
+  grid-area: swap;
+  align-self: start;
+  font-size: var(--text-sm);
+}
+
+/* The nearby cafés: a small white hairline panel under the stop */
+.crawl-swap {
+  grid-area: panel;
+  margin-top: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius);
+  background: var(--white);
+}
+
+.crawl-swap__title {
+  margin: 0;
+  font-size: var(--text-xs);
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.crawl-swap__list {
+  margin: var(--space-1) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.crawl-swap__list li + li {
+  border-top: 1px solid var(--hairline);
+}
+
+.crawl-swap__option {
+  display: grid;
+  width: 100%;
+  min-height: 2.75rem;
+  padding: var(--space-2) 0;
+  border: 0;
+  background: none;
+  text-align: left;
+  cursor: pointer;
+}
+
+.crawl-swap__name {
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
+}
+
+.crawl-swap__option:hover .crawl-swap__name {
+  text-decoration-color: currentColor;
+}
+
+.crawl-swap__meta {
+  font-size: var(--text-sm);
+  color: var(--grey);
+}
+
+/* The crawl's map (Leaflet draws it inside #crawl-map) */
+.crawl__canvas {
+  height: clamp(18rem, 50vh, 24rem);
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius);
+  background: var(--cream);
+  overflow: hidden;
+}
+
+/* A stop: a navy circle with its number. .leaflet-marker-icon is repeated
+   so this beats Leaflet's own styles. */
+.crawl__map .leaflet-marker-icon.crawl-pin {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--white);
+  border-radius: 50%;
+  background: var(--navy);
+  box-shadow: 0 1px 4px rgb(31 42 68 / 0.35);
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  font-weight: 700;
+  line-height: 1;
+  color: var(--white);
+}
+
+/* The station you start from: a hollow navy ring with its name beside it */
+.crawl__map .leaflet-marker-icon.crawl-start-pin {
+  border: 3px solid var(--navy);
+  border-radius: 50%;
+  background: var(--white);
+  box-shadow: 0 1px 3px rgb(31 42 68 / 0.3);
+}
+
+.crawl__map .leaflet-tooltip.crawl-start-label {
+  padding: 0.125rem 0.5rem;
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius-pill);
+  background: var(--white);
+  box-shadow: none;
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  font-weight: 700;
+  color: var(--navy);
+}
+
+/* No little arrow on the label */
+.crawl__map .leaflet-tooltip.crawl-start-label::before {
+  display: none;
+}
+
+@media (min-width: 56em) {
+  .crawl__layout {
+    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    align-items: start;
+    gap: var(--space-7);
+  }
+
+  .crawl__canvas {
+    height: 28rem;
+  }
+}
+
+
+/* ---------- 18. Suggest a café (the form) ----------
+   Like the finder: white fields with a thin outline on the cream page,
+   small spaced labels, and a hairline above. */
+.suggest-form {
+  max-width: 48rem;
+  margin-top: var(--space-7);
+  padding-top: var(--space-6);
+  border-top: 1px solid var(--hairline);
+}
+
+.suggest-form__grid {
+  display: grid;
+  gap: var(--space-5);
+}
+
+/* A text box several lines tall: softer corners than the pill-shaped inputs */
+.textarea {
+  min-height: 8rem;
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius);
+  line-height: 1.5;
+  resize: vertical;
+}
+
+/* "(optional)" after a label, in normal case */
+.field__optional {
+  font-weight: 500;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--grey);
+}
+
+.suggest-form__moods-hint {
+  margin: 0 0 var(--space-3);
+}
+
+/* What's wrong with a field, right under it. Coffee brown, so it stands
+   out from the grey hints, and the field's outline gets thicker. */
+.field__error {
+  margin: var(--space-1) 0 0;
+  font-size: var(--text-sm);
+  font-weight: 700;
+  line-height: 1.4;
+  color: var(--coffee);
+}
+
+.input[aria-invalid="true"] {
+  border-color: var(--coffee);
+  box-shadow: inset 0 0 0 1px var(--coffee);
+}
+
+.suggest-form__foot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-3) var(--space-5);
+  margin-top: var(--space-6);
+}
+
+.suggest-form__status {
+  margin: 0;
+  font-size: var(--text-sm);
+  font-weight: 600;
+}
+
+.suggest-form__status:empty {
+  display: none;
+}
+
+/* The thank-you, in place of the form: a white hairline panel */
+.suggest-thanks {
+  max-width: 40rem;
+  margin-top: var(--space-7);
+  padding: var(--space-6) var(--space-5);
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius);
+  background: var(--white);
+}
+
+.suggest-thanks__title {
+  margin: 0 0 var(--space-2);
+  font-size: var(--text-lg);
+  letter-spacing: -0.03em;
+}
+
+/* Gets focus from code after sending; not a control, so no ring */
+.suggest-thanks__title:focus {
+  outline: none;
+}
+
+.suggest-thanks p {
+  margin-bottom: var(--space-5);
+}
+
+@media (min-width: 40em) {
+  .suggest-form__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .field--wide {
+    grid-column: 1 / -1;
+  }
+}
+
+
+/* ---------- 19. Café stats ----------
+   Plain HTML bars (ui.js draws them). Each chart sits under a navy rule,
+   like the How it works steps. Bars are thin and navy, longest first, with
+   the number at the tip; the length is --share (0 to 1, set by ui.js). */
+.stats {
+  display: grid;
+  gap: var(--space-7);
+  margin-top: var(--space-7);
+}
+
+.stats__side,
+.stats__figures {
+  display: grid;
+  gap: var(--space-7);
+}
+
+.stat-chart,
+.stat-figure {
+  min-width: 0;
+  margin: 0;
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--navy);
+}
+
+.stat-chart__title {
+  margin: 0 0 var(--space-4);
+  font-size: var(--text-xs);
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.bars {
+  display: grid;
+  gap: var(--space-3);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.bar {
+  display: grid;
+  gap: 0.125rem;
+}
+
+.bar__label {
+  font-size: var(--text-sm);
+  line-height: 1.35;
+}
+
+/* "฿฿ mid-range": the ฿ signs need the price font */
+.bar__label--price {
+  font-family: var(--font-price);
+}
+
+.bar__plot {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+/* 10px thick, square where it starts, a 4px rounded end where the value is.
+   The 3.5rem left over is room for the number after it (up to "1,472"). */
+.bar__fill {
+  flex: none;
+  width: calc(var(--share) * (100% - 3.5rem));
+  min-width: 2px;
+  height: 10px;
+  border-radius: 0 4px 4px 0;
+  background: var(--navy);
+}
+
+.bar__value {
+  font-size: var(--text-sm);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.stat-chart__note {
+  margin: var(--space-3) 0 0;
+  font-size: var(--text-sm);
+  color: var(--grey);
+}
+
+/* "13 of 95": one big number, a thin meter, and a line saying what it counts */
+.stat-figure__value {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0 var(--space-2);
+  margin: 0 0 var(--space-3);
+}
+
+.stat-figure__number {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 2rem + 2vw, 3.5rem);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.04em;
+}
+
+.stat-figure__of {
+  font-size: var(--text-md);
+  color: var(--grey);
+}
+
+/* The track is a faint step of the same navy, so the whole meter reads as one bar */
+.meter {
+  max-width: 24rem;
+  height: 6px;
+  border-radius: var(--radius-pill);
+  background: var(--line);
+  overflow: hidden;
+}
+
+.meter__fill {
+  display: block;
+  width: calc(var(--share) * 100%);
+  height: 100%;
+  border-radius: var(--radius-pill);
+  background: var(--navy);
+}
+
+.stat-figure__text {
+  max-width: 34rem;
+  margin: var(--space-3) 0 0;
+  font-size: var(--text-sm);
+  color: var(--grey);
+}
+
+@media (min-width: 48em) {
+  .stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: var(--space-8);
+  }
+
+  .stats__figures {
+    grid-column: 1 / -1;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: var(--space-8);
+  }
+}
+
+/* Every café on the site (ours and OpenStreetMap's): the total with the
+   hand-picked / local / chain bars under it, and the top 10 chains beside it */
+.stats__all {
+  display: grid;
+  gap: var(--space-7);
+}
+
+.stats__mix {
+  margin-top: var(--space-5);
+}
+
+.stats__osm-status {
+  margin: 0;
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--navy);
+  font-size: var(--text-sm);
+  color: var(--grey);
+}
+
+@media (min-width: 48em) {
+  .stats__all {
+    grid-column: 1 / -1;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: var(--space-8);
+  }
+}
+
+
+/* ---------- 20. Thai ----------
+   When Thai is on (<html lang="th">, set by i18n.js), Thai letters come
+   from Noto Sans Thai (i18n.js loads it) while English words keep our own
+   fonts. Thai sits a little taller (tone marks go above the letters), so
+   it gets more line height, and it's never letter-spaced: spacing pulls
+   Thai letters away from their vowel and tone marks. The café names and
+   descriptions are marked lang="en", so they keep their spacing. */
+html[lang="th"] {
+  --font-display: "Bricolage Grotesque", "Noto Sans Thai", "Manrope", system-ui, sans-serif;
+  --font-body: "Manrope", "Noto Sans Thai", system-ui, sans-serif;
+}
+
+html[lang="th"] body {
+  line-height: 1.75;
+}
+
+html[lang="th"] :is(h1, h2, h3, h4) {
+  line-height: 1.3;
+}
+
+/* !important because letter-spacing is set in many places above; for Thai
+   it must always go */
+html[lang="th"] *:not(:lang(en)) {
+  letter-spacing: normal !important;
+}
+
+/* The hero's accent word: Instrument Serif has no Thai letters, and slanted
+   Thai is hard to read, so in Thai it's upright, in coffee brown */
+html[lang="th"] h1 em {
+  font-family: var(--font-display);
+  font-style: normal;
+  font-weight: inherit;
+}
+
+
+/* ---------- 21. Toast message ---------- */
+.toast {
+  position: fixed;
+  left: var(--page-pad);
+  right: calc(var(--page-pad) + 3.5rem + var(--space-3)); /* stays clear of the round chat button */
+  bottom: var(--space-5);
+  z-index: 60;
+  max-width: 26rem;
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius);
+  background: var(--navy);
+  color: var(--white);
+  font-size: var(--text-sm);
+  /* Hidden until JavaScript adds .is-visible */
+  opacity: 0;
+  transform: translateY(8px);
+  pointer-events: none;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.toast.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+
+/* ---------- 22. Motion ----------
+   Animations only switch on for people who haven't asked their device
+   for reduced motion. Everyone else sees a still page. */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* The faint line of words drifts left forever (see .marquee__track) */
+  .marquee__track {
+    animation: marquee 80s linear infinite;
+  }
+
+  /* Clouds drift a little to and fro */
+  .cloud {
+    animation: cloud-drift 26s ease-in-out infinite alternate;
+  }
+
+  .cloud--2 { animation-duration: 32s; animation-delay: -8s; }
+  .cloud--3 { animation-duration: 22s; animation-delay: -4s; }
+  .cloud--4 { animation-duration: 36s; animation-delay: -12s; }
+
+  /* The cups float up and down and tilt slightly; their shadows shrink as
+     they rise. --tilt-from / --tilt-to are each cup's own angles. */
+  .cup--iced {
+    --tilt-from: -6deg;
+    --tilt-to: -2deg;
+    animation: cup-float 6s ease-in-out infinite;
+  }
+
+  .cup--hot {
+    --tilt-from: 5deg;
+    --tilt-to: 1deg;
+    animation: cup-float 7s ease-in-out -2.5s infinite;
+  }
+
+  .cup-shadow--iced { animation: shadow-breathe 6s ease-in-out infinite; }
+  .cup-shadow--hot { animation: shadow-breathe 7s ease-in-out -2.5s infinite; }
+
+  .cup-steam {
+    animation: steam-rise 4.5s ease-in-out infinite;
+  }
+
+  .cup-steam--2 { animation-delay: -2.2s; }
+
+  /* The clock's dot pulses softly */
+  .clock-dot {
+    animation: dot-pulse 2.4s ease-in-out infinite;
+  }
+
+  /* Result cards fade up when they appear. --i (set in ui.js) is each
+     card's position, so they arrive one after another, not all at once. */
+  .results__item {
+    animation: fade-up 0.4s ease both;
+    animation-delay: calc(var(--i, 0) * 35ms);
+  }
+
+  /* The drawer slides up from the bottom (phones) or in from the right,
+     and the backdrop fades in. Closing is instant. */
+  .drawer[open] {
+    animation: sheet-up 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+
+  .drawer[open]::backdrop {
+    animation: fade-in 0.35s ease;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) and (min-width: 48em) {
+  .drawer[open] {
+    animation-name: drawer-in;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  /* The chat rises gently into place */
+  .chat[open] {
+    animation: chat-in 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+
+  .chat[open]::backdrop {
+    animation: fade-in 0.3s ease;
+  }
+
+  /* The barista's typing dots pulse one after another */
+  .typing-dots i {
+    animation: typing 1.1s ease-in-out infinite;
+  }
+
+  .typing-dots i:nth-child(2) { animation-delay: 0.15s; }
+  .typing-dots i:nth-child(3) { animation-delay: 0.3s; }
+
+  /* A wisp of steam rises from the round button's cup */
+  .chat-fab__steam {
+    animation: fab-steam 3.2s ease-in-out infinite;
+  }
+
+  .chat-fab__steam--2 { animation-delay: -1.6s; }
+
+  /* "Surprise me": the steam puffs up and away when pressed */
+  .surprise.is-steaming .surprise__steam {
+    animation: surprise-puff 0.9s ease-out;
+  }
+
+  .surprise.is-steaming .surprise__steam--2 { animation-delay: 0.12s; }
+}
+
+/* Reduced motion: also make the small hover/toast transitions instant */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+@keyframes cloud-drift {
+  from { transform: translateX(-1.5rem); }
+  to   { transform: translateX(1.5rem); }
+}
+
+@keyframes cup-float {
+  0%, 100% { transform: translateY(0) rotate(var(--tilt-from)); }
+  50%      { transform: translateY(-14px) rotate(var(--tilt-to)); }
+}
+
+@keyframes shadow-breathe {
+  0%, 100% { transform: scaleX(1); opacity: 1; }
+  50%      { transform: scaleX(0.82); opacity: 0.6; }
+}
+
+@keyframes steam-rise {
+  0%   { opacity: 0;    transform: translateY(6px); }
+  40%  { opacity: 0.35; }
+  100% { opacity: 0;    transform: translateY(-8px); }
+}
+
+@keyframes dot-pulse {
+  0%, 100% { opacity: 1; }
+  50%      { opacity: 0.35; }
+}
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: none; }
+}
+
+@keyframes sheet-up {
+  from { transform: translateY(100%); }
+}
+
+@keyframes drawer-in {
+  from { transform: translateX(105%); }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+}
+
+@keyframes chat-in {
+  from { opacity: 0; transform: translateY(16px); }
+}
+
+@keyframes typing {
+  0%, 100% { opacity: 0.3; transform: none; }
+  50%      { opacity: 1;   transform: translateY(-2px); }
+}
+
+@keyframes surprise-puff {
+  0%   { opacity: 1; transform: none; }
+  60%  { opacity: 0.9; transform: translateY(-3px); }
+  100% { opacity: 0; transform: translateY(-5px); }
+}
+
+@keyframes fab-steam {
+  0%   { opacity: 0; transform: translateY(1.5px); }
+  40%  { opacity: 1; }
+  100% { opacity: 0; transform: translateY(-2.5px); }
+}

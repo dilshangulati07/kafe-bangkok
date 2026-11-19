@@ -1,0 +1,8 @@
+# Netlify settings for Kafé Bangkok.
+# It's a plain static site: there's no build command, and Netlify serves
+# the files straight from this folder.
+[build]
+  publish = "."
+
+# Netlify shows 404.html automatically for any address that doesn't exist,
+# so it needs no setting here.
