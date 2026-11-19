@@ -160,9 +160,9 @@ Then open http://localhost:8000.
 1. Push the folder to GitHub.
 2. On Netlify, add a new site from the repository. There's no build command, and the publish directory is the project root (`netlify.toml` already says so).
 3. Turn on form detection: in the site's settings on Netlify, open Forms and click "Enable form detection", then deploy again. Netlify then finds the `suggest-cafe` form, and suggestions appear under Forms.
-4. Change the `og:url` and `og:image` addresses in `index.html` (and the live link in the README) to your Netlify address.
+4. If the site address changes, update the `og:url`, `og:image` and canonical addresses in `index.html`, `sitemap.xml`, `robots.txt` and the live link in the README (the live site is https://kafebangkok.netlify.app).
 
-To deploy by dragging a zip onto Netlify instead, zip only the site: `index.html`, `404.html`, `admin.html`, `netlify.toml`, `favicon.svg` and the `css`, `js`, `data` and `images` folders, at the top level of the zip. Leave out `tools/`, `data-raw/` and the Markdown files.
+To deploy by dragging a zip onto Netlify instead, zip only the site: `index.html`, `404.html`, `admin.html`, `netlify.toml`, `favicon.svg`, `sitemap.xml`, `robots.txt` and the `css`, `js`, `data` and `images` folders, at the top level of the zip. Leave out `tools/`, `data-raw/` and the Markdown files.
 
 ## Café data
 
