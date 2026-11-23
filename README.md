@@ -65,7 +65,7 @@ Cafés in Bangkok open and close often, so check Google Maps before you go.
 The site loads its data with `fetch`, so it needs a local web server. Opening `index.html` directly won't work.
 
 ```bash
-git clone https://github.com/dilshangulati07-crypto/kafe-bangkok.git
+git clone https://github.com/dilshangulati07/kafe-bangkok.git
 cd kafe-bangkok
 python -m http.server 8000
 ```
