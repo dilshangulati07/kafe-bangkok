@@ -1,18 +1,18 @@
 // suggest.js: the "Suggest a café" form near the bottom of the page.
 //
-// The form is handled by Netlify Forms (data-netlify="true" in index.html).
-// When the site is deployed, Netlify reads the form from the HTML, and from
-// then on it stores whatever people send. You read the suggestions in the
-// Netlify dashboard, under Forms. There's no server code of our own.
+// The form is sent to /api/suggest, a Cloudflare Pages Function
+// (functions/api/suggest.js) that checks it again and saves it in Cloudflare
+// KV. You read the suggestions in the Cloudflare dashboard, under
+// Storage & databases → Workers KV → kafe-suggestions.
 //
 // Without JavaScript the form still works: the browser checks the required
-// fields and Netlify shows its own thank-you page. With JavaScript (this
+// fields and the function shows a small thank-you page. With JavaScript (this
 // file), the fields are checked with friendlier messages, the form is sent
 // in the background with fetch(), and the thank-you appears right here.
 //
 // Spam: the form has a "honeypot", a hidden field called bot-field. People
 // never see it, but simple spam bots fill in every field they find, and
-// Netlify quietly throws away anything with bot-field filled in.
+// the function quietly ignores anything with bot-field filled in.
 
 import { escapeHtml } from './ui.js';
 import { t, moodLabel } from './i18n.js';
@@ -93,9 +93,9 @@ function focusField(form, field) {
   input.focus();
 }
 
-// Send the form to Netlify in the background. Netlify wants it the way a
-// normal form would send it ("URL-encoded"), with a form-name field saying
-// which form it is. FormData collects every field, the honeypot included.
+// Send the form to /api/suggest in the background, the way a normal form
+// would send it ("URL-encoded"). FormData collects every field, the honeypot
+// included. Accept: application/json asks the function for JSON, not a page.
 async function send(form) {
   if (isSending) return; // already on its way (a double click, say)
 
@@ -108,7 +108,6 @@ async function send(form) {
   const button = form.querySelector('[type="submit"]');
   const status = form.querySelector('[data-suggest-status]');
   const body = new URLSearchParams(new FormData(form));
-  body.set('form-name', form.getAttribute('name'));
 
   // aria-disabled instead of disabled: a disabled button would lose keyboard focus
   isSending = true;
@@ -117,15 +116,15 @@ async function send(form) {
   status.textContent = '';
 
   try {
-    const response = await fetch('/', {
+    const response = await fetch(form.getAttribute('action') || '/api/suggest', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded', Accept: 'application/json' },
       body: body.toString(),
     });
-    if (!response.ok) throw new Error(`Netlify answered ${response.status}`);
+    if (!response.ok) throw new Error(`The server answered ${response.status}`);
     showThanks(form, form.elements.name.value.trim());
   } catch {
-    // Offline, or not on Netlify (a local test server can't take forms)
+    // Offline, or a local test server with no /api/suggest
     status.textContent = t('suggest.failed');
   } finally {
     isSending = false;
@@ -154,10 +153,9 @@ function startAgain(form) {
   form.elements.name.focus();
 }
 
-// The mood boxes are written in index.html, because Netlify reads the form
-// from the HTML when the site is deployed (it has to see a field called
-// "moods[]"). Here they're rebuilt from meta.moods, so the labels always
-// match the finder's. The [] tells Netlify the field can have several values.
+// The mood boxes are written in index.html, so the form works without
+// JavaScript. Here they're rebuilt from meta.moods, so the labels always
+// match the finder's. The [] marks a field that can have several values.
 // (Ticked boxes stay ticked when it's redrawn after a language change.)
 function buildMoodBoxes(form, moods) {
   const ticked = new FormData(form).getAll('moods[]');

@@ -2,7 +2,7 @@
 
 **Find a Bangkok café that fits your mood**: a date spot, a green escape, a quiet place to work, somewhere pretty, or somewhere cheap.
 
-**Live demo: [kafebangkok.netlify.app](https://kafebangkok.netlify.app)**
+**Live demo: [kafe-bangkok.pages.dev](https://kafe-bangkok.pages.dev)**
 
 Kafé Bangkok is a café finder for Bangkok, in English and Thai. You pick a mood, a few must-haves and a part of town, and it ranks 160 hand-picked cafés with a match score and a short reason for each one. It also has a rule-based chat "barista", a map, a café crawl planner and stats, plus about 470 more cafés from OpenStreetMap.
 
@@ -29,7 +29,7 @@ It's a static site built with plain HTML, CSS and JavaScript: no framework, no b
 - **Thai / English.** Every word of the interface is translated, and the barista understands common Thai words too.
 - **Saved cafés and a café passport.** Save favourites, mark cafés you've visited and collect neighbourhood "stamps", all stored in the browser.
 - **Compare, Surprise me, Café of the day, shareable filter links.**
-- **Suggest a café** form, collected by Netlify Forms, with validation and spam protection.
+- **Suggest a café** form, saved by a Cloudflare Pages Function, with validation on both sides and spam protection.
 - **Admin page** to add, edit or delete cafés in the browser and download a new `cafes.json`.
 - **Accessible and mobile first.** It works by keyboard, meets WCAG AA contrast, respects "reduce motion" and works from 360px phones up.
 
@@ -48,7 +48,7 @@ The full details (scoring, data format, OpenStreetMap rules, deploy steps) are i
 - **HTML, CSS and JavaScript** (ES modules). No framework, no build step and no npm packages.
 - **Leaflet 1.9.4 + Leaflet.markercluster 1.5.3** for maps, loaded from cdnjs (pinned, with integrity hashes) only when a map is opened.
 - **Node.js** (built-in `fetch` only) for the OpenStreetMap data script.
-- **Netlify** for hosting and Netlify Forms for suggestions.
+- **Cloudflare Pages** for hosting, and a Pages Function with Cloudflare KV for suggestions.
 - `<dialog>` for the drawer, chat and compare table, `localStorage` for saved state, and Google Fonts (Bricolage Grotesque, Manrope, Instrument Serif, Noto Sans Thai).
 
 ## Data sources and credits
@@ -91,4 +91,4 @@ docs/                              technical notes and screenshots
 
 ---
 
-Built by **Dilshan Gulati** · [Portfolio](https://dilshanportfolio1.netlify.app)
+Built by **Dilshan Gulati** · [Portfolio](https://dilshangulati.pages.dev)

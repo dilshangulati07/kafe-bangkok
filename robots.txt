@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://kafebangkok.netlify.app/sitemap.xml
+Sitemap: https://kafe-bangkok.pages.dev/sitemap.xml

@@ -7,16 +7,16 @@
   <meta name="description" content="Find a Bangkok café that fits your mood: a garden to sit in, a quiet place to work, a date spot or somewhere cheap and cheerful. Cafés ranked for you, with a note on why each one fits.">
   <meta name="theme-color" content="#FBF7F0">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
-  <link rel="canonical" href="https://kafebangkok.netlify.app/">
+  <link rel="canonical" href="https://kafe-bangkok.pages.dev/">
 
   <!-- Open Graph: the title, text and picture shown when the link is shared.
-       og:image and og:url must be full addresses (the live site is kafebangkok.netlify.app). -->
+       og:image and og:url must be full addresses (the live site is kafe-bangkok.pages.dev). -->
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Kafé Bangkok">
   <meta property="og:title" content="Kafé Bangkok · find a café that fits your mood">
   <meta property="og:description" content="Pick a mood and a part of town, and get Bangkok cafés ranked for you, with a note on why each one fits.">
-  <meta property="og:url" content="https://kafebangkok.netlify.app/">
-  <meta property="og:image" content="https://kafebangkok.netlify.app/images/og-image.png">
+  <meta property="og:url" content="https://kafe-bangkok.pages.dev/">
+  <meta property="og:image" content="https://kafe-bangkok.pages.dev/images/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="An iced coffee and a navy hot cup, each with a K mark, floating in a soft morning sky next to the words Find your Bangkok café, today">
@@ -576,12 +576,12 @@
         <h2 id="suggest-title" data-i18n="suggest.title">Suggest a café</h2>
         <p class="section__intro" data-i18n="suggest.intro">Know a Bangkok café that should be on the list? Tell us about it. Every suggestion is checked on Google Maps before it's added.</p>
 
-        <!-- Netlify Forms: data-netlify="true" asks Netlify to collect what this
-             form sends (see js/suggest.js). netlify-honeypot names the hidden
-             spam trap below. "name" is what the form is called in Netlify. -->
-        <form id="suggest-form" class="suggest-form" name="suggest-cafe" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+        <!-- The form posts to /api/suggest, a Cloudflare Pages Function
+             (functions/api/suggest.js) that saves each suggestion. With
+             JavaScript, js/suggest.js sends it in the background instead. -->
+        <form id="suggest-form" class="suggest-form" name="suggest-cafe" method="POST" action="/api/suggest">
           <!-- The honeypot: hidden from people, but spam bots fill it in, and
-               Netlify throws away anything that has it filled in -->
+               the server quietly ignores anything that has it filled in -->
           <p hidden>
             <label>Leave this empty: <input name="bot-field" tabindex="-1" autocomplete="off"></label>
           </p>
@@ -612,7 +612,7 @@
               <p id="suggest-why-error" class="field__error" data-error-for="why" hidden></p>
             </div>
 
-            <!-- Netlify has to see a field called "moods[]" here in the HTML.
+            <!-- Written here so the form works without JavaScript.
                  suggest.js rebuilds these boxes from meta.moods in cafes.json. -->
             <fieldset class="field field--wide" aria-describedby="suggest-moods-hint suggest-moods-error">
               <legend class="field__label" data-i18n="suggest.goodFor">Good for</legend>
@@ -662,7 +662,7 @@
         <!-- Source code and portfolio -->
         <ul class="site-footer__links">
           <li><a href="https://github.com/dilshangulati07-crypto/kafe-bangkok">GitHub</a></li>
-          <li><a href="https://dilshanportfolio1.netlify.app" data-i18n="footer.portfolio">Portfolio</a></li>
+          <li><a href="https://dilshangulati.pages.dev" data-i18n="footer.portfolio">Portfolio</a></li>
           <li><a href="#how-it-works" data-i18n="footer.how">How it works</a></li>
           <li><a href="#suggest" data-i18n="footer.suggest">Suggest a café</a></li>
         </ul>

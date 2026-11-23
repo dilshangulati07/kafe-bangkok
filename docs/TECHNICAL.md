@@ -19,7 +19,7 @@ The detailed design and data notes behind the site. For an overview, see the [RE
 - **Surprise me.** Opens a random café from your current top 10.
 - **Café of the day.** Under the hero, one café a day with its area, description and a "See details" button. Everyone sees the same café on the same day, by the date in Bangkok (wherever you are), and it changes by itself at midnight there.
 - **Plan a café crawl.** Pick a starting neighbourhood or BTS/MRT station, a mood and 2 to 4 stops. The planner picks cafés with that mood close to each other, puts them in the order with the least walking, shows the distance between stops and draws them as numbered pins on a small map. "Swap" offers three nearby cafés for any stop, and "Open route in Google Maps" opens the whole walk there.
-- **Suggest a café.** A short form (name, area, Google Maps link, why you like it, moods and an optional email) sent to Netlify Forms, with a thank-you shown on the page. In the top bar menu and the footer.
+- **Suggest a café.** A short form (name, area, Google Maps link, why you like it, moods and an optional email) sent to a Cloudflare Pages Function that saves it, with a thank-you shown on the page. In the top bar menu and the footer.
 - **Thai / English.** A TH / EN switch in the top bar translates every word of the interface into Thai: buttons, labels, headings, empty states, the barista, moods and features, the crawl planner, the form, café of the day and the open-now labels. Café names and descriptions stay in English. The choice is remembered, and a first visit from a browser set to Thai opens in Thai. The barista also understands common Thai words (คาเฟ่, เงียบ, ถูก, สวน, เดท, เปิดดึก, ทำงาน, ร้านหนังสือ and more) in either language.
 - **Café stats.** Simple bar charts in plain HTML and CSS: every café on the site (hand-picked, local and chain, and how many of OpenStreetMap's cafés passed the reliability rules), the top 10 chains by branches, cafés per area, the most common moods, the price spread, how many open late and how many have known opening hours. Every number is counted from the data.
 - **Admin page** (`admin.html`, not linked from the site). A table of every café with search, a form to add, edit or delete cafés (every field, hours by day and the map position included), and "Download cafes.json" to save the result. It runs only in your browser.
@@ -52,14 +52,15 @@ The planner lives in `js/crawl.js`.
 5. **Swap.** Shows the three cafés with the same mood closest to that stop. Picking one replaces only that stop.
 6. **Google Maps.** A directions link from the station (or the first café) through the stops to the last one, with each place as exact coordinates. Google allows 3 stops in between on phones, and a 4-stop crawl from a station needs exactly 3.
 
-## Suggest a café (Netlify Forms)
+## Suggest a café (Cloudflare Pages Function)
 
-The form in `index.html` has `data-netlify="true"`, so Netlify collects what people send. There's no server code of our own. `js/suggest.js` checks the fields with friendly messages (the café's name, area, a real Google Maps link, why you like it, at least one mood, and the email only if one is given), sends the form in the background with `fetch`, and shows a thank-you without leaving the page. Without JavaScript, the browser checks the required fields and Netlify shows its own thank-you page.
+The form in `index.html` posts to `/api/suggest`. That's a Cloudflare Pages Function, `functions/api/suggest.js`, which checks the fields again on the server and saves each suggestion as one entry in Cloudflare KV. `js/suggest.js` checks the fields first with friendly messages (the café's name, area, a real Google Maps link, why you like it, at least one mood, and the email only if one is given), sends the form in the background with `fetch` (asking for JSON back), and shows a thank-you without leaving the page. Without JavaScript, the browser posts the form normally and the function answers with a small thank-you page.
 
-- **Spam:** a hidden "honeypot" field called `bot-field` (`netlify-honeypot="bot-field"`). People never see it; spam bots fill it in, and Netlify quietly throws those submissions away.
-- **Fields must stay in the HTML:** Netlify finds the form by reading `index.html` when the site is deployed, so every field (including the `moods[]` checkboxes) has to be written there, not only added by JavaScript.
-- **Locally:** `python -m http.server` can't receive forms, so sending a suggestion there shows the "didn't send" message. It works on Netlify.
-- **Reading suggestions:** in the Netlify dashboard, under Forms → suggest-cafe.
+- **Spam:** a hidden "honeypot" field called `bot-field`. People never see it; spam bots fill it in, and the function answers "thank you" but saves nothing.
+- **Limits:** the function caps every field at the same lengths as the form (`LIMITS` at the top of the file), accepts only Google Maps links, and allows up to 10 moods.
+- **Storage:** the KV namespace `kafe-suggestions`, bound to the Pages project as `SUGGESTIONS` (Workers & Pages → kafe-bangkok → Settings → Bindings). Each key is `s:` + the time it was sent + a short random id, and the value is the suggestion as JSON.
+- **Reading suggestions:** Cloudflare dashboard → Storage & databases → Workers KV → kafe-suggestions.
+- **Locally:** `python -m http.server` doesn't run the function, so sending a suggestion there shows the "didn't send" message. `npx wrangler pages dev .` runs it locally.
 
 ## Thai and English
 
@@ -106,7 +107,7 @@ Nothing is saved online, and changes stay in that browser tab until you download
 - `localStorage` for filters, saved and visited cafés, and the barista's last search.
 - Google Fonts: Bricolage Grotesque (headings), Instrument Serif italic (accent words and notes), Manrope (text), and Noto Sans Thai: for the ฿ sign (a one-character file), and for all Thai text once Thai is switched on.
 - Inline SVG drawings and icons: the two floating Kafé Bangkok cups with their "K" mark, the line icons, and small illustrations. The sky, clouds and drifting background words are plain CSS.
-- Hosted on Netlify, with Netlify Forms collecting café suggestions.
+- Hosted on Cloudflare Pages, with a Pages Function saving café suggestions to Cloudflare KV.
 
 ## Project structure
 
@@ -132,7 +133,7 @@ kafe-bangkok/
 │   ├── map.js          the Map view and the crawl map (loads Leaflet when first needed)
 │   ├── osm.js          the extra cafés from OpenStreetMap: loading, filters, cards
 │   ├── crawl.js        Plan a café crawl
-│   ├── suggest.js      the Suggest a café form (Netlify Forms)
+│   ├── suggest.js      the Suggest a café form (sends to /api/suggest)
 │   ├── ui.js           draws the page: cards, drawer, saved, compare...
 │   └── store.js        localStorage helpers
 ├── data/
@@ -142,7 +143,9 @@ kafe-bangkok/
 │   └── osm-raw.json    OpenStreetMap's whole reply, saved by the script (not part of the site; don't deploy it)
 ├── tools/
 │   └── fetch-osm.mjs   downloads and cleans osm-cafes.json (run by hand, not part of the site)
-└── netlify.toml        Netlify settings (static site, no build)
+├── functions/
+│   └── api/suggest.js  Cloudflare Pages Function: saves café suggestions to KV
+└── netlify.toml        old Netlify settings (not used on Cloudflare)
 ```
 
 ## Run it locally
@@ -157,12 +160,13 @@ Then open http://localhost:8000.
 
 ## Deploy
 
-1. Push the folder to GitHub.
-2. On Netlify, add a new site from the repository. There's no build command, and the publish directory is the project root (`netlify.toml` already says so).
-3. Turn on form detection: in the site's settings on Netlify, open Forms and click "Enable form detection", then deploy again. Netlify then finds the `suggest-cafe` form, and suggestions appear under Forms.
-4. If the site address changes, update the `og:url`, `og:image` and canonical addresses in `index.html`, `sitemap.xml`, `robots.txt` and the live link in the README (the live site is https://kafebangkok.netlify.app).
+The site is on Cloudflare Pages at https://kafe-bangkok.pages.dev, connected to this GitHub repository: every push to `main` deploys it.
 
-To deploy by dragging a zip onto Netlify instead, zip only the site: `index.html`, `404.html`, `admin.html`, `netlify.toml`, `favicon.svg`, `sitemap.xml`, `robots.txt` and the `css`, `js`, `data` and `images` folders, at the top level of the zip. Leave out `tools/`, `data-raw/` and the Markdown files.
+1. In Cloudflare, Workers & Pages → Create → Pages → Connect to Git, and pick this repository. Framework preset: None. Build command: empty. Build output directory: `/` (the project root).
+2. Create a KV namespace (Storage & databases → Workers KV), and bind it to the project as `SUGGESTIONS` (the project's Settings → Bindings → Add → KV namespace). Deploy again so the binding takes effect.
+3. If the site address changes, update the `og:url`, `og:image` and canonical addresses in `index.html`, `sitemap.xml`, `robots.txt` and the live link in the README.
+
+`tools/` and `data-raw/` are not part of the site. Cloudflare serves the whole repository, but nothing links to them.
 
 ## Café data
 
@@ -216,7 +220,7 @@ node tools/fetch-osm.mjs --save-raw data-raw/osm-raw.json
 It asks the Overpass API for every node and way tagged `amenity=cafe` inside Bangkok's boundary (the Bangkok Metropolitan Administration, `ISO3166-2=TH-10`), with `out center meta`: buildings get a single point, and every café comes with the date it was last edited. The free Overpass servers are often busy (they answer 502 or 504), so the script takes turns asking overpass-api.de and a mirror, waits 20 seconds between rounds and keeps trying for up to 5 minutes (each try is cut off after 90 seconds). If nothing answers, it stops and leaves the old `osm-cafes.json` as it was. It only reads `cafes.json`.
 
 - `--save-raw data-raw/osm-raw.json` keeps OpenStreetMap's whole reply (about 850 KB). `--from data-raw/osm-raw.json` cleans that saved reply again without downloading, for example after changing a rule.
-- `data-raw/` is for the script only, not part of the site: leave it out of the deploy (the Netlify zip doesn't include it).
+- `data-raw/` is for the script only, not part of the site (and it is not committed: see `.gitignore`).
 - A reply saved before 10 November 2026 (made with `out center tags`) has no edit dates. The script then skips the "edited since 2022" rule and says so; download again to apply it.
 
 **Which cafés are kept.** Anyone can add a café to OpenStreetMap, and nobody has to remove it when it closes, so many entries are years out of date. The rules are at the top of `tools/fetch-osm.mjs` (`EDITED_SINCE`, `CHECKED_SINCE`, `MIN_SIGNS`). A café is removed for the first of these reasons that fits, so each one counts once:
