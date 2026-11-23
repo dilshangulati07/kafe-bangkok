@@ -1,10 +1,11 @@
 // functions/api/suggest.js: receives the "Suggest a café" form.
 //
 // This is a Cloudflare Pages Function, so it runs on Cloudflare, not in the
-// browser. It answers POST /api/suggest. Each suggestion is saved as one
-// entry in the KV namespace bound as SUGGESTIONS (Cloudflare dashboard:
-// Workers & Pages → kafe-bangkok → Settings → Bindings). To read them, open
-// Storage & databases → Workers KV → kafe-suggestions.
+// browser. It answers POST /api/suggest. Each suggestion is saved as a row in
+// the kafe_suggestions table of the D1 database "dilshan-sites" (bound as DB:
+// Workers & Pages → kafe-bangkok → Settings → Bindings). You read and approve
+// them in the private admin dashboard. If DB isn't bound, it falls back to
+// the older KV namespace bound as SUGGESTIONS.
 //
 // js/suggest.js sends the form in the background and asks for JSON back.
 // Without JavaScript, the browser posts the form normally and gets a small
@@ -90,11 +91,17 @@ export async function onRequestPost({ request, env }) {
   if (bot) return reply(request, 200, 'We’ve got your suggestion.');
   if (problem) return reply(request, 400, `Please check the form: ${problem}.`);
 
-  if (!env.SUGGESTIONS) return reply(request, 503, 'Suggestions are not set up on this site yet.');
-
   const when = new Date().toISOString();
-  const key = `s:${when}:${crypto.randomUUID().slice(0, 8)}`;
-  await env.SUGGESTIONS.put(key, JSON.stringify({ ...suggestion, sentAt: when }));
+  if (env.DB) {
+    await env.DB.prepare("INSERT INTO kafe_suggestions (id, created_at, status, data) VALUES (?, ?, 'new', ?)")
+      .bind(crypto.randomUUID(), when, JSON.stringify(suggestion))
+      .run();
+  } else if (env.SUGGESTIONS) {
+    const key = `s:${when}:${crypto.randomUUID().slice(0, 8)}`;
+    await env.SUGGESTIONS.put(key, JSON.stringify({ ...suggestion, sentAt: when }));
+  } else {
+    return reply(request, 503, 'Suggestions are not set up on this site yet.');
+  }
   return reply(request, 200, 'We’ve got your suggestion. We’ll check it on Google Maps and add it if it’s a good fit.');
 }
 

@@ -48,7 +48,7 @@ The full details (scoring, data format, OpenStreetMap rules, deploy steps) are i
 - **HTML, CSS and JavaScript** (ES modules). No framework, no build step and no npm packages.
 - **Leaflet 1.9.4 + Leaflet.markercluster 1.5.3** for maps, loaded from cdnjs (pinned, with integrity hashes) only when a map is opened.
 - **Node.js** (built-in `fetch` only) for the OpenStreetMap data script.
-- **Cloudflare Pages** for hosting, and a Pages Function with Cloudflare KV for suggestions.
+- **Cloudflare Pages** for hosting, and a Pages Function with a Cloudflare D1 database for suggestions.
 - `<dialog>` for the drawer, chat and compare table, `localStorage` for saved state, and Google Fonts (Bricolage Grotesque, Manrope, Instrument Serif, Noto Sans Thai).
 
 ## Data sources and credits

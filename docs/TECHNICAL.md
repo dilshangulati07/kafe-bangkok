@@ -54,12 +54,12 @@ The planner lives in `js/crawl.js`.
 
 ## Suggest a café (Cloudflare Pages Function)
 
-The form in `index.html` posts to `/api/suggest`. That's a Cloudflare Pages Function, `functions/api/suggest.js`, which checks the fields again on the server and saves each suggestion as one entry in Cloudflare KV. `js/suggest.js` checks the fields first with friendly messages (the café's name, area, a real Google Maps link, why you like it, at least one mood, and the email only if one is given), sends the form in the background with `fetch` (asking for JSON back), and shows a thank-you without leaving the page. Without JavaScript, the browser posts the form normally and the function answers with a small thank-you page.
+The form in `index.html` posts to `/api/suggest`. That's a Cloudflare Pages Function, `functions/api/suggest.js`, which checks the fields again on the server and saves each suggestion as a row in the `kafe_suggestions` table of the Cloudflare D1 database `dilshan-sites`. `js/suggest.js` checks the fields first with friendly messages (the café's name, area, a real Google Maps link, why you like it, at least one mood, and the email only if one is given), sends the form in the background with `fetch` (asking for JSON back), and shows a thank-you without leaving the page. Without JavaScript, the browser posts the form normally and the function answers with a small thank-you page.
 
 - **Spam:** a hidden "honeypot" field called `bot-field`. People never see it; spam bots fill it in, and the function answers "thank you" but saves nothing.
 - **Limits:** the function caps every field at the same lengths as the form (`LIMITS` at the top of the file), accepts only Google Maps links, and allows up to 10 moods.
-- **Storage:** the KV namespace `kafe-suggestions`, bound to the Pages project as `SUGGESTIONS` (Workers & Pages → kafe-bangkok → Settings → Bindings). Each key is `s:` + the time it was sent + a short random id, and the value is the suggestion as JSON.
-- **Reading suggestions:** Cloudflare dashboard → Storage & databases → Workers KV → kafe-suggestions.
+- **Storage:** the D1 database `dilshan-sites`, bound to the Pages project as `DB` (Workers & Pages → kafe-bangkok → Settings → Bindings). The older KV namespace bound as `SUGGESTIONS` is only used if `DB` is missing.
+- **Reading suggestions:** in the private admin dashboard (the `admin` repository), which also approves them into draft cafés and publishes `data/cafes.json`.
 - **Locally:** `python -m http.server` doesn't run the function, so sending a suggestion there shows the "didn't send" message. `npx wrangler pages dev .` runs it locally.
 
 ## Thai and English
@@ -107,7 +107,7 @@ Nothing is saved online, and changes stay in that browser tab until you download
 - `localStorage` for filters, saved and visited cafés, and the barista's last search.
 - Google Fonts: Bricolage Grotesque (headings), Instrument Serif italic (accent words and notes), Manrope (text), and Noto Sans Thai: for the ฿ sign (a one-character file), and for all Thai text once Thai is switched on.
 - Inline SVG drawings and icons: the two floating Kafé Bangkok cups with their "K" mark, the line icons, and small illustrations. The sky, clouds and drifting background words are plain CSS.
-- Hosted on Cloudflare Pages, with a Pages Function saving café suggestions to Cloudflare KV.
+- Hosted on Cloudflare Pages, with a Pages Function saving café suggestions to a Cloudflare D1 database.
 
 ## Project structure
 
@@ -144,7 +144,7 @@ kafe-bangkok/
 ├── tools/
 │   └── fetch-osm.mjs   downloads and cleans osm-cafes.json (run by hand, not part of the site)
 ├── functions/
-│   └── api/suggest.js  Cloudflare Pages Function: saves café suggestions to KV
+│   └── api/suggest.js  Cloudflare Pages Function: saves café suggestions to D1
 └── netlify.toml        old Netlify settings (not used on Cloudflare)
 ```
 
@@ -163,7 +163,7 @@ Then open http://localhost:8000.
 The site is on Cloudflare Pages at https://kafe-bangkok.pages.dev, connected to this GitHub repository: every push to `main` deploys it.
 
 1. In Cloudflare, Workers & Pages → Create → Pages → Connect to Git, and pick this repository. Framework preset: None. Build command: empty. Build output directory: `/` (the project root).
-2. Create a KV namespace (Storage & databases → Workers KV), and bind it to the project as `SUGGESTIONS` (the project's Settings → Bindings → Add → KV namespace). Deploy again so the binding takes effect.
+2. Bind the D1 database `dilshan-sites` to the project as `DB` (the project's Settings → Bindings → Add → D1 database). Deploy again so the binding takes effect.
 3. If the site address changes, update the `og:url`, `og:image` and canonical addresses in `index.html`, `sitemap.xml`, `robots.txt` and the live link in the README.
 
 `tools/` and `data-raw/` are not part of the site. Cloudflare serves the whole repository, but nothing links to them.
