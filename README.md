@@ -40,6 +40,7 @@ It's a static site built with plain HTML, CSS and JavaScript: no framework, no b
 3. **The barista** turns what you type into the same choices as the finder, using word lists ("romantic" means date, "plants" means green escape, "no rooftop" removes rooftop). It then uses the same filters and the same score.
 4. **The crawl planner** takes the 20 closest cafés with your mood, tries every short route through them and keeps the one with the least walking. It measures distance in straight lines on the Earth's surface (the haversine formula).
 5. **The extra OpenStreetMap cafés** come from a Node script, `tools/fetch-osm.mjs`, that downloads every café in Bangkok from OpenStreetMap. It keeps only the ones that look real and still open: 471 of 2,254. The site loads them only when you need them.
+6. **Anonymous counts.** `js/track.js` tells `functions/api/track.js` when someone opens a café, taps a mood or searches, so the private dashboard can show what people look for. There are no cookies and no IP addresses, and browsers set to Do Not Track or Global Privacy Control send nothing.
 
 The full details (scoring, data format, OpenStreetMap rules, deploy steps) are in [docs/TECHNICAL.md](docs/TECHNICAL.md).
 
@@ -86,6 +87,7 @@ css/                               styles
 js/                                app logic: score.js, chat.js, crawl.js, map.js, osm.js, i18n.js, ui.js…
 data/                              cafes.json (hand-picked) and osm-cafes.json (OpenStreetMap)
 tools/fetch-osm.mjs                downloads and cleans the OpenStreetMap cafés
+functions/api/                     suggest.js (the suggest form) and track.js (anonymous counts)
 docs/                              technical notes and screenshots
 ```
 

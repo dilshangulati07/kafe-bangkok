@@ -741,7 +741,7 @@ function drawerBodyHtml({ cafe, score, reasons, hasPicks }, meta, saved) {
 function mapsButtonHtml(cafe) {
   if (!isWebLink(cafe.mapsUrl)) return '';
   return `
-    <a class="btn btn--primary drawer__maps" href="${escapeHtml(cafe.mapsUrl)}" target="_blank" rel="noopener noreferrer">
+    <a class="btn btn--primary drawer__maps" data-id="${escapeHtml(cafe.id)}" href="${escapeHtml(cafe.mapsUrl)}" target="_blank" rel="noopener noreferrer">
       ${escapeHtml(t('drawer.maps'))}<span class="visually-hidden">${escapeHtml(t('newTab'))}</span>
       ${icon(ICONS.external, 'icon icon--sm')}
     </a>`;

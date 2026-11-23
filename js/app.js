@@ -27,6 +27,7 @@ import { startClock, tickClock, openStatus, bangkokDate } from './clock.js';
 import { showMap, refreshMapLanguage } from './map.js';
 import { initCrawl, refreshCrawlLanguage } from './crawl.js';
 import { initSuggest, refreshSuggestLanguage } from './suggest.js';
+import { track, trackFilters } from './track.js';
 import { t, tHtml, inEnglish, listOr, featureLabel, getLang, setLang, setMeta, startI18n } from './i18n.js';
 
 const DATA_URL = 'data/cafes.json';
@@ -319,6 +320,7 @@ function showSaved() {
 
 function toggleFavourite(id, button) {
   const isOn = flip(saved.favourites, id);
+  if (isOn) track('save', id);
   saveIdSet('favourites', saved.favourites);
   setToggleState('favourite', id, isOn);
 
@@ -414,6 +416,7 @@ function openCafe(id, opener, reasonPrefs = prefs) {
   const cafe = cafesById.get(id);
   if (!cafe) return;
 
+  track('open', id);
   const result = scoreOne(cafe, reasonPrefs);
   result.hasPicks = reasonPrefs.moods.length > 0 || reasonPrefs.features.length > 0;
   openDrawer(result, meta, saved, opener);
@@ -426,6 +429,7 @@ function surpriseMe(button) {
   const top = rankCafes(SORTERS.best).slice(0, 10);
   if (top.length === 0) return;
   const choice = top[Math.floor(Math.random() * top.length)];
+  track('surprise');
 
   button.classList.add('is-steaming');
   setTimeout(() => button.classList.remove('is-steaming'), 1000);
@@ -579,6 +583,7 @@ async function copyLink(button) {
 // Called after every change: remember the filters, put them in the
 // address, then redraw the results (the first batch of them).
 function update() {
+  trackFilters(prefs);
   save('prefs', prefs);
   save('sort', sortBy);
   save('chains', chains);
@@ -603,6 +608,7 @@ function update() {
 // The List / Map switch above the results
 function setView(newView) {
   view = newView;
+  if (newView === 'map') track('map_view');
   save('view', view); // remembered on this device, like the sort order
   update();
 }

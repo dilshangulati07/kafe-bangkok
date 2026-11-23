@@ -31,6 +31,7 @@ import { scoreCafe } from './score.js';
 import { escapeHtml, icon, ICONS, trapFocus, closeOnOutsideClick } from './ui.js';
 import { load, save } from './store.js';
 import { t, tHtml, inEnglish, lines, moodLabel, featureLabel, priceLabel, reasonText, getLang, num } from './i18n.js';
+import { track } from './track.js';
 
 
 /* ---------- 1. Words the barista understands ---------- */
@@ -265,6 +266,7 @@ export function refreshChatLanguage() {
 // `openerButton` is whichever "Ask the barista" button was pressed.
 export function openChat(openerButton) {
   opener = openerButton || null;
+  if (!panel.open) track('chat');
   if (!panel.open) panel.showModal();
   // Focus the title (not the text box), so phones don't pop the keyboard up
   // over the barista's first message. Tab goes on to the chips and the box.
