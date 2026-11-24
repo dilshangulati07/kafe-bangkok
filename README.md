@@ -6,7 +6,7 @@
 
 Kafé Bangkok is a café finder for Bangkok, in English and Thai. You pick a mood, a few must-haves and a part of town, and it ranks 160 hand-picked cafés with a match score and a short reason for each one. It also has a rule-based chat "barista", a map, a café crawl planner and stats, plus about 470 more cafés from OpenStreetMap.
 
-It's a static site built with plain HTML, CSS and JavaScript: no framework, no build step, no backend and no API keys. I built it as a final-year IT portfolio project.
+It's built with plain HTML, CSS and JavaScript: no framework, no build step and no API keys. A small backend (Cloudflare Pages Functions and a D1 database, in `functions/`) saves café suggestions and anonymous usage counts. I built it as a final-year IT portfolio project.
 
 ![Kafé Bangkok home page](docs/screenshots/hero.png)
 
